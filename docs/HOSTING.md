@@ -25,6 +25,8 @@ After a minute or two, the site will be at:
 
 (If your org is different, the URL is `https://<org-or-username>.github.io/fa-home/`.)
 
+Use the URL **with a trailing slash** so CSS and assets load correctly. The page also injects a `<base>` tag when served from GitHub so links work if someone visits without the slash.
+
 Share that link; it will load `index.html` automatically. Pushing to `main` updates the live site.
 
 ---

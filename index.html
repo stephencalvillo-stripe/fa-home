@@ -4,7 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home — FA Dashboard</title>
-  <!-- Optional: link ../_design-system/tokens.css when available locally -->
+  <!-- Force system sans-serif so font applies even if external CSS fails (e.g. GitHub Pages path) -->
+  <style>
+    html, body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  </style>
+  <!-- On GitHub Pages, set base so relative hrefs resolve (avoids 404 when URL has no trailing slash) -->
+  <script>
+    (function() {
+      if (location.hostname === 'github.io' || location.hostname.endsWith('.github.io')) {
+        var base = document.createElement('base');
+        base.href = location.origin + location.pathname.replace(/\/?$/, '/');
+        document.head.appendChild(base);
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="components/shared.css" />
   <link rel="stylesheet" href="components/card.css" />
   <link rel="stylesheet" href="components/list-item.css" />
