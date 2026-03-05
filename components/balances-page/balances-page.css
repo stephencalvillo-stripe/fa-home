@@ -4,17 +4,19 @@
  * Tokens: Text #1A2C44, #353A44; Background/Offset #F5F6F8, #F4F7FA; Action #533AFD; Success #2B8700; Border #D4DEE9
  */
 
+/* Uses .fa-content from shared.css for 60px top padding (clears fixed header) */
 .fa-balances-content {
   display: flex;
   flex-direction: column;
   gap: 32px;
 }
 
-/* Hero: title + total, then action bar */
+/* Hero: title + total, then action bar; 16px top matches .fa-welcome on Home */
 .fa-balances-hero {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding-top: 16px;
 }
 
 .fa-balances-header {
