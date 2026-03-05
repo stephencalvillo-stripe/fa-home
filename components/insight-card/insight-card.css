@@ -1,0 +1,131 @@
+/**
+ * Insight card — offer card that animates in when toggle is on (Figma 1237-10212)
+ * Brand/25 bg, 324px width, rounded 10px, 24px padding.
+ * When toggle off: hidden so primary hero grid stays 2 columns. When on: flex row shows card, slide+fade in.
+ */
+.fa-insight-card {
+  display: none;
+  background: #F7F5FD;
+  border-radius: 10px;
+  padding: 24px;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 250px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 324px;
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 280ms ease-out, transform 280ms ease-out;
+}
+
+.fa-primary-hero--insight-visible .fa-insight-card {
+  display: flex;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fa-insight-card__dismiss {
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.fa-insight-card__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #667691;
+  border-radius: 4px;
+  transition: color 200ms ease, background 200ms ease;
+}
+
+.fa-insight-card__close:hover {
+  color: #1A2C44;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.fa-insight-card__body {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fa-insight-card__title {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.31px;
+  color: #353A44;
+  margin: 0;
+  font-variant-numeric: lining-nums proportional-nums;
+}
+
+.fa-insight-card__description {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #353A44;
+  margin: 0;
+}
+
+.fa-insight-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.fa-insight-card__link {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #533AFD;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.fa-insight-card__link:hover {
+  color: #4330DD;
+}
+
+.fa-insight-card__dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.fa-insight-card__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #D4DEE9;
+  transition: background 200ms ease;
+}
+
+.fa-insight-card__dot--active {
+  background: #533AFD;
+}
+
+.fa-insight-card__deco {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 355px;
+  height: 154px;
+  background: radial-gradient(ellipse 80% 60% at 70% 80%, rgba(133, 122, 254, 0.25), transparent 60%);
+  pointer-events: none;
+}

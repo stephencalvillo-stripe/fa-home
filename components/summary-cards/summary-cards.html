@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Summary cards — FA Home</title>
+  <link rel="stylesheet" href="../../_design-system/tokens.css" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="../card.css" />
+  <link rel="stylesheet" href="../tooltip/tooltip.css" />
+  <link rel="stylesheet" href="../money-in-module/money-in-module.css" />
+  <link rel="stylesheet" href="../money-out-module/money-out-module.css" />
+  <link rel="stylesheet" href="../incoming-earnings-module/incoming-earnings-module.css" />
+  <link rel="stylesheet" href="summary-cards.css" />
+  <style> .fa-main { max-width: 1052px; } </style>
+</head>
+<body class="fa-page">
+  <main class="fa-center">
+    <div class="fa-main">
+      <div class="fa-cards-4">
+        <!-- Money in module (Figma 1149:85907) -->
+        <div class="fa-money-in-module">
+          <div class="fa-money-in-header">
+            <span class="fa-money-in-label">Money in</span>
+            <div class="fa-money-in-period-wrap">
+              <span class="fa-money-in-period">this month</span>
+              <svg class="fa-money-in-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="../../_design-system/sail-icons.svg#chevronDown"/></svg>
+            </div>
+            <span class="fa-tooltip-wrap fa-hero-module-icon-slot">
+              <span class="fa-money-in-info" role="button" aria-label="More information">
+                <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="../../_design-system/sail-icons.svg#info"/></svg>
+              </span>
+              <span class="fa-tooltip" role="tooltip">All money received (sales, investments, transfers, loans)</span>
+            </span>
+          </div>
+          <div class="fa-money-in-value-row">
+            <p class="fa-money-in-value">$180,000.00</p>
+            <span class="fa-money-in-arrow fa-hero-module-arrow fa-hero-module-icon-slot" aria-hidden="true">
+              <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="../../_design-system/sail-icons.svg#arrowRight"/></svg>
+            </span>
+          </div>
+        </div>
+        <!-- Money out module (Figma 1149-85908) -->
+        <div class="fa-money-out-module">
+          <div class="fa-money-out-header">
+            <span class="fa-money-out-label">Money out</span>
+            <div class="fa-money-out-period-wrap">
+              <span class="fa-money-out-period">this month</span>
+              <svg class="fa-money-out-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="../../_design-system/sail-icons.svg#chevronDown"/></svg>
+            </div>
+            <span class="fa-tooltip-wrap fa-hero-module-icon-slot">
+              <span class="fa-money-out-info" role="button" aria-label="More information">
+                <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="../../_design-system/sail-icons.svg#info"/></svg>
+              </span>
+              <span class="fa-tooltip" role="tooltip">Fees, payouts, refunds, repayments</span>
+            </span>
+          </div>
+          <div class="fa-money-out-value-row">
+            <p class="fa-money-out-value">$107,549.68</p>
+            <span class="fa-money-out-arrow fa-hero-module-arrow fa-hero-module-icon-slot" aria-hidden="true">
+              <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="../../_design-system/sail-icons.svg#arrowRight"/></svg>
+            </span>
+          </div>
+        </div>
+        <!-- Incoming earnings module (Figma 1149-85910) -->
+        <div class="fa-incoming-earnings-module">
+          <div class="fa-incoming-earnings-header">
+            <span class="fa-incoming-earnings-label">Incoming earnings</span>
+            <div class="fa-incoming-earnings-period-wrap">
+              <span class="fa-incoming-earnings-period">next 7 days</span>
+            </div>
+            <span class="fa-hero-module-icon-slot" aria-hidden="true"></span>
+          </div>
+          <div class="fa-incoming-earnings-data">
+            <div class="fa-incoming-earnings-value-chart">
+              <p class="fa-incoming-earnings-value">$42,000.00</p>
+              <div class="fa-incoming-earnings-bars">
+                <span style="height: 17px;"></span><span style="height: 13px;"></span><span style="height: 8px;"></span><span style="height: 4px;"></span><span style="height: 4px;"></span><span style="height: 1px;"></span><span style="height: 1px;"></span>
+              </div>
+            </div>
+            <span class="fa-incoming-earnings-arrow fa-hero-module-arrow fa-hero-module-icon-slot" aria-hidden="true">
+              <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="../../_design-system/sail-icons.svg#arrowRight"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="fa-card fa-card-sm fa-hero-module fa-lifetime-yield-card">
+          <div class="fa-card-title-row"><span class="fa-card-title">Lifetime yield earned</span></div>
+          <div class="fa-hero-module-value-row">
+            <div class="fa-card-value fa-success">+57,244.32</div>
+            <span class="fa-hero-module-arrow-wrap" aria-hidden="true">
+              <span class="fa-hero-module-arrow"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="../../_design-system/sail-icons.svg#arrowRight"/></svg></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,5 @@
+/**
+ * FA Home — Hero card (large metric card with chart)
+ * Used for Total balance and Gross volume from payments.
+ */
+/* Extends card.css — no extra selectors needed; uses .fa-card, .fa-card-lg, .fa-card-title-row, .fa-card-value, .fa-card-breakdown, .fa-card-chart, .fa-card-chart-bar, .fa-card-meta */

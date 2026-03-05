@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FA Home — Components</title>
+  <link rel="stylesheet" href="../../_design-system/tokens.css" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .layout { display: flex; min-height: 100vh; }
+    .sidebar { width: 220px; min-width: 220px; background: var(--color-bg); border-right: 1px solid var(--fa-border); padding: var(--space-medium); }
+    .sidebar h2 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--fa-text-subdued); margin: 0 0 12px; }
+    .sidebar a { display: block; padding: 8px 12px; color: var(--fa-text); text-decoration: none; border-radius: 6px; font-size: 14px; margin-bottom: 2px; }
+    .sidebar a:hover { background: var(--fa-neutral-50); color: var(--fa-brand); }
+    .sidebar a.active { background: var(--fa-brand-25); color: var(--fa-brand); font-weight: 500; }
+    .frame { flex: 1; padding: 24px; background: var(--color-bg-subtle); overflow: auto; }
+    .frame iframe { width: 100%; min-height: 600px; border: 1px solid var(--fa-border); border-radius: 8px; background: var(--color-bg); }
+    .back { display: inline-block; margin-bottom: 16px; font-size: 14px; color: var(--fa-brand); text-decoration: none; }
+    .back:hover { text-decoration: underline; }
+  </style>
+</head>
+<body class="fa-page">
+  <div class="layout">
+    <nav class="sidebar">
+      <h2>FA Home components</h2>
+      <a href="index.html">All components</a>
+      <a href="nav/nav.html">Nav</a>
+      <a href="header/header.html">Header</a>
+      <a href="welcome-section/welcome-section.html">Welcome section</a>
+      <a href="balance-module/balance-module.html">Total balance module</a>
+      <a href="gross-volume-module/gross-volume-module.html">Gross volume module</a>
+      <a href="money-in-module/money-in-module.html">Money in module</a>
+      <a href="tooltip/tooltip.html">Tooltip</a>
+      <a href="hero-card/hero-card.html">Hero card</a>
+      <a href="summary-cards/summary-cards.html">Summary cards</a>
+      <a href="overview-header/overview-header.html">Overview header</a>
+      <a href="spending-limits-card/spending-limits-card.html">Spending limits card</a>
+      <a href="payments-card/payments-card.html">Payments card</a>
+      <a href="failed-payments-card/failed-payments-card.html">Failed payments card</a>
+      <h2 style="margin-top: 24px;">Full page</h2>
+      <a href="../index.html">← FA Home (full)</a>
+    </nav>
+    <main class="frame">
+      <a href="../index.html" class="back">← Back to FA Home</a>
+      <p style="color: var(--fa-text-subdued); margin: 0 0 16px;">Use the left nav to open each component in isolation. Edit the component’s .css and .html in that folder, then refresh to see changes.</p>
+      <iframe title="Component preview" src="nav/nav.html"></iframe>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+/**
+ * Insight card toggle — floating lower-left (Figma 1246-29898)
+ * Position: fixed, 16px from left and bottom; above all content.
+ */
+.fa-insight-card-toggle {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 300;
+  background: #FFFFFF;
+  border: 1px solid #D4DEE9;
+  border-radius: 60px;
+  padding: 10px;
+  box-shadow: 0 7px 14px rgba(48, 49, 61, 0.08), 0 3px 6px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fa-insight-card-toggle button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+/* Switch track — 34×18, Neutral/50, Border/Form/Default */
+.fa-insight-card-toggle__track {
+  width: 34px;
+  height: 18px;
+  flex-shrink: 0;
+  background: #ECF1F6;
+  border: 1px solid #D4DEE9;
+  border-radius: 9999px;
+  position: relative;
+  transition: background 0.2s ease;
+}
+
+.fa-insight-card-toggle--on .fa-insight-card-toggle__track {
+  background: var(--fa-brand, #675DFF);
+  border-color: var(--fa-brand, #675DFF);
+}
+
+/* Thumb — 18px circle, white, shadow */
+.fa-insight-card-toggle__thumb {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: -9px;
+  margin-left: 0;
+  background: #FFFFFF;
+  border: 1px solid #D4DEE9;
+  border-radius: 50%;
+  box-shadow: 0 1px 1px rgba(33, 37, 44, 0.16);
+  transition: transform 0.2s ease, margin-left 0.2s ease;
+}
+
+.fa-insight-card-toggle--on .fa-insight-card-toggle__thumb {
+  margin-left: 16px; /* 34 - 18 = 16 */
+  border-color: transparent;
+}
+
+/* Label — 14px semibold, Text/Form/Default */
+.fa-insight-card-toggle__label {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #273951;
+  white-space: nowrap;
+}

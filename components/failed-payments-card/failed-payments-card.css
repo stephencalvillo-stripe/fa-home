@@ -1,0 +1,135 @@
+/**
+ * Failed payments card — Figma 1237-9634
+ * White surface, 4px radius, 16px padding, 8px gap.
+ * Header: title only. List: bordered rows (amount + meta • id, badge). Footer: View more.
+ */
+.fa-failed-payments-card {
+  background: #FFFFFF;
+  border: 1px solid #ECF1F6;
+  border-radius: 4px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+}
+
+.fa-failed-payments-header {
+  flex-shrink: 0;
+}
+
+.fa-failed-payments-title {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+  white-space: nowrap;
+}
+
+.fa-failed-payments-list-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+.fa-failed-payments-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+/* List item — border-bottom #D8DEE4, 8px vertical padding, 8px gap (Figma 1237-9640) */
+.fa-failed-payments-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid #D8DEE4;
+}
+
+.fa-failed-payments-item:last-child {
+  border-bottom: none;
+}
+
+.fa-failed-payments-main {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fa-failed-payments-value {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #353A44;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fa-failed-payments-meta {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #596171;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fa-failed-payments-badge {
+  flex-shrink: 0;
+}
+
+/* Badge — match Figma Badge type negative / neutral */
+.fa-failed-payments-card .fa-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: -0.2px;
+}
+
+.fa-failed-payments-card .fa-badge-failed {
+  background: #FDE8EC;
+  color: #B3063D;
+}
+
+.fa-failed-payments-card .fa-badge-canceled {
+  background: #EBF4FF;
+  color: #2563EB;
+}
+
+.fa-failed-payments-footer {
+  padding-top: 12px;
+  flex-shrink: 0;
+}
+
+.fa-failed-payments-view-more {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #596171;
+  text-decoration: none;
+}
+
+.fa-failed-payments-view-more:hover {
+  color: #1A2C44;
+  text-decoration: underline;
+}

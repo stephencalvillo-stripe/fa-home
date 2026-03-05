@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payments card — FA Home</title>
+  <link rel="stylesheet" href="../../_design-system/tokens.css" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="../card.css" />
+  <link rel="stylesheet" href="payments-card.css" />
+  <style> .fa-main { max-width: 360px; } </style>
+</head>
+<body class="fa-page">
+  <main class="fa-center">
+    <div class="fa-main">
+      <div class="fa-card fa-payments-card">
+        <div class="fa-payments-header">
+          <span class="fa-payments-title">Payments</span>
+          <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="../../_design-system/sail-icons.svg#info"/></svg>
+        </div>
+        <div class="fa-payments-content">
+          <div class="fa-payments-bar">
+            <span style="background: #9966FF; flex: 130;"></span>
+            <span style="background: #0055bc; flex: 15;"></span>
+            <span style="background: #00a1c2; flex: 10;"></span>
+            <span style="background: #e46602; flex: 5;"></span>
+            <span style="background: #B3063D; flex: 0.33;"></span>
+          </div>
+          <div class="fa-payments-legend">
+            <div class="fa-payments-legend-row">
+              <div class="fa-payments-legend-key">
+                <span class="fa-payments-legend-chip" style="background: #9966FF;"></span>
+                <span class="fa-payments-legend-label">Succeeded</span>
+              </div>
+              <span class="fa-payments-legend-value">$130k</span>
+            </div>
+            <div class="fa-payments-legend-row">
+              <div class="fa-payments-legend-key">
+                <span class="fa-payments-legend-chip" style="background: #0055bc;"></span>
+                <span class="fa-payments-legend-label">Uncaptured</span>
+              </div>
+              <span class="fa-payments-legend-value">$15k</span>
+            </div>
+            <div class="fa-payments-legend-row">
+              <div class="fa-payments-legend-key">
+                <span class="fa-payments-legend-chip" style="background: #00a1c2;"></span>
+                <span class="fa-payments-legend-label">Refunded</span>
+              </div>
+              <span class="fa-payments-legend-value">$10k</span>
+            </div>
+            <div class="fa-payments-legend-row">
+              <div class="fa-payments-legend-key">
+                <span class="fa-payments-legend-chip" style="background: #e46602;"></span>
+                <span class="fa-payments-legend-label">Blocked</span>
+              </div>
+              <span class="fa-payments-legend-value">$5k</span>
+            </div>
+            <div class="fa-payments-legend-row">
+              <div class="fa-payments-legend-key">
+                <span class="fa-payments-legend-chip" style="background: #B3063D;"></span>
+                <span class="fa-payments-legend-label">Failed</span>
+              </div>
+              <span class="fa-payments-legend-value">$0.00</span>
+            </div>
+          </div>
+          <div class="fa-payments-footer">
+            <a href="#" class="fa-payments-view-more">View more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

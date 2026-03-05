@@ -1,0 +1,90 @@
+/**
+ * Money out module — Figma FA-Home-Sessions node 1149-85908
+ * Same layout as Money in: header row (label + period + chevron + info) + value row with optional arrow.
+ */
+.fa-money-out-module {
+  background: #FFFFFF;
+  border: 1px solid #ECF1F6;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 80px;
+}
+
+.fa-money-out-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.fa-money-out-label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+  white-space: nowrap;
+}
+
+.fa-money-out-period-wrap {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.fa-money-out-period {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+  white-space: nowrap;
+}
+
+.fa-money-out-chevron {
+  flex-shrink: 0;
+  color: #667691;
+}
+
+.fa-money-out-info {
+  flex-shrink: 0;
+  color: #667691;
+  cursor: pointer;
+}
+
+.fa-money-out-value-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 6px;
+  flex-shrink: 0;
+}
+
+.fa-money-out-value {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.31px;
+  color: #1A2C44;
+  font-variant-numeric: lining-nums proportional-nums;
+  margin: 0;
+}
+
+.fa-money-out-arrow {
+  flex-shrink: 0;
+  opacity: 0;
+  pointer-events: none;
+  color: #533AFD;
+}
+
+.fa-money-out-module:hover .fa-money-out-arrow {
+  opacity: 1;
+}

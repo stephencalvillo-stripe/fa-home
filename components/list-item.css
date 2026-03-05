@@ -1,0 +1,29 @@
+/**
+ * FA Home — list item, progress bar, badge
+ * Used by spending-limits-card and failed-payments-card.
+ */
+.fa-list-item { padding: 8px 0; border-bottom: 1px solid var(--fa-neutral-50); display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.fa-list-item:last-child { border-bottom: none; }
+.fa-list-item-main { flex: 1; min-width: 0; }
+.fa-list-item-label { font-size: 12px; color: var(--fa-text-subdued); }
+.fa-list-item-value { font-size: 14px; font-weight: 500; color: var(--fa-text); }
+.fa-progress-wrap { margin-top: 4px; height: 6px; background: var(--fa-neutral-50); border-radius: 3px; overflow: hidden; }
+.fa-progress-bar { height: 100%; background: var(--fa-chart-4); border-radius: 3px; }
+.fa-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 500; }
+.fa-badge-failed { background: #FDE8EC; color: var(--color-danger); }
+.fa-badge-canceled { background: var(--fa-neutral-50); color: var(--fa-text-subdued); }
+.fa-list-footer { padding-top: 8px; }
+
+/* Overview cards — Figma 1149-85912 (bar on top, then data row) */
+.fa-progress-wrap--overview { height: 12px; border-radius: 2px; }
+.fa-overview-card-title-row { width: 100%; }
+.fa-overview-period { font-size: 12px; font-weight: 400; line-height: 16px; color: var(--fa-text-subdued); white-space: nowrap; }
+.fa-overview-list { display: flex; flex-direction: column; gap: 8px; flex: 1; min-height: 0; }
+.fa-overview-list-item { display: flex; flex-direction: column; gap: 4px; }
+.fa-overview-list-data { display: flex; align-items: baseline; justify-content: space-between; color: var(--fa-text); }
+.fa-overview-list-data > div:first-child { display: flex; flex-direction: column; gap: 0; }
+.fa-overview-account { font-size: 14px; font-weight: 600; letter-spacing: -0.15px; line-height: 20px; }
+.fa-overview-name { font-size: 12px; font-weight: 400; line-height: 16px; color: var(--fa-text-subdued); display: block; }
+.fa-overview-amounts { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+.fa-overview-amounts .fa-list-item-value { font-size: 14px; font-weight: 600; }
+.fa-overview-amounts .fa-card-meta { margin: 0; }

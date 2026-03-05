@@ -1,0 +1,148 @@
+/**
+ * FA Home — shared tokens and layout
+ * Used by index.html and all component previews.
+ */
+.fa-page {
+  --color-bg-subtle: #FFFFFF;
+  --fa-bg-offset: #F4F7FA;
+  --fa-text: #1a2c44;
+  --fa-text-subdued: #596171;
+  --fa-border: #D8DEE4;
+  --fa-neutral-50: #ECF1F6;
+  --fa-brand: #675DFF;
+  --fa-brand-25: #F7F5FD;
+  --fa-success: #217005;
+  --fa-chart-1: #9966FF;
+  --fa-chart-4: #ED6804;
+  --fa-chart-5: #B3063D;
+  /* Left nav (Figma 1149:85857) */
+  --fa-nav-surface: #fff;
+  --fa-nav-border: #ecf1f6;
+  --fa-nav-text: #353a44;
+  --fa-nav-primary: #533afd;
+  --fa-nav-subdued: #1a2c44;
+  --fa-nav-hover: #f5f6f8;
+  --fa-nav-gap: 8px;
+  --fa-nav-account-icon-bg: #0ea872;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--font-sans); font-size: 14px; color: var(--fa-text); background: var(--color-bg-subtle); }
+.fa-page { display: flex; min-height: 100vh; }
+
+.fa-center {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: 228px; /* leave space for fixed left nav */
+}
+
+/* Content wrapper — responsive width, 16px side padding, top padding for fixed header */
+.fa-content {
+  width: 100%;
+  flex: 1;
+  min-width: 0;
+  padding: 60px 16px 24px; /* 60px top = fixed header, 16px left/right */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.fa-main { padding: 0 0 24px; flex: 1; }
+
+/* Primary hero row: balance + gross; when insight toggle on, flex + insight card animates in (Figma 1237-9593) */
+.fa-primary-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.fa-primary-hero--insight-visible {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.fa-primary-hero--insight-visible .fa-balance-module,
+.fa-primary-hero--insight-visible .fa-gross-module {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.fa-cards-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.fa-cards-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.fa-overview { margin-top: 24px; display: flex; flex-direction: column; gap: 16px; }
+/* Performance Data — Figma 1237-9612: offset bg, 8px padding/radius; row 8px gap; each card 350px height, equal width */
+.fa-overview-data { background: #F4F7FA; padding: 8px; border-radius: 8px; }
+.fa-overview-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+}
+.fa-overview-grid .fa-spending-limits-card,
+.fa-overview-grid .fa-payments-card,
+.fa-overview-grid .fa-failed-payments-card {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 350px;
+  min-height: 350px;
+}
+
+/* Hero section: four modules — shared hover state (border + shadow, Figma 1104-106808) */
+.fa-money-in-module:hover,
+.fa-money-out-module:hover,
+.fa-incoming-earnings-module:hover,
+.fa-lifetime-yield-card:hover {
+  border-color: #D4DEE9;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 5px rgba(48, 49, 61, 0.08);
+}
+
+/* Hero section: four modules — arrow icon animates in 4px left→right on hover (Figma 1104-106770) */
+.fa-hero-module-arrow {
+  transform: translateX(-4px);
+  transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
+  color: #533AFD;
+}
+.fa-money-in-module:hover .fa-hero-module-arrow,
+.fa-money-out-module:hover .fa-hero-module-arrow,
+.fa-incoming-earnings-module:hover .fa-hero-module-arrow,
+.fa-lifetime-yield-card:hover .fa-hero-module-arrow {
+  transform: translateX(0);
+}
+
+/* Hero modules: info (row 1) and arrow (row 2) vertically aligned on the right — fixed-width icon slot */
+.fa-hero-module-icon-slot {
+  width: 24px;
+  min-width: 24px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.fa-money-in-header,
+.fa-money-out-header,
+.fa-incoming-earnings-header {
+  padding-right: 6px;
+}
+
+/* Lifetime yield card: value row + arrow (same hover behavior as other hero modules), 80px and 4px gap to match other hero modules */
+.fa-lifetime-yield-card {
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.fa-lifetime-yield-card .fa-card-title-row { margin-bottom: 0; flex-shrink: 0; }
+.fa-lifetime-yield-card.fa-card-sm .fa-card-value { margin: 0; }
+.fa-hero-module-value-row { display: flex; align-items: center; justify-content: space-between; padding-right: 6px; flex-shrink: 0; }
+/* Arrow: same slide+fade as other three (opacity on arrow, not wrap) */
+.fa-hero-module-arrow-wrap { flex-shrink: 0; pointer-events: none; }
+.fa-hero-module-arrow-wrap .fa-hero-module-arrow { opacity: 0; }
+.fa-lifetime-yield-card:hover .fa-hero-module-arrow-wrap .fa-hero-module-arrow { opacity: 1; }
+
+/* Sail Icons (from _design-system/sail-icons.svg) — inherit color from parent */
+.fa-icon-sail { color: inherit; }
+.fa-header-actions .fa-icon-sail { color: var(--fa-text-subdued); }
+.fa-header-actions button:hover .fa-icon-sail { color: var(--fa-text); }
+.fa-header-actions button[aria-label="Add"] .fa-icon-sail { color: var(--fa-brand); }

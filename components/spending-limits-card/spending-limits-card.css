@@ -1,0 +1,170 @@
+/**
+ * Spending limits card — Figma 1237-9614
+ * White surface, 4px radius, 16px padding, gap 16px.
+ * Header: title + info + "This month". List: 12px bars (Chart/4 + Neutral/100), data row per item. Footer: View all.
+ */
+.fa-spending-limits-card {
+  background: #FFFFFF;
+  border: 1px solid #ECF1F6;
+  border-radius: 4px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+}
+
+.fa-spending-limits-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.fa-spending-limits-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.fa-spending-limits-title {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+  white-space: nowrap;
+}
+
+.fa-spending-limits-header .fa-icon-sail {
+  flex-shrink: 0;
+  color: #667691;
+}
+
+.fa-spending-limits-period {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #1A2C44;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.fa-spending-limits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+.fa-spending-limits-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* Bar — 12px height, 2px radius, overflow clip; filled #ED6804, remainder #D4DEE9 */
+.fa-spending-limits-bar {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 2px;
+  height: 12px;
+  width: 100%;
+}
+
+.fa-spending-limits-bar-fill {
+  background: #ED6804;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.fa-spending-limits-bar-remainder {
+  background: #D4DEE9;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Data row — 36px baseline align, space-between; left: mask (14px semibold) + name (12px); right: amount (14px semibold) + limit (12px) */
+.fa-spending-limits-data {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  height: 36px;
+  color: #1A2C44;
+}
+
+.fa-spending-limits-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.fa-spending-limits-mask {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+}
+
+.fa-spending-limits-name {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.fa-spending-limits-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: right;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.fa-spending-limits-amount {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+}
+
+.fa-spending-limits-limit {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.fa-spending-limits-footer {
+  flex-shrink: 0;
+}
+
+.fa-spending-limits-footer .fa-link,
+.fa-spending-limits-view-all {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #596171;
+  text-decoration: none;
+}
+
+.fa-spending-limits-footer .fa-link:hover,
+.fa-spending-limits-view-all:hover {
+  color: #1A2C44;
+}

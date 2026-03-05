@@ -1,0 +1,33 @@
+/**
+ * FA Home — Welcome section / Home actions (Figma 1149-85900)
+ * Today title + row of pill buttons: Instant payout, Move money, Payment link, etc.
+ */
+.fa-welcome { padding: 16px 0 24px; }
+.fa-welcome-title { font-size: 28px; font-weight: 700; line-height: 36px; margin: 0 0 16px; color: var(--fa-text); }
+.fa-home-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.fa-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--fa-bg-offset);
+  border: none;
+  border-radius: 54px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+  cursor: pointer;
+}
+.fa-action-btn:hover { background: var(--fa-neutral-50); }
+.fa-action-btn svg { flex-shrink: 0; color: #3C4F69; }
+.fa-action-btn--icon-only {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  min-width: 32px;
+  min-height: 32px;
+}

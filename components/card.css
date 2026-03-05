@@ -1,0 +1,22 @@
+/**
+ * FA Home — base card styles
+ * Used by hero-card, summary-cards, and overview cards.
+ */
+.fa-card { background: var(--color-bg); border: 1px solid var(--fa-neutral-50); border-radius: 8px; padding: 16px; }
+.fa-card-lg { min-height: 250px; display: flex; flex-direction: column; }
+.fa-card-sm { min-height: 84px; }
+.fa-card-title-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.fa-card-title { font-size: 14px; font-weight: 600; color: var(--fa-text); }
+.fa-card-value { font-size: 24px; font-weight: 400; line-height: 32px; color: var(--fa-text); margin: 4px 0; }
+.fa-card-value-sm { font-size: 16px; line-height: 24px; }
+.fa-card-meta { font-size: 12px; color: var(--fa-text-subdued); line-height: 16px; }
+.fa-card-chart { flex: 1; min-height: 120px; display: flex; align-items: flex-end; margin-top: 12px; }
+.fa-card-chart-bar { width: 4px; margin: 0 2px; background: var(--fa-chart-1); border-radius: 1px 1px 0 0; }
+.fa-card-breakdown { font-size: 12px; color: var(--fa-text-subdued); margin-top: 8px; }
+.fa-card-breakdown span { display: block; }
+.fa-card-sm .fa-card-value { font-size: 16px; margin: 4px 0 0; }
+.fa-success { color: var(--fa-success); }
+.fa-link { font-size: 14px; font-weight: 600; color: var(--fa-brand); text-decoration: none; margin-top: 8px; display: inline-block; }
+.fa-link:hover { text-decoration: underline; }
+.fa-overview-card { border-radius: 4px; border-color: #ECF1F6; display: flex; flex-direction: column; gap: 16px; }
+.fa-overview-card .fa-card-title-row { margin-bottom: 0; }

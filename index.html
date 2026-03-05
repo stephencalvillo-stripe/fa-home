@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home — FA Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../_design-system/tokens.css" />
+  <link rel="stylesheet" href="components/shared.css" />
+  <link rel="stylesheet" href="components/card.css" />
+  <link rel="stylesheet" href="components/list-item.css" />
+  <link rel="stylesheet" href="components/nav/nav.css" />
+  <link rel="stylesheet" href="components/header/header.css" />
+  <link rel="stylesheet" href="components/welcome-section/welcome-section.css" />
+  <link rel="stylesheet" href="components/balance-module/balance-module.css" />
+  <link rel="stylesheet" href="components/gross-volume-module/gross-volume-module.css" />
+  <link rel="stylesheet" href="components/tooltip/tooltip.css" />
+  <link rel="stylesheet" href="components/money-in-module/money-in-module.css" />
+  <link rel="stylesheet" href="components/money-out-module/money-out-module.css" />
+  <link rel="stylesheet" href="components/incoming-earnings-module/incoming-earnings-module.css" />
+  <link rel="stylesheet" href="components/hero-card/hero-card.css" />
+  <link rel="stylesheet" href="components/summary-cards/summary-cards.css" />
+  <link rel="stylesheet" href="components/overview-header/overview-header.css" />
+  <link rel="stylesheet" href="components/spending-limits-card/spending-limits-card.css" />
+  <link rel="stylesheet" href="components/payments-card/payments-card.css" />
+  <link rel="stylesheet" href="components/failed-payments-card/failed-payments-card.css" />
+  <link rel="stylesheet" href="components/insight-card-toggle/insight-card-toggle.css" />
+  <link rel="stylesheet" href="components/insight-card/insight-card.css" />
+</head>
+<body class="fa-page">
+  <!-- Inline Sail icon sprite so <use href="#id"> works (position/overflow hide so refs work in fixed header) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" id="sail-icons-sprite">
+    <symbol id="home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
+    <symbol id="balance" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01"/></symbol>
+    <symbol id="transfer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17V7m0 10h10V7M7 7h10"/></symbol>
+    <symbol id="settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+    <symbol id="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></symbol>
+    <symbol id="tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/></symbol>
+    <symbol id="lightningBolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+    <symbol id="link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+    <symbol id="clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="payment" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01"/></symbol>
+    <symbol id="document" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></symbol>
+    <symbol id="barChart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></symbol>
+    <symbol id="more" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></symbol>
+    <symbol id="chevronDown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="chevronLeft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></symbol>
+    <symbol id="chevronRight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></symbol>
+    <symbol id="arrowRight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></symbol>
+    <symbol id="search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+    <symbol id="help" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+    <symbol id="notifications" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></symbol>
+    <symbol id="addCircleFilled" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M12 8v8M8 12h8" stroke="var(--color-bg, white)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+    <symbol id="invoice" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></symbol>
+    <symbol id="calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
+    <symbol id="filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></symbol>
+    <symbol id="cancel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="arrowsLoop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></symbol>
+    <symbol id="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6l-4 10h8L12 8V2z"/><circle cx="12" cy="5" r="2"/></symbol>
+    <symbol id="wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M16 14a1 1 0 100-2 1 1 0 000 2z"/></symbol>
+    <symbol id="person" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+    <symbol id="product" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
+    <symbol id="arrowUpRight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></symbol>
+  </svg>
+  <!-- Left Nav (Figma 1149:85857) — component: fa-home/components/nav/ -->
+  <aside class="fa-nav">
+    <div class="fa-nav-account">
+      <div class="fa-nav-account-inner">
+        <div class="fa-nav-account-icon"></div>
+        <span class="fa-nav-account-name">Cactus Practice</span>
+      </div>
+    </div>
+    <nav class="fa-nav-list">
+      <div class="fa-nav-block">
+        <a href="#" class="fa-nav-item active">
+          <span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#home"/></svg></span>
+          <span class="fa-nav-label">Home</span>
+        </a>
+        <a href="#" class="fa-nav-item">
+          <span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#balance"/></svg></span>
+          <span class="fa-nav-label">Balances</span>
+        </a>
+        <a href="#" class="fa-nav-item">
+          <span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowsLoop"/></svg></span>
+          <span class="fa-nav-label">Transactions</span>
+        </a>
+        <a href="#" class="fa-nav-item">
+          <span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#person"/></svg></span>
+          <span class="fa-nav-label">Network</span>
+        </a>
+        <a href="#" class="fa-nav-item">
+          <span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#product"/></svg></span>
+          <span class="fa-nav-label">Product catalog</span>
+        </a>
+      </div>
+
+      <div class="fa-nav-block">
+        <div class="fa-nav-section-title">Shortcuts</div>
+        <a href="#" class="fa-nav-item">
+          <span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#pin"/></svg></span>
+          <span class="fa-nav-label">Tax</span>
+        </a>
+        <a href="#" class="fa-nav-item">
+          <span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#clock"/></svg></span>
+          <span class="fa-nav-label">Payment links</span>
+        </a>
+        <a href="#" class="fa-nav-item">
+          <span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#clock"/></svg></span>
+          <span class="fa-nav-label">Disputes</span>
+        </a>
+      </div>
+
+      <div class="fa-nav-block">
+        <div class="fa-nav-section-title">Products</div>
+        <div class="fa-nav-workload">
+          <span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#wallet"/></svg></span>
+          <span class="fa-nav-label">Payments</span>
+          <span class="fa-nav-toggle"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg></span>
+        </div>
+        <div class="fa-nav-workload">
+          <span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#document"/></svg></span>
+          <span class="fa-nav-label">Billing</span>
+          <span class="fa-nav-toggle"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg></span>
+        </div>
+        <div class="fa-nav-workload">
+          <span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#barChart"/></svg></span>
+          <span class="fa-nav-label">Reporting</span>
+          <span class="fa-nav-toggle"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg></span>
+        </div>
+        <div class="fa-nav-workload">
+          <span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#more"/></svg></span>
+          <span class="fa-nav-label">More</span>
+          <span class="fa-nav-toggle"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg></span>
+        </div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="fa-center">
+    <header class="fa-header">
+      <div class="fa-header-content">
+        <div class="fa-header-search">
+          <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#search"/></svg>
+          <input type="text" class="fa-search" placeholder="Search" aria-label="Search" />
+        </div>
+        <div class="fa-header-actions">
+          <button type="button" aria-label="Help"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#help"/></svg></button>
+          <button type="button" aria-label="Notifications"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#notifications"/></svg></button>
+          <button type="button" aria-label="Settings"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#settings"/></svg></button>
+          <button type="button" aria-label="Add"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#addCircleFilled"/></svg></button>
+        </div>
+      </div>
+    </header>
+
+    <div class="fa-content">
+    <section class="fa-welcome">
+      <h1 class="fa-welcome-title">Today</h1>
+      <div class="fa-home-actions">
+        <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#lightningBolt"/></svg> Instant payout</button>
+        <button type="button" class="fa-action-btn"> <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#transfer"/></svg> Move money <svg class="fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg> </button>
+        <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#link"/></svg> Payment link</button>
+        <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#payment"/></svg> Payment</button>
+        <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#invoice"/></svg> Invoice</button>
+        <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#calendar"/></svg> Subscription</button>
+        <button type="button" class="fa-action-btn fa-action-btn--icon-only" aria-label="More actions"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#more"/></svg></button>
+      </div>
+    </section>
+
+    <div class="fa-main">
+      <!-- Primary hero: balance + gross; when insight toggle on, insight card animates in (Figma 1237-9593) -->
+      <div class="fa-primary-hero" id="fa-primary-hero">
+      <!-- Total balance module (Figma 1149:85903) -->
+      <div class="fa-balance-module">
+        <div class="fa-balance-heading">
+          <div class="fa-balance-main">
+            <div class="fa-balance-dropdowns">
+              <div class="fa-balance-dropdown-wrap">
+                <button type="button" class="fa-balance-dropdown fa-balance-dropdown--balance" aria-expanded="false" aria-haspopup="true">
+                  <span class="fa-balance-dropdown-label">Total balance</span>
+                  <svg class="fa-balance-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                </button>
+                <div class="fa-balance-dropdown-panel fa-balance-dropdown-panel--balance" role="menu" aria-hidden="true">
+                  <div class="fa-balance-dropdown-menu">
+                    <button type="button" class="fa-balance-dropdown-item fa-balance-dropdown-item--selected" role="menuitem">All balances</button>
+                    <button type="button" class="fa-balance-dropdown-item" role="menuitem">Payments balance</button>
+                    <button type="button" class="fa-balance-dropdown-item" role="menuitem">Main</button>
+                    <button type="button" class="fa-balance-dropdown-item" role="menuitem">Rainy day</button>
+                  </div>
+                </div>
+              </div>
+              <div class="fa-balance-dropdown-wrap">
+                <button type="button" class="fa-balance-dropdown fa-balance-dropdown--time" aria-expanded="false" aria-haspopup="true">
+                  <span class="fa-balance-dropdown-label fa-balance-dropdown-label--regular">Last 30 days</span>
+                  <svg class="fa-balance-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                </button>
+                <div class="fa-balance-dropdown-panel fa-balance-dropdown-panel--time" role="menu" aria-hidden="true">
+                  <div class="fa-balance-dropdown-menu">
+                    <button type="button" class="fa-balance-dropdown-item" role="menuitem" data-days="7">Last 7 days</button>
+                    <button type="button" class="fa-balance-dropdown-item fa-balance-dropdown-item--selected" role="menuitem" data-days="30">Last 30 days</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="fa-balance-value">$72,450.32</p>
+            <div class="fa-balance-breakdown">
+              <span>$29,038.81 USD</span>
+              <span>€28,320.50 EUR</span>
+              <span>£9,850.12 GBP</span>
+            </div>
+          </div>
+          <div class="fa-balance-action" aria-hidden="true">
+            <svg class="fa-icon-sail" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><use href="#arrowRight"/></svg>
+          </div>
+        </div>
+        <div class="fa-balance-chart">
+          <div class="fa-balance-chart-inner fa-balance-chart-inner--flip">
+            <svg class="fa-balance-line" viewBox="0 0 470 162" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%; height:100%; display:block;">
+              <path d="M0 120 Q47 100 94 110 T188 85 T282 55 T376 45 T470 20" stroke="#9966FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+            </svg>
+            <div class="fa-balance-chart-hover" aria-hidden="true">
+              <span class="fa-balance-chart-hover-line"></span>
+              <span class="fa-balance-chart-hover-dot"></span>
+            </div>
+          </div>
+          <div class="fa-balance-timerange">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+        <!-- Gross volume module (Figma 1179:9511) -->
+        <div class="fa-gross-module">
+          <div class="fa-gross-metrics">
+            <div class="fa-gross-metrics-inner">
+              <div class="fa-gross-block fa-gross-block--primary">
+                <div class="fa-gross-heading">
+                  <span class="fa-gross-heading-label">Gross volume from payments</span>
+                  <svg class="fa-gross-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                </div>
+                <p class="fa-gross-value">$120,000.00</p>
+                <span class="fa-gross-meta">2:00 PM</span>
+              </div>
+              <div class="fa-gross-block fa-gross-block--yesterday">
+                <div class="fa-gross-heading">
+                  <span class="fa-gross-heading-label fa-gross-heading-label--regular">Yesterday</span>
+                  <svg class="fa-gross-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                </div>
+                <p class="fa-gross-value fa-gross-value--small">$144.37</p>
+              </div>
+            </div>
+            <div class="fa-gross-action" aria-hidden="true">
+              <svg class="fa-icon-sail" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><use href="#arrowRight"/></svg>
+            </div>
+          </div>
+          <div class="fa-gross-chart">
+            <div class="fa-gross-chart-inner fa-gross-chart-inner--flip">
+              <img src="https://www.figma.com/api/mcp/asset/3f43eefe-f06a-40aa-b5d1-79fe3d4292b0" alt="" class="fa-gross-line" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+              <svg class="fa-gross-line" style="display:none; width:100%; height:100%;" viewBox="0 0 470 162" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path d="M0 130 Q47 110 94 100 T188 75 T282 60 T376 40 T470 25" stroke="#9966FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+              </svg>
+            </div>
+            <div class="fa-gross-timerange">
+              <span>Midnight</span>
+              <span>11:59 pm</span>
+            </div>
+          </div>
+        </div>
+        <!-- Insight card — visible when toggle on; animates in and pushes modules (Figma 1237-10212) -->
+        <div class="fa-insight-card" id="fa-insight-card" aria-hidden="true">
+          <div class="fa-insight-card__dismiss">
+            <button type="button" class="fa-insight-card__close" aria-label="Dismiss insight card">
+              <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#cancel"/></svg>
+            </button>
+          </div>
+          <div class="fa-insight-card__body">
+            <h3 class="fa-insight-card__title">Insight card</h3>
+            <p class="fa-insight-card__description">This is a description for a product or service that is relevant and useful for the user.</p>
+          </div>
+          <div class="fa-insight-card__footer">
+            <a href="#" class="fa-insight-card__link">Learn more</a>
+            <div class="fa-insight-card__dots" aria-hidden="true">
+              <span class="fa-insight-card__dot fa-insight-card__dot--active"></span>
+              <span class="fa-insight-card__dot"></span>
+              <span class="fa-insight-card__dot"></span>
+            </div>
+          </div>
+          <div class="fa-insight-card__deco" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="fa-cards-4">
+        <!-- Money in module (Figma 1149:85907) -->
+        <div class="fa-money-in-module">
+          <div class="fa-money-in-header">
+            <span class="fa-money-in-label">Money in</span>
+            <div class="fa-money-in-period-wrap">
+              <span class="fa-money-in-period">this month</span>
+              <svg class="fa-money-in-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+            </div>
+            <span class="fa-tooltip-wrap fa-hero-module-icon-slot">
+              <span class="fa-money-in-info" role="button" aria-label="More information">
+                <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#info"/></svg>
+              </span>
+              <span class="fa-tooltip" role="tooltip">All money received (sales, investments, transfers, loans)</span>
+            </span>
+          </div>
+          <div class="fa-money-in-value-row">
+            <p class="fa-money-in-value">$180,000.00</p>
+            <span class="fa-money-in-arrow fa-hero-module-arrow fa-hero-module-icon-slot" aria-hidden="true">
+              <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg>
+            </span>
+          </div>
+        </div>
+        <!-- Money out module (Figma 1149-85908) -->
+        <div class="fa-money-out-module">
+          <div class="fa-money-out-header">
+            <span class="fa-money-out-label">Money out</span>
+            <div class="fa-money-out-period-wrap">
+              <span class="fa-money-out-period">this month</span>
+              <svg class="fa-money-out-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+            </div>
+            <span class="fa-tooltip-wrap fa-hero-module-icon-slot">
+              <span class="fa-money-out-info" role="button" aria-label="More information">
+                <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#info"/></svg>
+              </span>
+              <span class="fa-tooltip" role="tooltip">Fees, payouts, refunds, repayments</span>
+            </span>
+          </div>
+          <div class="fa-money-out-value-row">
+            <p class="fa-money-out-value">$107,549.68</p>
+            <span class="fa-money-out-arrow fa-hero-module-arrow fa-hero-module-icon-slot" aria-hidden="true">
+              <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="fa-incoming-earnings-module">
+          <div class="fa-incoming-earnings-header">
+            <span class="fa-incoming-earnings-label">Incoming earnings</span>
+            <div class="fa-incoming-earnings-period-wrap">
+              <span class="fa-incoming-earnings-period">next 7 days</span>
+            </div>
+            <span class="fa-hero-module-icon-slot" aria-hidden="true"></span>
+          </div>
+          <div class="fa-incoming-earnings-data">
+            <div class="fa-incoming-earnings-value-chart">
+              <p class="fa-incoming-earnings-value">$42,000.00</p>
+              <div class="fa-incoming-earnings-bars">
+                <span style="height: 17px;"></span><span style="height: 13px;"></span><span style="height: 8px;"></span><span style="height: 4px;"></span><span style="height: 4px;"></span><span style="height: 1px;"></span><span style="height: 1px;"></span>
+              </div>
+            </div>
+            <span class="fa-incoming-earnings-arrow fa-hero-module-arrow fa-hero-module-icon-slot" aria-hidden="true">
+              <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="fa-card fa-card-sm fa-hero-module fa-lifetime-yield-card">
+          <div class="fa-card-title-row"><span class="fa-card-title">Lifetime yield earned</span></div>
+          <div class="fa-hero-module-value-row">
+            <div class="fa-card-value fa-success">+57,244.32</div>
+            <span class="fa-hero-module-arrow-wrap" aria-hidden="true">
+              <span class="fa-hero-module-arrow"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <section class="fa-overview">
+        <div class="fa-overview-header">
+          <h2 class="fa-overview-title">Your overview</h2>
+          <div class="fa-overview-actions-row">
+            <div class="fa-overview-chips">
+              <span class="fa-chip"><span class="fa-chip-label">Date range</span><span class="fa-chip-sep"></span><span class="fa-chip-value">Last 4 weeks</span><svg class="fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg></span>
+              <span class="fa-chip"><span class="fa-chip-value">Daily</span><svg class="fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg></span>
+              <span class="fa-chip"><svg class="fa-icon-sail" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><use href="#cancel"/></svg><span class="fa-chip-label">Compare</span><span class="fa-chip-sep"></span><span class="fa-chip-value">Previous period</span><svg class="fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg></span>
+            </div>
+            <button type="button" class="fa-btn-customize"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#filter"/></svg> Customize</button>
+          </div>
+        </div>
+
+        <div class="fa-overview-data">
+        <div class="fa-overview-grid">
+          <div class="fa-card fa-spending-limits-card">
+            <div class="fa-spending-limits-header">
+              <div class="fa-spending-limits-title-wrap">
+                <span class="fa-spending-limits-title">Spending limits</span>
+                <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#info"/></svg>
+              </div>
+              <span class="fa-spending-limits-period">This month</span>
+            </div>
+            <div class="fa-spending-limits-list">
+              <div class="fa-spending-limits-item">
+                <div class="fa-spending-limits-bar">
+                  <span class="fa-spending-limits-bar-fill" style="flex: 0 0 98%;"></span>
+                  <span class="fa-spending-limits-bar-remainder"></span>
+                </div>
+                <div class="fa-spending-limits-data">
+                  <div class="fa-spending-limits-left">
+                    <span class="fa-spending-limits-mask">•••• 2345</span>
+                    <span class="fa-spending-limits-name">Cam Sackett</span>
+                  </div>
+                  <div class="fa-spending-limits-right">
+                    <span class="fa-spending-limits-amount">$489.93</span>
+                    <span class="fa-spending-limits-limit">$500.00 limit</span>
+                  </div>
+                </div>
+              </div>
+              <div class="fa-spending-limits-item">
+                <div class="fa-spending-limits-bar">
+                  <span class="fa-spending-limits-bar-fill" style="flex: 0 0 76.85%;"></span>
+                  <span class="fa-spending-limits-bar-remainder"></span>
+                </div>
+                <div class="fa-spending-limits-data">
+                  <div class="fa-spending-limits-left">
+                    <span class="fa-spending-limits-mask">•••• 8893</span>
+                    <span class="fa-spending-limits-name">Steven Johnson</span>
+                  </div>
+                  <div class="fa-spending-limits-right">
+                    <span class="fa-spending-limits-amount">$768.54</span>
+                    <span class="fa-spending-limits-limit">$1,000.00 limit</span>
+                  </div>
+                </div>
+              </div>
+              <div class="fa-spending-limits-item">
+                <div class="fa-spending-limits-bar">
+                  <span class="fa-spending-limits-bar-fill" style="flex: 0 0 35%;"></span>
+                  <span class="fa-spending-limits-bar-remainder"></span>
+                </div>
+                <div class="fa-spending-limits-data">
+                  <div class="fa-spending-limits-left">
+                    <span class="fa-spending-limits-mask">•••• 2345</span>
+                    <span class="fa-spending-limits-name">Mathilde Jeakins</span>
+                  </div>
+                  <div class="fa-spending-limits-right">
+                    <span class="fa-spending-limits-amount">$87.45</span>
+                    <span class="fa-spending-limits-limit">$250.00 limit</span>
+                  </div>
+                </div>
+              </div>
+              <div class="fa-spending-limits-item">
+                <div class="fa-spending-limits-bar">
+                  <span class="fa-spending-limits-bar-fill" style="flex: 0 0 42.15%;"></span>
+                  <span class="fa-spending-limits-bar-remainder"></span>
+                </div>
+                <div class="fa-spending-limits-data">
+                  <div class="fa-spending-limits-left">
+                    <span class="fa-spending-limits-mask">•••• 5643</span>
+                    <span class="fa-spending-limits-name">Jordan Anderson</span>
+                  </div>
+                  <div class="fa-spending-limits-right">
+                    <span class="fa-spending-limits-amount">$421.45</span>
+                    <span class="fa-spending-limits-limit">$1,000.00 limit</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fa-spending-limits-footer">
+              <a href="#" class="fa-spending-limits-view-all">View all</a>
+            </div>
+          </div>
+
+          <div class="fa-card fa-payments-card">
+            <div class="fa-payments-header">
+              <span class="fa-payments-title">Payments</span>
+              <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#info"/></svg>
+            </div>
+            <div class="fa-payments-content">
+              <div class="fa-payments-bar">
+                <span style="background: #9966FF; flex: 130;"></span>
+                <span style="background: #0055bc; flex: 15;"></span>
+                <span style="background: #00a1c2; flex: 10;"></span>
+                <span style="background: #e46602; flex: 5;"></span>
+                <span style="background: #B3063D; flex: 0.33;"></span>
+              </div>
+              <div class="fa-payments-legend">
+                <div class="fa-payments-legend-row">
+                  <div class="fa-payments-legend-key">
+                    <span class="fa-payments-legend-chip" style="background: #9966FF;"></span>
+                    <span class="fa-payments-legend-label">Succeeded</span>
+                  </div>
+                  <span class="fa-payments-legend-value">$130k</span>
+                </div>
+                <div class="fa-payments-legend-row">
+                  <div class="fa-payments-legend-key">
+                    <span class="fa-payments-legend-chip" style="background: #0055bc;"></span>
+                    <span class="fa-payments-legend-label">Uncaptured</span>
+                  </div>
+                  <span class="fa-payments-legend-value">$15k</span>
+                </div>
+                <div class="fa-payments-legend-row">
+                  <div class="fa-payments-legend-key">
+                    <span class="fa-payments-legend-chip" style="background: #00a1c2;"></span>
+                    <span class="fa-payments-legend-label">Refunded</span>
+                  </div>
+                  <span class="fa-payments-legend-value">$10k</span>
+                </div>
+                <div class="fa-payments-legend-row">
+                  <div class="fa-payments-legend-key">
+                    <span class="fa-payments-legend-chip" style="background: #e46602;"></span>
+                    <span class="fa-payments-legend-label">Blocked</span>
+                  </div>
+                  <span class="fa-payments-legend-value">$5k</span>
+                </div>
+                <div class="fa-payments-legend-row">
+                  <div class="fa-payments-legend-key">
+                    <span class="fa-payments-legend-chip" style="background: #B3063D;"></span>
+                    <span class="fa-payments-legend-label">Failed</span>
+                  </div>
+                  <span class="fa-payments-legend-value">$0.00</span>
+                </div>
+              </div>
+              <div class="fa-payments-footer">
+                <a href="#" class="fa-payments-view-more">View more</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="fa-card fa-failed-payments-card">
+            <div class="fa-failed-payments-header">
+              <span class="fa-failed-payments-title">Failed payments</span>
+            </div>
+            <div class="fa-failed-payments-list-wrap">
+              <div class="fa-failed-payments-list">
+                <div class="fa-failed-payments-item">
+                  <div class="fa-failed-payments-main">
+                    <span class="fa-failed-payments-value">$10.00</span>
+                    <span class="fa-failed-payments-meta">Apr 28, 4:38 PM • pi_2N0uUW58908KAX</span>
+                  </div>
+                  <span class="fa-failed-payments-badge fa-badge fa-badge-failed">Failed</span>
+                </div>
+                <div class="fa-failed-payments-item">
+                  <div class="fa-failed-payments-main">
+                    <span class="fa-failed-payments-value">$20.00</span>
+                    <span class="fa-failed-payments-meta">Apr 25, 2:15 PM • pi_2N0uUW58908KAX</span>
+                  </div>
+                  <span class="fa-failed-payments-badge fa-badge fa-badge-failed">Failed</span>
+                </div>
+                <div class="fa-failed-payments-item">
+                  <div class="fa-failed-payments-main">
+                    <span class="fa-failed-payments-value">$25.00</span>
+                    <span class="fa-failed-payments-meta">Apr 24, 1:26 PM • pi_2N0uUW58908KAX</span>
+                  </div>
+                  <span class="fa-failed-payments-badge fa-badge fa-badge-failed">Failed</span>
+                </div>
+                <div class="fa-failed-payments-item">
+                  <div class="fa-failed-payments-main">
+                    <span class="fa-failed-payments-value">$100.00</span>
+                    <span class="fa-failed-payments-meta">Apr 24, 12:50 PM • pi_2N0uUW58908KAX</span>
+                  </div>
+                  <span class="fa-failed-payments-badge fa-badge fa-badge-canceled">Canceled</span>
+                </div>
+              </div>
+              <div class="fa-failed-payments-footer">
+                <a href="#" class="fa-failed-payments-view-more">View more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+    </div>
+    </div>
+  </main>
+  <!-- Insight card toggle — floating lower-left (Figma 1246-29898) -->
+  <div class="fa-insight-card-toggle" id="fa-insight-card-toggle">
+    <button type="button" role="switch" aria-checked="false" aria-label="Insight card">
+      <span class="fa-insight-card-toggle__track">
+        <span class="fa-insight-card-toggle__thumb"></span>
+      </span>
+      <span class="fa-insight-card-toggle__label">Insight card</span>
+    </button>
+  </div>
+  <script src="components/balance-module/balance-module.js"></script>
+  <script>
+    (function () {
+      var toggleWrap = document.getElementById('fa-insight-card-toggle');
+      var toggleBtn = toggleWrap && toggleWrap.querySelector('button[role="switch"]');
+      var primaryHero = document.getElementById('fa-primary-hero');
+      var insightCard = document.getElementById('fa-insight-card');
+      var insightClose = insightCard && insightCard.querySelector('.fa-insight-card__close');
+
+      function setInsightVisible(visible) {
+        var on = !!visible;
+        if (toggleBtn) {
+          toggleBtn.setAttribute('aria-checked', on);
+          toggleWrap.classList.toggle('fa-insight-card-toggle--on', on);
+        }
+        if (primaryHero) primaryHero.classList.toggle('fa-primary-hero--insight-visible', on);
+        if (insightCard) insightCard.setAttribute('aria-hidden', !on);
+      }
+
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function () {
+          var on = toggleBtn.getAttribute('aria-checked') === 'true';
+          setInsightVisible(!on);
+        });
+      }
+      if (insightClose) {
+        insightClose.addEventListener('click', function () { setInsightVisible(false); });
+      }
+    })();
+  </script>
+</body>
+</html>

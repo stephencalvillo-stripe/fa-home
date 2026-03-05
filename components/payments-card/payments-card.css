@@ -1,0 +1,140 @@
+/**
+ * Payments card — Figma 1237-9615
+ * White surface, 4px radius, 16px padding, 16px gap.
+ * Header: title + info. Content (8px gap): 16px meter bar, legend table (bordered rows), View more.
+ */
+.fa-payments-card {
+  background: #FFFFFF;
+  border: 1px solid #ECF1F6;
+  border-radius: 4px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+}
+
+.fa-payments-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.fa-payments-title {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+  white-space: nowrap;
+}
+
+.fa-payments-header .fa-icon-sail {
+  flex-shrink: 0;
+  color: #667691;
+}
+
+.fa-payments-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+/* Meter bar — 16px height, 1px gap between segments, 1px radius (Figma 1237-9622) */
+.fa-payments-bar {
+  height: 16px;
+  border-radius: 0;
+  display: flex;
+  gap: 1px;
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.fa-payments-bar span {
+  border-radius: 1px;
+  min-width: 2px;
+}
+
+/* Legend table — Border/Default #D8DEE4, rows with border-bottom, 8px padding (Figma 1237-9623) */
+.fa-payments-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+.fa-payments-legend-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid #D8DEE4;
+}
+
+.fa-payments-legend-key {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1 1 0;
+}
+
+.fa-payments-legend-chip {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.fa-payments-legend-label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #353A44;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fa-payments-legend-value {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #353A44;
+  flex-shrink: 0;
+}
+
+.fa-payments-footer {
+  padding-top: 12px;
+  flex-shrink: 0;
+}
+
+.fa-payments-footer .fa-link,
+.fa-payments-view-more {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: var(--fa-brand, #533AFD);
+  text-decoration: none;
+  margin-top: 0;
+}
+
+.fa-payments-footer .fa-link:hover,
+.fa-payments-view-more:hover {
+  text-decoration: underline;
+}

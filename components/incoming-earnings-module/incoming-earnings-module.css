@@ -1,0 +1,101 @@
+/**
+ * Incoming earnings module — Figma FA-Home-Sessions node 1149-85910
+ * Card: header (label + period) + data row (value + bar chart + arrow).
+ */
+.fa-incoming-earnings-module {
+  background: #FFFFFF;
+  border: 1px solid #ECF1F6;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 80px;
+}
+
+.fa-incoming-earnings-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.fa-incoming-earnings-label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+  white-space: nowrap;
+}
+
+.fa-incoming-earnings-period-wrap {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
+.fa-incoming-earnings-period {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #667691;
+  white-space: nowrap;
+}
+
+.fa-incoming-earnings-data {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding-right: 6px;
+  flex-shrink: 0;
+}
+
+.fa-incoming-earnings-value-chart {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+}
+
+.fa-incoming-earnings-value {
+  flex: 1 0 auto;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.31px;
+  color: #1A2C44;
+  font-variant-numeric: lining-nums proportional-nums;
+  margin: 0;
+}
+
+.fa-incoming-earnings-bars {
+  display: flex;
+  gap: 2px;
+  align-items: flex-end;
+  flex-shrink: 0;
+  height: 17px;
+}
+
+.fa-incoming-earnings-bars span {
+  width: 10px;
+  background: #9966FF;
+  border-radius: 1px 1px 0 0;
+}
+
+.fa-incoming-earnings-arrow {
+  flex-shrink: 0;
+  opacity: 0;
+  pointer-events: none;
+  color: #533AFD;
+}
+
+.fa-incoming-earnings-module:hover .fa-incoming-earnings-arrow {
+  opacity: 1;
+}

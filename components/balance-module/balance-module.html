@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Total balance module — FA Home</title>
+  <link rel="stylesheet" href="../../_design-system/tokens.css" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="balance-module.css" />
+  <style> .fa-main { max-width: 502px; } body { margin: 0; } </style>
+</head>
+<body class="fa-page">
+  <main class="fa-center">
+    <div class="fa-main">
+      <div class="fa-balance-module" data-name="Balances Module">
+        <div class="fa-balance-heading">
+          <div class="fa-balance-main">
+            <div class="fa-balance-dropdowns">
+              <div class="fa-balance-dropdown-wrap">
+                <button type="button" class="fa-balance-dropdown fa-balance-dropdown--balance" aria-expanded="false" aria-haspopup="true">
+                  <span class="fa-balance-dropdown-label">Total balance</span>
+                  <svg class="fa-balance-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="../../_design-system/sail-icons.svg#chevronDown"/></svg>
+                </button>
+                <div class="fa-balance-dropdown-panel fa-balance-dropdown-panel--balance" role="menu" aria-hidden="true">
+                  <div class="fa-balance-dropdown-menu">
+                    <button type="button" class="fa-balance-dropdown-item fa-balance-dropdown-item--selected" role="menuitem">All balances</button>
+                    <button type="button" class="fa-balance-dropdown-item" role="menuitem">Payments balance</button>
+                    <button type="button" class="fa-balance-dropdown-item" role="menuitem">Main</button>
+                    <button type="button" class="fa-balance-dropdown-item" role="menuitem">Rainy day</button>
+                  </div>
+                </div>
+              </div>
+              <div class="fa-balance-dropdown-wrap">
+                <button type="button" class="fa-balance-dropdown fa-balance-dropdown--time" aria-expanded="false" aria-haspopup="true">
+                  <span class="fa-balance-dropdown-label fa-balance-dropdown-label--regular">Last 30 days</span>
+                  <svg class="fa-balance-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="../../_design-system/sail-icons.svg#chevronDown"/></svg>
+                </button>
+                <div class="fa-balance-dropdown-panel fa-balance-dropdown-panel--time" role="menu" aria-hidden="true">
+                  <div class="fa-balance-dropdown-menu">
+                    <button type="button" class="fa-balance-dropdown-item" role="menuitem" data-days="7">Last 7 days</button>
+                    <button type="button" class="fa-balance-dropdown-item fa-balance-dropdown-item--selected" role="menuitem" data-days="30">Last 30 days</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="fa-balance-value">$72,450.32</p>
+            <div class="fa-balance-breakdown">
+              <span>$29,038.81 USD</span>
+              <span>€28,320.50 EUR</span>
+              <span>£9,850.12 GBP</span>
+            </div>
+          </div>
+          <div class="fa-balance-action" aria-hidden="true">
+            <svg class="fa-icon-sail" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><use href="../../_design-system/sail-icons.svg#arrowRight"/></svg>
+          </div>
+        </div>
+        <div class="fa-balance-chart">
+          <div class="fa-balance-chart-inner fa-balance-chart-inner--flip">
+            <svg class="fa-balance-line" viewBox="0 0 470 162" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%; height:100%; display:block;">
+              <path d="M0 120 Q47 100 94 110 T188 85 T282 55 T376 45 T470 20" stroke="#9966FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+            </svg>
+            <div class="fa-balance-chart-hover" aria-hidden="true">
+              <span class="fa-balance-chart-hover-line"></span>
+              <span class="fa-balance-chart-hover-dot"></span>
+            </div>
+          </div>
+          <div class="fa-balance-timerange">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="balance-module.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+/**
+ * FA Home — Overview section header (Figma 1149-85912)
+ * Section header: title + actions row (chips + Customize). Chips = Sail Chip (pill, 24px).
+ */
+.fa-overview-header { display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; width: 100%; }
+.fa-overview-title {
+  font-family: var(--font-sans);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: 0.38px;
+  margin: 0;
+  color: #353A44;
+}
+.fa-overview-actions-row { display: flex; align-items: center; justify-content: space-between; width: 100%; flex-wrap: wrap; gap: 8px; }
+.fa-overview-chips { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.fa-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 8px 0 6px;
+  gap: 6px;
+  background: #FFFFFF;
+  border: 1px solid #D4DEE9;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: -0.02px;
+}
+.fa-chip-label { color: #596171; }
+.fa-chip-value { color: #533AFD; }
+.fa-chip-sep { width: 1px; height: 12px; background: #BAC8DA; flex-shrink: 0; }
+.fa-chip svg { flex-shrink: 0; color: #667691; }
+.fa-btn-customize {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: #FFFFFF;
+  border: 1px solid #D4DEE9;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #667691;
+  cursor: pointer;
+}
+.fa-btn-customize:hover { background: var(--fa-bg-offset); }
+.fa-btn-customize .fa-icon-sail { color: #667691; }

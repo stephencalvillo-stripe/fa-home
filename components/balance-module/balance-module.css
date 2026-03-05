@@ -1,0 +1,279 @@
+/**
+ * Total balance module — matches Figma FA-Home-Sessions node 1149:85903
+ * Tokens: Background/Surface #FFF, Neutral/50 #ECF1F6, Text #1A2C44,
+ * Label/Medium emphasized 14px 600, Label/Medium 14px 400, Heading/Large 24px 32px 0.3px,
+ * Neutral/400 #7D8BA4, Neutral/500 #667691, Brand/25 #F7F5FD
+ */
+/* Same container height (250px) and hover/action as gross volume module for primary hero row parity */
+.fa-balance-module {
+  background: #FFFFFF;
+  border: 1px solid #ECF1F6;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 250px;
+  height: 250px;
+  isolation: isolate;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+/* Hover state — Figma 1104-106804: border, shadow, action button visible */
+.fa-balance-module:hover {
+  border-color: #D4DEE9;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 5px rgba(48, 49, 61, 0.08);
+}
+.fa-balance-module:hover .fa-balance-action {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.fa-balance-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-right: 6px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.fa-balance-main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fa-balance-dropdowns {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.fa-balance-dropdown-wrap {
+  position: relative;
+}
+
+.fa-balance-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+/* Dropdown panel — Figma 1211-89675: white, border, shadow, 12px radius; animate like tooltip */
+.fa-balance-dropdown-panel {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 6px);
+  z-index: 20;
+  min-width: 180px;
+  background: #FFFFFF;
+  border: 1.5px solid #D4DEE9;
+  border-radius: 12px;
+  box-shadow: 0 7.5px 22.5px rgba(0, 0, 0, 0.12), 0 22.5px 52.5px rgba(48, 49, 61, 0.08);
+  padding: 6px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out, visibility 0s linear 200ms;
+  pointer-events: none;
+}
+
+.fa-balance-dropdown-panel--open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out, visibility 0s linear 0s;
+  pointer-events: auto;
+}
+
+.fa-balance-dropdown-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.fa-balance-dropdown-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 9px 15px;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.fa-balance-dropdown-item:hover {
+  background: #ECF1F6;
+}
+
+.fa-balance-dropdown-item--selected {
+  font-weight: 600;
+  color: #533AFD;
+}
+
+.fa-balance-dropdown-label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+  white-space: nowrap;
+}
+
+.fa-balance-dropdown-label--regular {
+  font-weight: 400;
+}
+
+.fa-balance-chevron {
+  flex-shrink: 0;
+  color: #1A2C44;
+}
+
+.fa-balance-value {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0.3px;
+  color: #1A2C44;
+  margin: 0;
+  font-variant-numeric: lining-nums proportional-nums;
+}
+
+.fa-balance-breakdown {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #7D8BA4;
+  flex-wrap: wrap;
+}
+
+/* Action button: animates in 4px left→right on module hover (Figma 1211-89701) */
+.fa-balance-action {
+  width: 32px;
+  height: 32px;
+  background: #F7F5FD;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-4px);
+  transition: transform 200ms ease-in-out, opacity 200ms ease-in-out, background 200ms ease;
+}
+
+.fa-balance-action svg {
+  width: 16px;
+  height: 16px;
+  color: #667691;
+  transition: color 200ms ease;
+}
+
+/* Button hover — Figma 1211-89701: Brand/600, white icon (no glow) */
+.fa-balance-action:hover {
+  background: #533AFD;
+}
+
+.fa-balance-action:hover svg {
+  color: #FFFFFF;
+}
+
+.fa-balance-chart {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.fa-balance-chart-inner {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+/* Chart hover: dot and line positioned by JS; tracker captures mouse */
+.fa-balance-chart-tracker {
+  position: absolute;
+  inset: 0;
+  pointer-events: auto;
+  cursor: crosshair;
+  z-index: 2;
+}
+.fa-balance-chart-hover {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  z-index: 1;
+}
+.fa-balance-chart-hover-line {
+  position: absolute;
+  width: 0;
+  border-left: 1px dashed #95A4BA;
+  transform: translateX(-50%);
+}
+.fa-balance-chart-hover-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #9966FF;
+  transform: translate(-50%, -50%);
+}
+
+.fa-balance-chart-inner--flip {
+  transform: scaleY(-1);
+}
+
+.fa-balance-line {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  display: block;
+}
+
+.fa-balance-timerange {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #667691;
+  flex-shrink: 0;
+}
+
+.fa-balance-timerange span:last-child {
+  text-align: right;
+}

@@ -1,0 +1,6 @@
+/**
+ * FA Home — Summary cards (4 small metric cards)
+ * Money in, Money out, Incoming earnings, Lifetime yield earned.
+ */
+.fa-mini-bars { display: flex; gap: 2px; align-items: flex-end; height: 17px; }
+.fa-mini-bars span { width: 10px; background: var(--fa-chart-1); border-radius: 1px 1px 0 0; }

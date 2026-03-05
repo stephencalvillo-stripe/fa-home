@@ -1,0 +1,214 @@
+/**
+ * Left Nav — FA Home
+ * Matches Figma: https://www.figma.com/design/pxCb6JmndiqMDe2umeT9nY/FA-Home-Sessions?node-id=1149-85857
+ * Tokens: Background/Surface, Neutral/50 border, Text #353A44, Text/Action Primary #533AFD, Text/Subdued #1A2C44, Background/Offset #F5F6F8
+ */
+.fa-nav {
+  width: 228px;
+  min-width: 228px;
+  height: 100vh;
+  background: var(--fa-nav-surface, #fff);
+  border-right: 1px solid var(--fa-nav-border, #ecf1f6);
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 200; /* above right-side content (header + main) */
+  overflow: auto;
+}
+
+/* ─── Account — aligned left with nav items (same 20px padding as .fa-nav-list) ─── */
+.fa-nav-account {
+  height: 60px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+}
+
+.fa-nav-account-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--fa-nav-gap, 8px);
+  position: relative;
+  padding-right: 28px; /* space for optional account switcher */
+  min-width: 0;
+}
+
+.fa-nav-account-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background: var(--fa-nav-account-icon-bg, #0ea872);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.fa-nav-account-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fa-nav-account-name {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: var(--fa-nav-text, #353a44);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ─── Nav scroll area ─── */
+.fa-nav-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 20px 20px 64px;
+  min-width: 0;
+}
+
+/* ─── Top-level & section blocks ─── */
+.fa-nav-block {
+  display: flex;
+  flex-direction: column;
+  width: 188px;
+}
+
+/* ─── Nav item (link) ─── */
+.fa-nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--fa-nav-gap, 8px);
+  height: 30px;
+  width: 188px;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: var(--fa-nav-subdued, #1a2c44);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.fa-nav-item:hover {
+  background: var(--fa-nav-hover, #f5f6f8);
+  color: var(--fa-text, #353a44);
+}
+
+.fa-nav-item.active {
+  color: var(--fa-nav-primary, #533afd);
+  font-weight: 600;
+}
+
+.fa-nav-item.active .fa-icon-sail {
+  color: var(--fa-nav-primary, #533afd);
+}
+
+.fa-nav-item .fa-nav-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.fa-nav-item .fa-nav-label {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fa-nav-item svg.fa-icon-sail {
+  width: 16px;
+  height: 16px;
+  color: inherit;
+}
+
+/* ─── Section heading ─── */
+.fa-nav-section-title {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--fa-nav-subdued, #1a2c44);
+  height: 26px;
+  display: flex;
+  align-items: center;
+  width: 188px;
+}
+
+/* ─── Products (workload) row: label + chevron ─── */
+.fa-nav-workload {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  padding: 2px 0;
+  width: 188px;
+  cursor: pointer;
+  color: var(--fa-nav-subdued, #1a2c44);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  border-radius: 6px;
+  position: relative;
+}
+
+.fa-nav-workload:hover {
+  background: var(--fa-nav-hover, #f5f6f8);
+  color: var(--fa-text, #353a44);
+}
+
+.fa-nav-workload .fa-nav-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+
+.fa-nav-workload .fa-nav-label {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fa-nav-workload .fa-nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.fa-nav-workload .fa-nav-toggle .fa-icon-sail {
+  width: 16px;
+  height: 16px;
+}

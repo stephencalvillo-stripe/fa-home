@@ -1,0 +1,90 @@
+/**
+ * Money in module — matches Figma FA-Home-Sessions node 1149:85907
+ * Small metric card: header row (label + period dropdown + info) + value row.
+ */
+.fa-money-in-module {
+  background: #FFFFFF;
+  border: 1px solid #ECF1F6;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 80px;
+}
+
+.fa-money-in-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.fa-money-in-label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+  white-space: nowrap;
+}
+
+.fa-money-in-period-wrap {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.fa-money-in-period {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #667691;
+  white-space: nowrap;
+}
+
+.fa-money-in-chevron {
+  flex-shrink: 0;
+  color: #667691;
+}
+
+.fa-money-in-info {
+  color: #667691;
+  cursor: pointer;
+  display: inline-flex;
+}
+
+.fa-money-in-arrow {
+  flex-shrink: 0;
+  opacity: 0;
+  pointer-events: none;
+  color: #533AFD;
+}
+
+.fa-money-in-value-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 6px;
+  flex-shrink: 0;
+}
+
+.fa-money-in-value {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.31px;
+  color: #1A2C44;
+  font-variant-numeric: lining-nums proportional-nums;
+  margin: 0;
+}
+
+.fa-money-in-module:hover .fa-money-in-arrow {
+  opacity: 1;
+}

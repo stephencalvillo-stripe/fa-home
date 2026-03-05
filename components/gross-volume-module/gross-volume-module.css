@@ -1,0 +1,189 @@
+/**
+ * Gross volume module — matches Figma FA-Home-Sessions node 1179:9511
+ * Same tokens, size (250px), and hover/action behavior as total balance module (Figma 1104-106804).
+ */
+.fa-gross-module {
+  background: #FFFFFF;
+  border: 1px solid #ECF1F6;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 250px;
+  min-height: 250px;
+  isolation: isolate;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.fa-gross-module:hover {
+  border-color: #D4DEE9;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 5px rgba(48, 49, 61, 0.08);
+}
+
+.fa-gross-module:hover .fa-gross-action {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.fa-gross-metrics {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-right: 6px;
+  flex-shrink: 0;
+  height: 72px;
+  position: relative;
+  z-index: 2;
+}
+
+.fa-gross-metrics-inner {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.fa-gross-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.fa-gross-block--primary {
+  height: 72px;
+}
+
+.fa-gross-block--yesterday {
+  width: 141px;
+}
+
+.fa-gross-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fa-gross-heading-label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+  white-space: nowrap;
+}
+
+.fa-gross-heading-label--regular {
+  font-weight: 400;
+}
+
+.fa-gross-chevron {
+  flex-shrink: 0;
+  color: #1A2C44;
+}
+
+.fa-gross-value {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0.3px;
+  color: #1A2C44;
+  margin: 0;
+  font-variant-numeric: lining-nums proportional-nums;
+}
+
+.fa-gross-value--small {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.31px;
+  color: #667691;
+}
+
+.fa-gross-meta {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #667691;
+}
+
+/* Action button: animates in 4px left→right on module hover (Figma 1211-89701) */
+.fa-gross-action {
+  width: 32px;
+  height: 32px;
+  background: #F7F5FD;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-4px);
+  transition: transform 200ms ease-in-out, opacity 200ms ease-in-out, background 200ms ease;
+}
+
+.fa-gross-action svg {
+  width: 16px;
+  height: 16px;
+  color: #667691;
+  transition: color 200ms ease;
+}
+
+/* Button hover — Figma 1211-89701: Brand/600, white icon (no glow) */
+.fa-gross-action:hover {
+  background: #533AFD;
+}
+
+.fa-gross-action:hover svg {
+  color: #FFFFFF;
+}
+
+.fa-gross-chart {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.fa-gross-chart-inner {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.fa-gross-chart-inner--flip {
+  transform: scaleY(-1);
+}
+
+.fa-gross-line {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  display: block;
+}
+
+.fa-gross-timerange {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #667691;
+  flex-shrink: 0;
+}
+
+.fa-gross-timerange span:last-child {
+  text-align: right;
+}
