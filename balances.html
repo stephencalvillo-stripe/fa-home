@@ -7,11 +7,15 @@
   <style>
     html, body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
   </style>
+  <!-- On GitHub Pages, base must be repo root so relative hrefs (CSS, nav links) resolve -->
   <script>
     (function() {
       if (location.hostname === 'github.io' || location.hostname.endsWith('.github.io')) {
         var base = document.createElement('base');
-        base.href = location.origin + location.pathname.replace(/\/?$/, '/');
+        var path = location.pathname;
+        var dir = path.lastIndexOf('/') >= 0 ? path.substring(0, path.lastIndexOf('/') + 1) : '/';
+        if (dir === '/' && path.length > 1) dir = path + '/';
+        base.href = location.origin + dir;
         document.head.appendChild(base);
       }
     })();
