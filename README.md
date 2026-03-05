@@ -1,32 +1,64 @@
-# FA Home — Componentized
+# FA Home — Dashboard Prototype
 
-Each UI module lives in `components/` so you can edit and refine it in isolation.
+A static HTML/CSS/JS prototype of the FA (Financial Account) Home dashboard. Built to match Figma designs and used as a reference while building the full application.
 
-## Structure
+## Quick start
 
-| File / folder | Purpose |
-|---------------|--------|
-| `index.html` | Full dashboard page (uses all component CSS) |
-| `components/shared.css` | FA tokens + layout (`.fa-page`, `.fa-center`, `.fa-main`, grid) |
-| `components/card.css` | Base card (`.fa-card`, `.fa-card-lg`, `.fa-card-sm`, title, value, chart, link) |
-| `components/list-item.css` | List row, progress bar, badges (for spending limits & failed payments) |
-| `components/nav/` | Left sidebar — account, nav items, shortcuts, products |
-| `components/header/` | Top bar — search + action icons |
-| `components/welcome-section/` | “Today” title + action buttons (Instant payout, Move money, etc.) |
-| `components/hero-card/` | Large metric cards with chart (Total balance, Gross volume) |
-| `components/summary-cards/` | Four small cards (Money in/out, Incoming earnings, Lifetime yield) |
-| `components/overview-header/` | “Your overview” title + chips + Customize button |
-| `components/spending-limits-card/` | List with progress bars + View all |
-| `components/payments-card/` | Segmented bar + legend + View more |
-| `components/failed-payments-card/` | List with Failed/Canceled badges + View more |
+- **Full page:** Open `index.html` in a browser.
+- **Component previews:** Open `components/index.html` for a list and iframe preview of each module.
+- **Edit a component:** Change the component’s `.html` and `.css` in its folder under `components/`; the full page picks up CSS automatically.
 
-## How to refine a component
+## Documentation
 
-1. Open **`components/index.html`** in your browser for the component list and iframe preview.
-2. Or open a component directly, e.g. **`components/nav/nav.html`**.
-3. Edit that component’s **`.css`** and/or **`.html`** in the same folder.
-4. Refresh the browser to see changes. The full page (`index.html`) will pick up CSS changes automatically.
+| Doc | Purpose |
+|-----|--------|
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Page layout, structure, key CSS classes, and patterns |
+| [docs/COMPONENTS.md](docs/COMPONENTS.md) | Component list with file paths and behavior |
+| [docs/FIGMA.md](docs/FIGMA.md) | Figma file and node IDs for design reference |
 
-## Full page
+Use these as the source of truth when extending or rebuilding the dashboard.
 
-Open **`index.html`** (or use the Dashboard Prototypes hub) to view the full FA Home dashboard. It loads all component styles from the `components/` folder.
+## Tech stack
+
+- **HTML** — Single `index.html` plus component preview HTML files.
+- **CSS** — Vanilla CSS; shared tokens and layout in `components/shared.css`, component styles in each component folder.
+- **JS** — Minimal (balance dropdown, insight-card toggle). No framework.
+- **Icons** — Inline SVG sprite in `index.html` (Sail-style icons referenced by `#id`).
+
+## Project structure
+
+```
+fa-home/
+├── index.html              # Full dashboard (nav + header + content)
+├── components/
+│   ├── shared.css          # Tokens, .fa-page, .fa-center, .fa-content, grids
+│   ├── card.css            # Base .fa-card, .fa-link, etc.
+│   ├── list-item.css       # List rows, badges (used by some cards)
+│   ├── index.html          # Component index / preview hub
+│   ├── nav/                # Left sidebar
+│   ├── header/             # Top bar (search + actions)
+│   ├── welcome-section/    # "Today" + action buttons
+│   ├── balance-module/     # Total balance (chart + dropdowns)
+│   ├── gross-volume-module/# Gross volume (chart)
+│   ├── insight-card/       # Insight card (when toggle on)
+│   ├── insight-card-toggle/# Floating toggle (lower-left)
+│   ├── money-in-module/    # Money in (hero)
+│   ├── money-out-module/   # Money out (hero)
+│   ├── incoming-earnings-module/
+│   ├── hero-card/          # Balance + Gross preview
+│   ├── summary-cards/      # Four hero modules preview
+│   ├── overview-header/    # "Your overview" + chips + Customize
+│   ├── spending-limits-card/
+│   ├── payments-card/
+│   ├── failed-payments-card/
+│   └── tooltip/
+├── _design-system/         # tokens.css, fonts (if present)
+└── docs/                   # Architecture, components, Figma reference
+```
+
+## Figma
+
+Design source: **FA-Home-Sessions**  
+Figma URL format: `https://www.figma.com/design/pxCb6JmndiqMDe2umeT9nY/FA-Home-Sessions?node-id=XXXX-XXXX`
+
+See [docs/FIGMA.md](docs/FIGMA.md) for implemented node IDs.
