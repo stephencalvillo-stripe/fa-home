@@ -11,6 +11,8 @@
   flex-direction: column;
   gap: 4px;
   min-height: 80px;
+  text-decoration: none;
+  color: inherit;
 }
 
 .fa-incoming-earnings-header {
@@ -94,8 +96,10 @@
   opacity: 0;
   pointer-events: none;
   color: #533AFD;
+  text-decoration: none;
 }
 
 .fa-incoming-earnings-module:hover .fa-incoming-earnings-arrow {
   opacity: 1;
+  pointer-events: auto;
 }
