@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balances — FA Dashboard</title>
+  <style>
+    html, body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  </style>
+  <script>
+    (function() {
+      if (location.hostname === 'github.io' || location.hostname.endsWith('.github.io')) {
+        var base = document.createElement('base');
+        base.href = location.origin + location.pathname.replace(/\/?$/, '/');
+        document.head.appendChild(base);
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="components/shared.css" />
+  <link rel="stylesheet" href="components/nav/nav.css" />
+  <link rel="stylesheet" href="components/header/header.css" />
+  <link rel="stylesheet" href="components/balances-page/balances-page.css" />
+</head>
+<body class="fa-page">
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" id="sail-icons-sprite">
+    <symbol id="home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
+    <symbol id="balance" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01"/></symbol>
+    <symbol id="transfer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17V7m0 10h10V7M7 7h10"/></symbol>
+    <symbol id="settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+    <symbol id="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></symbol>
+    <symbol id="search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+    <symbol id="help" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+    <symbol id="notifications" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></symbol>
+    <symbol id="addCircleFilled" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M12 8v8M8 12h8" stroke="var(--color-bg, white)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="invoice" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></symbol>
+    <symbol id="wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M16 14a1 1 0 100-2 1 1 0 000 2z"/></symbol>
+    <symbol id="payment" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01"/></symbol>
+    <symbol id="person" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+    <symbol id="document" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></symbol>
+    <symbol id="barChart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></symbol>
+    <symbol id="more" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></symbol>
+    <symbol id="arrowRight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></symbol>
+    <symbol id="arrowsLoop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></symbol>
+    <symbol id="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6l-4 10h8L12 8V2z"/><circle cx="12" cy="5" r="2"/></symbol>
+    <symbol id="clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="product" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
+    <symbol id="chevronDown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></symbol>
+  </svg>
+
+  <aside class="fa-nav">
+    <div class="fa-nav-account">
+      <div class="fa-nav-account-inner">
+        <div class="fa-nav-account-icon"></div>
+        <span class="fa-nav-account-name">Cactus Practice</span>
+      </div>
+    </div>
+    <nav class="fa-nav-list">
+      <div class="fa-nav-block">
+        <a href="index.html" class="fa-nav-item">
+          <span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#home"/></svg></span>
+          <span class="fa-nav-label">Home</span>
+        </a>
+        <a href="balances.html" class="fa-nav-item active">
+          <span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#balance"/></svg></span>
+          <span class="fa-nav-label">Balances</span>
+        </a>
+        <a href="#" class="fa-nav-item">
+          <span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowsLoop"/></svg></span>
+          <span class="fa-nav-label">Transactions</span>
+        </a>
+        <a href="#" class="fa-nav-item">
+          <span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#person"/></svg></span>
+          <span class="fa-nav-label">Network</span>
+        </a>
+        <a href="#" class="fa-nav-item">
+          <span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#product"/></svg></span>
+          <span class="fa-nav-label">Product catalog</span>
+        </a>
+      </div>
+      <div class="fa-nav-block">
+        <div class="fa-nav-section-title">Shortcuts</div>
+        <a href="#" class="fa-nav-item"><span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#pin"/></svg></span><span class="fa-nav-label">Tax</span></a>
+        <a href="#" class="fa-nav-item"><span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#clock"/></svg></span><span class="fa-nav-label">Payment links</span></a>
+        <a href="#" class="fa-nav-item"><span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#clock"/></svg></span><span class="fa-nav-label">Disputes</span></a>
+      </div>
+      <div class="fa-nav-block">
+        <div class="fa-nav-section-title">Products</div>
+        <div class="fa-nav-workload"><span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#wallet"/></svg></span><span class="fa-nav-label">Payments</span><span class="fa-nav-toggle"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg></span></div>
+        <div class="fa-nav-workload"><span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#document"/></svg></span><span class="fa-nav-label">Billing</span><span class="fa-nav-toggle"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg></span></div>
+        <div class="fa-nav-workload"><span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#barChart"/></svg></span><span class="fa-nav-label">Reporting</span><span class="fa-nav-toggle"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg></span></div>
+        <div class="fa-nav-workload"><span class="fa-nav-icon-box"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#more"/></svg></span><span class="fa-nav-label">More</span><span class="fa-nav-toggle"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg></span></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="fa-center">
+    <header class="fa-header">
+      <div class="fa-header-content">
+        <div class="fa-header-search">
+          <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#search"/></svg>
+          <input type="text" class="fa-search" placeholder="Search" aria-label="Search" />
+        </div>
+        <div class="fa-header-actions">
+          <button type="button" aria-label="Help"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#help"/></svg></button>
+          <button type="button" aria-label="Notifications"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#notifications"/></svg></button>
+          <button type="button" aria-label="Settings"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#settings"/></svg></button>
+          <button type="button" aria-label="Add"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#addCircleFilled"/></svg></button>
+        </div>
+      </div>
+    </header>
+
+    <div class="fa-content fa-balances-content">
+      <!-- Hero: title + total (Figma 1277:103865) -->
+      <div class="fa-balances-hero">
+        <div class="fa-balances-header">
+          <h1 class="fa-balances-title">Balances</h1>
+          <p class="fa-balances-total">$500,000.00</p>
+        </div>
+        <div class="fa-balances-actions">
+          <div class="fa-balances-action-bar">
+            <button type="button" class="fa-balances-pill"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#transfer"/></svg> Transfer</button>
+            <button type="button" class="fa-balances-pill"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg> Send</button>
+            <button type="button" class="fa-balances-pill"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#globe"/></svg> Convert</button>
+            <button type="button" class="fa-balances-pill"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#wallet"/></svg> Deposit</button>
+            <button type="button" class="fa-balances-pill"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#payment"/></svg> Create card</button>
+            <button type="button" class="fa-balances-pill"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#invoice"/></svg> Request</button>
+          </div>
+          <div class="fa-balances-view-toggle">
+            <button type="button" class="fa-balances-view-btn fa-balances-view-btn--active" aria-pressed="true" title="Grid view"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#barChart"/></svg></button>
+            <button type="button" class="fa-balances-view-btn" aria-pressed="false" title="List view"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#document"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Balance cards row (Figma 1277:103896) -->
+      <div class="fa-balances-cards">
+        <div class="fa-balances-card fa-balances-card--incoming">
+          <div class="fa-balances-card-cta"><svg class="fa-icon-sail" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg></div>
+          <h3 class="fa-balances-card-title">Incoming earnings</h3>
+          <p class="fa-balances-card-value">$7,091.21</p>
+          <span class="fa-balances-card-meta">1 currency</span>
+          <div class="fa-balances-card-chart">
+            <div class="fa-balances-bar-chart">
+              <span class="fa-balances-bar" style="height:68px"></span>
+              <span class="fa-balances-bar" style="height:52px"></span>
+              <span class="fa-balances-bar" style="height:2px"></span>
+              <span class="fa-balances-bar" style="height:2px"></span>
+              <span class="fa-balances-bar" style="height:2px"></span>
+              <span class="fa-balances-bar" style="height:2px"></span>
+              <span class="fa-balances-bar" style="height:2px"></span>
+            </div>
+            <div class="fa-balances-bar-labels"><span>Tomorrow</span><span>Jan 14+</span></div>
+          </div>
+        </div>
+        <div class="fa-balances-card-wrap">
+          <div class="fa-balances-card fa-balances-card--main">
+            <div class="fa-balances-card-cta"><svg class="fa-icon-sail" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowsLoop"/></svg></div>
+            <div class="fa-balances-card-header">
+              <span class="fa-balances-card-currency"><span class="fa-balances-flag">US</span> USD</span>
+              <p class="fa-balances-card-value">$19,092.38</p>
+            </div>
+            <span class="fa-balances-card-mask">••1234</span>
+            <div class="fa-balances-card-actions">
+              <button type="button" aria-label="Send"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg></button>
+              <button type="button" aria-label="Transfer"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#transfer"/></svg></button>
+              <button type="button" aria-label="More"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#more"/></svg></button>
+            </div>
+          </div>
+          <div class="fa-balances-card-label">
+            <span>Main</span>
+            <button type="button" aria-label="More"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#more"/></svg></button>
+          </div>
+        </div>
+        <div class="fa-balances-card-wrap">
+          <div class="fa-balances-card fa-balances-card--main">
+            <div class="fa-balances-card-header">
+              <span class="fa-balances-card-currency"><span class="fa-balances-flag">US</span> USD</span>
+              <p class="fa-balances-card-value">$41,892.23</p>
+            </div>
+            <span class="fa-balances-card-mask">••9012</span>
+            <div class="fa-balances-card-actions">
+              <button type="button" aria-label="Send"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg></button>
+              <button type="button" aria-label="Transfer"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#transfer"/></svg></button>
+              <button type="button" aria-label="More"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#more"/></svg></button>
+            </div>
+          </div>
+          <div class="fa-balances-card-label">
+            <span>Rainy day</span>
+            <button type="button" aria-label="More"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#more"/></svg></button>
+          </div>
+        </div>
+        <div class="fa-balances-card-wrap">
+          <div class="fa-balances-card fa-balances-card--main">
+            <div class="fa-balances-card-header">
+              <span class="fa-balances-card-currency"><span class="fa-balances-flag">US</span> USD</span>
+              <p class="fa-balances-card-value">$108,091.22</p>
+            </div>
+            <span class="fa-balances-card-meta">3.8% YTD</span>
+            <div class="fa-balances-card-sparkline">
+              <svg viewBox="0 0 180 42" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 38 L20 32 L40 35 L60 28 L80 30 L100 22 L120 25 L140 18 L160 20 L180 12" stroke="#9966FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg>
+            </div>
+            <div class="fa-balances-card-actions">
+              <button type="button" aria-label="Transfer"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#transfer"/></svg></button>
+              <button type="button" aria-label="More"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#more"/></svg></button>
+            </div>
+          </div>
+          <div class="fa-balances-card-label">
+            <span>High yield</span>
+            <button type="button" aria-label="More"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#more"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activity + Reports (Figma 1277:103902) -->
+      <div class="fa-balances-bottom">
+        <div class="fa-balances-activity">
+          <h2 class="fa-balances-activity-title">Recent activity</h2>
+          <div class="fa-balances-tabs">
+            <button type="button" class="fa-balances-tab fa-balances-tab--active">All</button>
+            <button type="button" class="fa-balances-tab">Money in</button>
+            <button type="button" class="fa-balances-tab">Money out</button>
+          </div>
+          <div class="fa-balances-table-wrap">
+            <table class="fa-balances-table">
+              <thead>
+                <tr>
+                  <th class="fa-balances-th-amount">Amount</th>
+                  <th class="fa-balances-th-desc">Description</th>
+                  <th class="fa-balances-th-balance">Balance</th>
+                  <th class="fa-balances-th-date">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="fa-balances-amount fa-balances-amount--out">-$40.00</td><td>Outbound payment transfer to third party</td><td class="fa-balances-muted">Main • USD</td><td class="fa-balances-muted">Mar 7</td></tr>
+                <tr><td class="fa-balances-amount fa-balances-amount--in">+$50.00</td><td>Me-to-me topup</td><td class="fa-balances-muted">Main • USD</td><td class="fa-balances-muted">Mar 7</td></tr>
+                <tr><td class="fa-balances-amount fa-balances-amount--out">-$201.28</td><td>164 Processing fees</td><td class="fa-balances-muted">Main • USD</td><td class="fa-balances-muted">Mar 7</td></tr>
+                <tr><td class="fa-balances-amount fa-balances-amount--in">+$1,893.21</td><td>164 Payments from customers</td><td class="fa-balances-muted">Main • USD</td><td class="fa-balances-muted">Mar 7</td></tr>
+                <tr><td class="fa-balances-amount fa-balances-amount--out">-$2.11</td><td>3 FX Fees</td><td class="fa-balances-muted">Main • USD</td><td class="fa-balances-muted">Mar 7</td></tr>
+                <tr><td class="fa-balances-amount fa-balances-amount--out">-$20.00</td><td>Purchase via Stripe card</td><td class="fa-balances-muted">Main • USD</td><td class="fa-balances-muted">Mar 7</td></tr>
+                <tr><td class="fa-balances-amount fa-balances-amount--in">+$80.00</td><td>Others-to-me received credit</td><td class="fa-balances-muted">Main • USD</td><td class="fa-balances-muted">Mar 7</td></tr>
+                <tr><td class="fa-balances-amount fa-balances-amount--out">-$26.09</td><td>REFUND FOR CHARGE (Product ABC)</td><td class="fa-balances-muted">Main • USD</td><td class="fa-balances-muted">Dec 5</td></tr>
+                <tr><td class="fa-balances-amount fa-balances-amount--out">-$108.23</td><td>Chargeback withdrawal for (hiu34gh786s_s87yudyh)</td><td class="fa-balances-muted">Main • USD</td><td class="fa-balances-muted">Dec 5</td></tr>
+                <tr><td class="fa-balances-amount fa-balances-amount--in">+$2,771.20</td><td>226 Payments from customers</td><td class="fa-balances-muted">Main • USD</td><td class="fa-balances-muted">Dec 5</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <a href="#" class="fa-balances-view-more">View more</a>
+        </div>
+        <aside class="fa-balances-reports">
+          <h2 class="fa-balances-reports-title">Reports</h2>
+          <a href="#" class="fa-balances-report-item"><span class="fa-balances-report-icon"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#payment"/></svg></span> Manage cards</a>
+          <a href="#" class="fa-balances-report-item"><span class="fa-balances-report-icon"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#person"/></svg></span> Manage recipients</a>
+          <a href="#" class="fa-balances-report-item"><span class="fa-balances-report-icon"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#barChart"/></svg></span> Balance summary report</a>
+          <a href="#" class="fa-balances-report-item"><span class="fa-balances-report-icon"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#document"/></svg></span> Payout reconciliation report</a>
+          <a href="#" class="fa-balances-view-more">View more</a>
+        </aside>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

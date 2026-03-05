@@ -168,7 +168,7 @@
   flex-wrap: wrap;
 }
 
-/* Action button: animates in 4px left→right on module hover (Figma 1211-89701) */
+/* Action button: animates in 4px left→right on module hover (Figma 1211-89701); may be <a> to balances page */
 .fa-balance-action {
   width: 32px;
   height: 32px;
@@ -182,6 +182,8 @@
   pointer-events: none;
   transform: translateX(-4px);
   transition: transform 200ms ease-in-out, opacity 200ms ease-in-out, background 200ms ease;
+  text-decoration: none;
+  color: inherit;
 }
 
 .fa-balance-action svg {
