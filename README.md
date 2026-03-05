@@ -4,7 +4,8 @@ A static HTML/CSS/JS prototype of the FA (Financial Account) Home dashboard. Bui
 
 ## Quick start
 
-- **Full page:** Open `index.html` in a browser.
+- **Live link (if hosted):** Share with your team — see [docs/HOSTING.md](docs/HOSTING.md) to enable GitHub Pages or Vercel.
+- **Local:** Open `index.html` in a browser.
 - **Component previews:** Open `components/index.html` for a list and iframe preview of each module.
 - **Edit a component:** Change the component’s `.html` and `.css` in its folder under `components/`; the full page picks up CSS automatically.
 

@@ -41,6 +41,12 @@ Reference for how the dashboard is structured and how to extend it.
 - **Toggle on:** `.fa-primary-hero--insight-visible` is applied; layout becomes flex; Balance and Gross get `flex: 1 1 0`; Insight card (324px) animates in from the right (slide + fade).
 - Toggle lives in lower-left (`position: fixed`, `left: 16px`, `bottom: 16px`, `z-index: 300`). Clicking the card’s “X” also turns the toggle off.
 
+## Fonts
+
+The app uses **system fonts** (no external font requests): `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`. Defined on `.fa-page` in `shared.css` as `--font-sans`.
+
+To use **Sail or Stripe fonts** (e.g. if your design system provides them): load the font CSS in `index.html`, then in your tokens or `shared.css` set `--font-sans` to that family (e.g. `"Stripe Sans", var(--font-sans)` so system fonts remain the fallback). Stripe’s public sites use custom type; for Elements they reference [font customization](https://docs.stripe.com/payments/checkout/customization/font-compatibility).
+
 ## Design tokens (shared.css)
 
 | Token | Value | Use |

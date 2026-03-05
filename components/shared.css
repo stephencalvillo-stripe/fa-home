@@ -2,7 +2,10 @@
  * FA Home — shared tokens and layout
  * Used by index.html and all component previews.
  */
+
+/* System font stack — no external font requests. Sail/Stripe fonts can override via tokens if needed. */
 .fa-page {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --color-bg-subtle: #FFFFFF;
   --fa-bg-offset: #F4F7FA;
   --fa-text: #1a2c44;
