@@ -1,0 +1,212 @@
+/**
+ * Payments only + insight ON — hero layout (Figma 1451:145651)
+ * Exact match: Hero-modules = flex gap 16px, items-start; Main 680×326px; Gross 230px; Secondary row items-center; Add FA 324×326px.
+ */
+
+.fa-hero-modules-payments,
+.fa-hero-payments-insight-on {
+  transition: opacity 0.28s ease-out, visibility 0.28s ease-out;
+}
+
+.fa-hero-payments-insight-on {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* When Payments only + insight ON: hide default modules, show Gross+Balances+Debits|Add FA (1451:145651) */
+.fa-hero-state-payments--insight-on .fa-hero-modules-payments {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.fa-hero-state-payments--insight-on .fa-hero-payments-insight-on {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  position: relative;
+}
+
+/* Hero-modules container (1451:145651): flex gap 16px items-start pb 16px */
+.fa-hero-payments-insight-on {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding-bottom: 16px;
+}
+
+/* Main modules: 680×326px, flex-col gap 16px, justify-center (Figma 1451:146842) */
+.fa-hero-payments-insight-on__main {
+  width: 680px;
+  height: 326px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+
+.fa-hero-payments-insight-on__gross {
+  flex-shrink: 0;
+}
+
+/* Gross volume: 230px height, full width */
+.fa-gross-module--insight-layout {
+  height: 230px;
+  min-height: 230px;
+  width: 100%;
+}
+
+/* Secondary modules: row gap 16px, items-center (Figma 1451:146814) */
+.fa-hero-payments-insight-on__secondary {
+  display: flex;
+  gap: 16px;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.fa-hero-payments-insight-on__secondary .fa-hero-module-compact {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Add FA insight card (Figma 1451:146742) — 324×326px, 16px radius, Background/Offset #F4F7FA, overflow-clip */
+.fa-insight-card--add-fa {
+  width: 324px;
+  height: 326px;
+  min-height: 326px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--fa-bg-offset, #F4F7FA);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.28s ease-out;
+}
+
+.fa-insight-card--add-fa .fa-insight-card__dismiss {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+}
+
+.fa-insight-card--add-fa .fa-insight-card__close {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.fa-insight-card-add-fa__gradient {
+  position: absolute;
+  left: -52px;
+  top: 40px;
+  width: 386px;
+  height: 644px;
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(103, 93, 255, 0.12), transparent 55%);
+  transform: rotate(-90deg) scaleY(-1);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.fa-insight-card-add-fa__headline {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+  margin: 0 0 4px;
+  position: relative;
+  z-index: 1;
+  max-width: 233px;
+}
+
+.fa-insight-card-add-fa__description {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #596171;
+  margin: 0 0 24px;
+  position: relative;
+  z-index: 1;
+  max-width: 278px;
+}
+
+.fa-insight-card-add-fa__card-visual {
+  position: absolute;
+  left: 60px;
+  top: 182px;
+  width: 204px;
+  height: 126px;
+  background: #EFECFC;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(48, 49, 61, 0.08), 0 5px 15px rgba(0, 0, 0, 0.12);
+  z-index: 1;
+}
+
+.fa-insight-card-add-fa__card-chip {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  width: 24px;
+  height: 18px;
+  background: #D4DEE9;
+  border-radius: 4px;
+}
+
+.fa-insight-card-add-fa__card-logo {
+  position: absolute;
+  bottom: 13px;
+  right: 15px;
+  width: 36px;
+  height: 28px;
+  background: #BAC8DA;
+  border-radius: 50%;
+}
+
+.fa-insight-card-add-fa__cta {
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.fa-insight-card-add-fa__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background: var(--fa-brand, #675DFF);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.fa-insight-card-add-fa__btn:hover {
+  background: #533AFD;
+  color: #FFFFFF;
+}

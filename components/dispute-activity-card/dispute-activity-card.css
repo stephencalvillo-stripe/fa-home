@@ -1,0 +1,115 @@
+/**
+ * Dispute activity card — Payments only overview (Figma 1451:143192, 1451:145488)
+ * Title + info, 37% + +1.2% (red), line chart Dec 1–Dec 7, 0–40%.
+ */
+.fa-dispute-activity-card {
+  background: #FFFFFF;
+  border: 1px solid #ECF1F6;
+  border-radius: 6px;
+  padding: 16px 15px 8px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 0;
+}
+
+.fa-dispute-activity-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.fa-dispute-activity-title {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+  white-space: nowrap;
+}
+
+.fa-dispute-activity-header .fa-icon-sail {
+  flex-shrink: 0;
+  color: #667691;
+}
+
+.fa-dispute-activity-metric {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.fa-dispute-activity-value {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0.3px;
+  color: #1A2C44;
+  font-variant-numeric: lining-nums proportional-nums;
+}
+
+.fa-dispute-activity-delta {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: -0.024px;
+  color: #C0123C;
+}
+
+.fa-dispute-activity-chart {
+  flex: 1 1 0;
+  min-height: 0;
+  position: relative;
+  padding-top: 8px;
+  padding-bottom: 32px;
+  padding-right: 52px;
+}
+
+.fa-dispute-activity-chart-svg {
+  width: 100%;
+  height: 100%;
+  min-height: 140px;
+  display: block;
+}
+
+.fa-dispute-activity-line--current {
+  stroke: var(--fa-brand, #675DFF);
+}
+
+.fa-dispute-activity-line--previous {
+  stroke: #BAC8DA;
+}
+
+.fa-dispute-activity-chart-y {
+  position: absolute;
+  top: 8px;
+  right: 0;
+  width: 52px;
+  height: calc(100% - 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 10.77px;
+  line-height: 10.8px;
+  color: #99A5B8;
+  pointer-events: none;
+}
+
+.fa-dispute-activity-chart-x {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 52px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.77px;
+  line-height: 10.8px;
+  color: #6C7688;
+  pointer-events: none;
+}

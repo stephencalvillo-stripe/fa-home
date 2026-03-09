@@ -1,12 +1,21 @@
 /**
- * Insight card toggle — floating lower-left (Figma 1246-29898)
- * Position: fixed, 16px from left and bottom; above all content.
+ * Wrapper for State toggle + Insight card toggle — fixed lower-left, 16px gap between them.
  */
-.fa-insight-card-toggle {
+.fa-floating-toggles {
   position: fixed;
   left: 16px;
   bottom: 16px;
   z-index: 300;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/**
+ * Insight card toggle — floating lower-left (Figma 1246-29898)
+ * Positioned by .fa-floating-toggles (no longer fixed on its own).
+ */
+.fa-insight-card-toggle {
   background: #FFFFFF;
   border: 1px solid #D4DEE9;
   border-radius: 60px;

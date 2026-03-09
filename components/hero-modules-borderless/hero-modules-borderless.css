@@ -1,0 +1,84 @@
+/**
+ * FA Borderless — hero modules (Figma 1295:123679)
+ * Left: Total balance (flex 1, with chart Dec 1–Dec 31). Right: 324px column — Money in, Money out, Lifetime yield earned.
+ */
+
+.fa-hero-state-borderless {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: opacity 0.28s ease-out, visibility 0.28s ease-out;
+}
+
+body[data-dashboard-state="fa-borderless"] .fa-hero-state-fa {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+body[data-dashboard-state="fa-borderless"] .fa-hero-state-borderless {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  position: relative;
+}
+
+/* Hero-modules container: flex gap 16px items-start pb 16px (Figma 1295:123679) */
+.fa-hero-modules-borderless {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+  padding-bottom: 16px;
+}
+
+/* Left: Balances module — flex 1, stretches to match right column height */
+.fa-hero-modules-borderless > .fa-balance-module--borderless {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 272px; /* 80+16+80+16+80 */
+  height: auto;
+  align-self: stretch;
+}
+
+/* Right column: 324px, flex col gap 16 justify-center (Figma 1295:123684) */
+.fa-hero-modules-borderless__col {
+  width: 324px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+
+.fa-hero-modules-borderless__col .fa-money-in-module,
+.fa-hero-modules-borderless__col .fa-money-out-module {
+  height: 80px;
+  min-height: 80px;
+}
+
+.fa-hero-modules-borderless__col .fa-lifetime-yield-card {
+  height: 80px;
+  min-height: 80px;
+}
+
+/* Balance module borderless: chart area grows (flex 1), timerange Dec 1 / Dec 31 */
+.fa-balance-module--borderless .fa-balance-chart {
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+.fa-balance-module--borderless .fa-balance-timerange {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #667691;
+}

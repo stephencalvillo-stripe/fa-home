@@ -1,0 +1,244 @@
+/**
+ * Payments only — hero modules (Figma 1451:143187)
+ * Layout: Gross volume (flex 1) + column (324px) with Balances and Debits cards.
+ * Shown when data-dashboard-state="payments-only"; FA enabled view uses .fa-hero-state-fa.
+ */
+
+/* Fade transitions when switching dashboard state or insight */
+.fa-hero-state-fa,
+.fa-hero-state-payments,
+.fa-home-actions-default,
+.fa-home-actions--payments,
+.fa-home-actions--borderless,
+.fa-overview-grid--default,
+.fa-overview-grid--payments {
+  transition: opacity 0.28s ease-out, visibility 0.28s ease-out;
+}
+
+/* Toggle hero view by dashboard state — position:absolute when hidden so opacity transition runs */
+.fa-hero-state-payments {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.fa-hero-state-fa {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+body[data-dashboard-state="payments-only"] .fa-hero-state-fa {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+body[data-dashboard-state="payments-only"] .fa-hero-state-payments {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  position: relative;
+}
+
+/* Payments only: show Payments home actions, hide default (Figma 1451:145130) */
+.fa-home-actions--payments,
+.fa-home-actions--borderless {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+body[data-dashboard-state="payments-only"] .fa-home-actions-default,
+body[data-dashboard-state="payments-only"] #fa-home-actions-default {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+body[data-dashboard-state="payments-only"] .fa-home-actions--payments {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* FA Borderless: show Send, Request, Transfer only (Figma 1453:19992) */
+body[data-dashboard-state="fa-borderless"] .fa-home-actions-default,
+body[data-dashboard-state="fa-borderless"] #fa-home-actions-default {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+body[data-dashboard-state="fa-borderless"] .fa-home-actions--borderless {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Payments only: overview — show Payments | Failed payments | Dispute activity, hide Spending limits grid */
+.fa-overview-grid--payments {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+body[data-dashboard-state="payments-only"] .fa-overview-grid--default {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+body[data-dashboard-state="payments-only"] .fa-overview-grid--payments {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+.fa-hero-modules-payments {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+  padding-bottom: 16px;
+}
+
+/* Gross volume in payments-only: 230px height, takes remaining space */
+.fa-gross-module--payments-hero {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 230px;
+  min-height: 230px;
+}
+
+/* Right column: 324px, two stacked compact cards — top-aligned with Gross volume */
+.fa-hero-modules-payments__col {
+  width: 324px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+/**
+ * Compact hero module — Balances / Debits (Figma 1451:143190, 1451:143191)
+ * White card, 8px radius, 16px padding, label + value + arrow.
+ */
+.fa-hero-module-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  background: #FFFFFF;
+  border: 1px solid #ECF1F6;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.fa-hero-module-compact:hover {
+  border-color: #D4DEE9;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 5px rgba(48, 49, 61, 0.08);
+}
+
+.fa-hero-module-compact:hover .fa-hero-module-compact__arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fa-hero-module-compact__header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.fa-hero-module-compact__label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+  white-space: nowrap;
+}
+
+.fa-hero-module-compact__meta {
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+  text-align: right;
+}
+
+.fa-hero-module-compact__info {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.fa-hero-module-compact__info-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #667691;
+  cursor: pointer;
+}
+
+.fa-hero-module-compact__value-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 6px;
+  flex-shrink: 0;
+}
+
+.fa-hero-module-compact__value {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.31px;
+  color: #1A2C44;
+  font-variant-numeric: lining-nums proportional-nums;
+}
+
+.fa-hero-module-compact__arrow {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #667691;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 200ms ease, transform 200ms ease, color 200ms ease;
+}
+
+.fa-hero-module-compact:hover .fa-hero-module-compact__arrow {
+  color: #533AFD;
+}
+
+/* Balances / Debits cards: 80px height per Figma (1451:146815, 1451:146816) */
+.fa-hero-module-compact--balances,
+.fa-hero-module-compact--debits {
+  height: 80px;
+  min-height: 80px;
+}
+
+/* Debits: no bars, just label + meta + value */
+.fa-hero-module-compact--debits .fa-hero-module-compact__header {
+  justify-content: space-between;
+}

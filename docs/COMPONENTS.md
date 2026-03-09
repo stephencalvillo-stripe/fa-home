@@ -42,13 +42,34 @@ Where each UI piece lives and how it behaves. Use this when editing or rebuildin
 ### Insight card (conditional)
 - **Path:** `components/insight-card/insight-card.css`
 - **Classes:** `.fa-insight-card`, `.fa-insight-card__body`, `.fa-insight-card__title`, `.fa-insight-card__close`, `.fa-insight-card__view-more`
-- **Behavior:** Shown when Insight toggle is on; 324px wide, Brand/25 background, “Insight card” title, description, “Learn more” link, dismiss (X). Slide+fade animation when toggled on.
+- **Behavior:** In default hero row when Insight toggle is on (Balance + Gross + this card). 324px wide, Brand/25 background, “Insight card” title, description, “Learn more” link, dismiss (X). Slide+fade animation.
 - **Figma:** 1237-10212
+
+### Hero when insight ON — Payments only (1451:145651)
+- **Path:** `components/hero-insight-on/hero-insight-on.css`
+- **Behavior:** When State is **Payments only** and Insight toggle is **on**, the hero-modules section switches to: left 680px (Gross volume 230px + row of Balances and Debits compact cards), right 324px **Add FA** card. Add FA card: offset bg, 16px radius, “Get a card and spend directly from your balance”, “Store, send, and spend in multiple currencies”, card visual, “Get started” button, dismiss. Fade transition (0.28s). **FA enabled** with insight ON keeps the default hero (Balance + Gross + insight card in row, four cards below).
+- **Figma:** 1451:145651
+
+### Hero modules — Payments only (1451:143187)
+- **Path:** `components/hero-modules-payments/hero-modules-payments.css`
+- **Classes:** `.fa-hero-state-payments`, `.fa-hero-modules-payments`, `.fa-hero-modules-payments__col`, `.fa-gross-module--payments-hero`, `.fa-hero-module-compact`, `.fa-hero-module-compact--balances`, `.fa-hero-module-compact--debits`
+- **Behavior:** Shown when State toggle is “Payments only”. One row: Gross volume (flex 1, 230px height) + 324px column with two compact cards — **Balances** ($72,450.32, link to balances.html) and **Debits** (“Debited Nov 25, 2024”, $42,000.00). FA enabled / FA Borderless show `.fa-hero-state-fa` (primary hero + four cards) instead.
+- **Figma:** 1451:143187
+
+### State toggle
+- **Path:** `components/state-toggle/state-toggle.css`
+- **Classes:** `.fa-state-toggle`, `.fa-state-toggle__track`, `.fa-state-toggle__option`
+- **Behavior:** Three-state segmented control (Payments only | FA enabled | FA Borderless). Sits to the left of the insight card toggle with 16px gap. Sets `data-dashboard-state` on `body` (`payments-only`, `fa-enabled`, `fa-borderless`) for future view switching; each state can later control insight card on/off independently.
+- **Figma:** 1451:144211
+
+### Floating toggles wrapper
+- **Class:** `.fa-floating-toggles` (in `insight-card-toggle.css`)
+- **Behavior:** Fixed lower-left (16px inset), flex row with 16px gap; contains State toggle then Insight card toggle.
 
 ### Insight card toggle
 - **Path:** `components/insight-card-toggle/insight-card-toggle.css`
 - **Classes:** `.fa-insight-card-toggle`, `.fa-insight-card-toggle__track`, `.fa-insight-card-toggle__thumb`, `.fa-insight-card-toggle__label`
-- **Behavior:** Fixed lower-left (16px inset). Pill switch + “Insight card” label. Toggle on adds `.fa-primary-hero--insight-visible` and shows insight card; off removes it. Dismiss on card also turns toggle off.
+- **Behavior:** Inside `.fa-floating-toggles`. Pill switch + “Insight card” label. Toggle on adds `.fa-primary-hero--insight-visible` and shows insight card; off removes it. Dismiss on card also turns toggle off.
 - **Figma:** 1246-29898
 
 ---
@@ -83,6 +104,15 @@ Shared: hover border + shadow; arrow 4px slide on hover; info (row 1) and arrow 
 - **Classes:** `.fa-payments-card`, `.fa-payments-header`, `.fa-payments-content`, `.fa-payments-bar`, `.fa-payments-legend`, `.fa-payments-legend-row`, `.fa-payments-legend-chip`, `.fa-payments-view-more`
 - **Behavior:** Title + info; 16px meter bar (1px gap, 5 segments: Succeeded, Uncaptured, Refunded, Blocked, Failed); legend rows with chip + label + value; “View more” footer.
 - **Figma:** 1237-9615
+
+### Overview — Payments only (1451:143192)
+- When State toggle is **Payments only**, the overview grid shows three cards: **Payments**, **Failed payments**, **Dispute activity** (no Spending limits). Toggled via `.fa-overview-grid--default` / `.fa-overview-grid--payments` in `hero-modules-payments.css`.
+
+### Dispute activity card (Payments only)
+- **Path:** `components/dispute-activity-card/dispute-activity-card.css`
+- **Classes:** `.fa-dispute-activity-card`, `.fa-dispute-activity-header`, `.fa-dispute-activity-title`, `.fa-dispute-activity-metric`, `.fa-dispute-activity-value`, `.fa-dispute-activity-delta`, `.fa-dispute-activity-chart`
+- **Behavior:** Title “Dispute activity” + info icon; metric “37%” + “+1.2%” (red); line chart (Dec 1–Dec 7, 0–40%), purple current period line, dashed grey previous period. Same 350px height as other overview cards.
+- **Figma:** 1451:145488 (within 1451:143192)
 
 ### Failed payments card
 - **Path:** `components/failed-payments-card/failed-payments-card.css`, `failed-payments-card.html`

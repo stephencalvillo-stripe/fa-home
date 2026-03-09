@@ -17,7 +17,7 @@ Reference for how the dashboard is structured and how to extend it.
 │           ├── .fa-cards-4           # Four hero modules (Money in/out, etc.)
 │           └── .fa-overview          # Overview header + .fa-overview-data
 │               └── .fa-overview-grid # Spending limits | Payments | Failed payments
-└── .fa-insight-card-toggle # Fixed lower-left (floating toggle)
+└── .fa-floating-toggles   # Fixed lower-left; contains State toggle + Insight card toggle (16px gap)
 ```
 
 ## Key layout classes

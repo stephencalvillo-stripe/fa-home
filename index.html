@@ -39,6 +39,11 @@
   <link rel="stylesheet" href="components/spending-limits-card/spending-limits-card.css" />
   <link rel="stylesheet" href="components/payments-card/payments-card.css" />
   <link rel="stylesheet" href="components/failed-payments-card/failed-payments-card.css" />
+  <link rel="stylesheet" href="components/state-toggle/state-toggle.css" />
+  <link rel="stylesheet" href="components/hero-modules-payments/hero-modules-payments.css" />
+  <link rel="stylesheet" href="components/hero-modules-borderless/hero-modules-borderless.css" />
+  <link rel="stylesheet" href="components/hero-insight-on/hero-insight-on.css" />
+  <link rel="stylesheet" href="components/dispute-activity-card/dispute-activity-card.css" />
   <link rel="stylesheet" href="components/insight-card-toggle/insight-card-toggle.css" />
   <link rel="stylesheet" href="components/insight-card/insight-card.css" />
 </head>
@@ -77,6 +82,8 @@
     <symbol id="person" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
     <symbol id="product" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
     <symbol id="arrowUpRight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></symbol>
+    <symbol id="send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></symbol>
+    <symbol id="convert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17V7m0 10h10V7M7 7h10"/></symbol>
   </svg>
   <!-- Left Nav (Figma 1149:85857) — component: fa-home/components/nav/ -->
   <aside class="fa-nav">
@@ -171,19 +178,35 @@
     <div class="fa-content">
     <section class="fa-welcome">
       <h1 class="fa-welcome-title">Today</h1>
-      <div class="fa-home-actions">
+      <!-- FA enabled / FA Borderless: full action set -->
+      <div class="fa-home-actions fa-home-actions-default" id="fa-home-actions-default">
         <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#lightningBolt"/></svg> Instant payout</button>
-        <button type="button" class="fa-action-btn"> <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#transfer"/></svg> Move money <svg class="fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg> </button>
+        <button type="button" class="fa-action-btn"> <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11.2603 8.20041C10.9568 7.91856 10.4823 7.93613 10.2004 8.23967C9.91856 8.5432 9.93613 9.01775 10.2397 9.2996L12.3401 11.25H1.75C1.33579 11.25 1 11.5858 1 12C1 12.4142 1.33579 12.75 1.75 12.75H12.3401L10.2397 14.7004C9.93613 14.9823 9.91856 15.4568 10.2004 15.7603C10.3474 15.9187 10.5468 15.9992 10.7471 16C10.9307 16.0008 11.1151 15.9344 11.2603 15.7996L14.7603 12.5496C14.9132 12.4077 15 12.2086 15 12C15 11.7915 14.9132 11.5923 14.7603 11.4504L11.2603 8.20041Z" fill="currentColor"/><path d="M5.76034 1.2996C6.06387 1.01775 6.08145 0.543198 5.79959 0.239665C5.65285 0.0816272 5.45386 0.0011089 5.25397 1.13746e-05C5.06995 -0.00099905 4.88516 0.0653053 4.73966 0.200408L1.24191 3.44832C1.09317 3.58538 1 3.78181 1 4C1 4.21759 1.09266 4.41354 1.24068 4.55054L4.73966 7.7996C5.04319 8.08145 5.51774 8.06387 5.7996 7.76034C6.08145 7.45681 6.06387 6.98226 5.76034 6.70041L3.6599 4.75H14.25C14.6642 4.75 15 4.41421 15 4C15 3.58579 14.6642 3.25 14.25 3.25H3.65991L5.76034 1.2996Z" fill="currentColor"/></svg> Move money <svg class="fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg> </button>
         <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#link"/></svg> Payment link</button>
         <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#payment"/></svg> Payment</button>
         <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#invoice"/></svg> Invoice</button>
         <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#calendar"/></svg> Subscription</button>
         <button type="button" class="fa-action-btn fa-action-btn--icon-only" aria-label="More actions"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#more"/></svg></button>
       </div>
+      <!-- Payments only: Payout, Payment link, Payment, Invoice, Subscription (Figma 1451:145130) -->
+      <div class="fa-home-actions fa-home-actions--payments" id="fa-home-actions-payments" aria-hidden="true">
+        <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="15" viewBox="0 0 16 15" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 3.95H7.75C8.16421 3.95 8.5 3.61421 8.5 3.2C8.5 2.78578 8.16421 2.45 7.75 2.45H3.75C3.05964 2.45 2.5 3.00964 2.5 3.7V10.7C2.5 11.3904 3.05964 11.95 3.75 11.95H14.25C14.9404 11.95 15.5 11.3904 15.5 10.7V7.7C15.5 7.28578 15.1642 6.95 14.75 6.95C14.3358 6.95 14 7.28578 14 7.7V10.45H4V3.95Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8.25 6.7V7.7C8.25 8.11421 8.58579 8.45 9 8.45C9.41421 8.45 9.75 8.11421 9.75 7.7V6.7C9.75 6.28578 9.41421 5.95 9 5.95C8.58579 5.95 8.25 6.28578 8.25 6.7ZM7 6.7V7.7C7 8.80457 7.89543 9.7 9 9.7C10.1046 9.7 11 8.80457 11 7.7V6.7C11 5.59543 10.1046 4.7 9 4.7C7.89543 4.7 7 5.59543 7 6.7Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M0.75 4.95C1.16421 4.95 1.5 5.28578 1.5 5.7V12.2C1.5 12.6142 1.83579 12.95 2.25 12.95H12.25C12.6642 12.95 13 13.2858 13 13.7C13 14.1142 12.6642 14.45 12.25 14.45H2.25C1.00736 14.45 0 13.4426 0 12.2V5.7C0 5.28578 0.335786 4.95 0.75 4.95Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11.255 4.19502C10.9816 3.92165 10.9816 3.47844 11.255 3.20507L13.0601 1.40003L11.2499 1.4C10.8633 1.39999 10.5499 1.08659 10.5499 0.699988C10.5499 0.313388 10.8633 -6.7108e-06 11.2499 1.07775e-10L14.7501 6.1408e-05C14.9357 6.49327e-05 15.1138 0.0738192 15.245 0.2051C15.3763 0.33638 15.4501 0.514432 15.4501 0.700086L15.4499 4.20009C15.4499 4.58668 15.1365 4.90007 14.7499 4.90006C14.3633 4.90005 14.0499 4.58664 14.0499 4.20004L14.05 2.39002L12.2449 4.19504C11.9715 4.46841 11.5283 4.4684 11.255 4.19502Z" fill="currentColor"/></svg> Payout</button>
+        <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#link"/></svg> Payment link</button>
+        <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#payment"/></svg> Payment</button>
+        <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#invoice"/></svg> Invoice</button>
+        <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#calendar"/></svg> Subscription</button>
+      </div>
+      <!-- FA Borderless: Send, Request, Transfer (Figma 1453:19992) — pill buttons, Background/Offset, 8px gap -->
+      <div class="fa-home-actions fa-home-actions--borderless" id="fa-home-actions-borderless" aria-hidden="true">
+        <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#send"/></svg> Send</button>
+        <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#invoice"/></svg> Request</button>
+        <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none" aria-hidden="true"><path d="M10.2603 8.20041C9.95681 7.91856 9.48226 7.93613 9.20041 8.23967C8.91856 8.5432 8.93613 9.01775 9.23967 9.2996L11.3401 11.25H0.75C0.335786 11.25 0 11.5858 0 12C0 12.4142 0.335786 12.75 0.75 12.75H11.3401L9.23967 14.7004C8.93613 14.9823 8.91856 15.4568 9.20041 15.7603C9.34741 15.9187 9.54683 15.9992 9.74707 16C9.93075 16.0008 10.1151 15.9344 10.2603 15.7996L13.7603 12.5496C13.9132 12.4077 14 12.2086 14 12C14 11.7915 13.9132 11.5923 13.7603 11.4504L10.2603 8.20041Z" fill="#3C4F69"/><path d="M4.76034 1.2996C5.06387 1.01775 5.08145 0.543198 4.79959 0.239665C4.65285 0.0816272 4.45386 0.0011089 4.25397 1.13746e-05C4.06995 -0.00099905 3.88516 0.0653053 3.73966 0.200408L0.241905 3.44832C0.0931743 3.58538 0 3.78181 0 4C0 4.21759 0.0926619 4.41354 0.240678 4.55054L3.73966 7.7996C4.04319 8.08145 4.51774 8.06387 4.7996 7.76034C5.08145 7.45681 5.06387 6.98226 4.76034 6.70041L2.6599 4.75H13.25C13.6642 4.75 14 4.41421 14 4C14 3.58579 13.6642 3.25 13.25 3.25H2.65991L4.76034 1.2996Z" fill="#3C4F69"/></svg> Transfer</button>
+      </div>
     </section>
 
     <div class="fa-main">
-      <!-- Primary hero: balance + gross; when insight toggle on, insight card animates in (Figma 1237-9593) -->
+      <!-- FA enabled / FA Borderless: Balance + Gross (+ insight in row when on) and four cards -->
+      <div class="fa-hero-state-fa" id="fa-hero-state-fa">
       <div class="fa-primary-hero" id="fa-primary-hero">
       <!-- Total balance module (Figma 1149:85903) -->
       <div class="fa-balance-module">
@@ -380,6 +403,275 @@
           </div>
         </div>
       </div>
+      </div>
+      <!-- end .fa-hero-state-fa -->
+
+      <!-- FA Borderless: Total balance (left) + Money in / Money out / Lifetime yield (right 324px) — Figma 1295:123679 -->
+      <div class="fa-hero-state-borderless" id="fa-hero-state-borderless" aria-hidden="true">
+        <div class="fa-hero-modules-borderless">
+          <div class="fa-balance-module fa-balance-module--borderless">
+            <div class="fa-balance-heading">
+              <div class="fa-balance-main">
+                <div class="fa-balance-dropdowns">
+                  <div class="fa-balance-dropdown-wrap">
+                    <button type="button" class="fa-balance-dropdown fa-balance-dropdown--balance" aria-expanded="false" aria-haspopup="true">
+                      <span class="fa-balance-dropdown-label">Total balance</span>
+                      <svg class="fa-balance-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                    </button>
+                  </div>
+                  <div class="fa-balance-dropdown-wrap">
+                    <button type="button" class="fa-balance-dropdown fa-balance-dropdown--time" aria-expanded="false" aria-haspopup="true">
+                      <span class="fa-balance-dropdown-label fa-balance-dropdown-label--regular">Last 30 days</span>
+                      <svg class="fa-balance-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <p class="fa-balance-value">$72,450.32</p>
+                <div class="fa-balance-breakdown">
+                  <span>$29,038.81 USD</span>
+                  <span>€28,320.50 EUR</span>
+                  <span>£9,850.12 GBP</span>
+                  <span>+2 more</span>
+                </div>
+              </div>
+              <a href="balances.html" class="fa-balance-action" aria-label="Go to Balances">
+                <svg class="fa-icon-sail" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><use href="#arrowRight"/></svg>
+              </a>
+            </div>
+            <div class="fa-balance-chart">
+              <div class="fa-balance-chart-inner fa-balance-chart-inner--flip">
+                <img alt="" src="https://www.figma.com/api/mcp/asset/f0ab65e3-7933-4ee0-bd98-486e9c0a564d" class="fa-balance-line" style="width:100%; height:100%; display:block; object-fit:cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                <svg class="fa-balance-line" style="display:none; width:100%; height:100%;" viewBox="0 0 470 162" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                  <path d="M0 120 Q47 100 94 110 T188 85 T282 55 T376 45 T470 20" stroke="#9966FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+                </svg>
+              </div>
+              <div class="fa-balance-timerange">
+                <span>Dec 1</span>
+                <span>Dec 31</span>
+              </div>
+            </div>
+          </div>
+          <div class="fa-hero-modules-borderless__col">
+            <div class="fa-money-in-module">
+              <div class="fa-money-in-header">
+                <span class="fa-money-in-label">Money in</span>
+                <div class="fa-money-in-period-wrap">
+                  <span class="fa-money-in-period">this month</span>
+                  <svg class="fa-money-in-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                </div>
+                <span class="fa-tooltip-wrap fa-hero-module-icon-slot">
+                  <span class="fa-money-in-info" role="button" aria-label="More information">
+                    <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#info"/></svg>
+                  </span>
+                  <span class="fa-tooltip" role="tooltip">All money received</span>
+                </span>
+              </div>
+              <div class="fa-money-in-value-row">
+                <p class="fa-money-in-value">$180,000.00</p>
+                <span class="fa-money-in-arrow fa-hero-module-arrow fa-hero-module-icon-slot" aria-hidden="true">
+                  <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="fa-money-out-module">
+              <div class="fa-money-out-header">
+                <span class="fa-money-out-label">Money out</span>
+                <div class="fa-money-out-period-wrap">
+                  <span class="fa-money-out-period">this month</span>
+                  <svg class="fa-money-out-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                </div>
+                <span class="fa-tooltip-wrap fa-hero-module-icon-slot">
+                  <span class="fa-money-out-info" role="button" aria-label="More information">
+                    <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#info"/></svg>
+                  </span>
+                  <span class="fa-tooltip" role="tooltip">Fees, payouts, refunds</span>
+                </span>
+              </div>
+              <div class="fa-money-out-value-row">
+                <p class="fa-money-out-value">$107,549.68</p>
+                <span class="fa-money-out-arrow fa-hero-module-arrow fa-hero-module-icon-slot" aria-hidden="true">
+                  <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="fa-card fa-card-sm fa-hero-module fa-lifetime-yield-card">
+              <div class="fa-card-title-row"><span class="fa-card-title">Lifetime yield earned</span></div>
+              <div class="fa-hero-module-value-row">
+                <div class="fa-card-value fa-success">+57,244.32</div>
+                <span class="fa-hero-module-arrow-wrap" aria-hidden="true">
+                  <span class="fa-hero-module-arrow"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg></span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payments only: Gross volume + Balances + Debits (Figma 1451:143187); when insight ON: add Add FA card (1451:145651) -->
+      <div class="fa-hero-state-payments" id="fa-hero-state-payments" aria-hidden="true">
+        <!-- Payments only, insight OFF: Gross + column (Balances + Debits) -->
+        <div class="fa-hero-modules-payments" id="fa-hero-modules-payments">
+          <div class="fa-gross-module fa-gross-module--payments-hero">
+            <div class="fa-gross-metrics">
+              <div class="fa-gross-metrics-inner">
+                <div class="fa-gross-block fa-gross-block--primary">
+                  <div class="fa-gross-heading">
+                    <span class="fa-gross-heading-label">Gross volume</span>
+                    <span class="fa-gross-info" aria-hidden="true"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#info"/></svg></span>
+                    <svg class="fa-gross-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                  </div>
+                  <p class="fa-gross-value">$120,000.00</p>
+                  <span class="fa-gross-meta">2:00 PM</span>
+                </div>
+                <div class="fa-gross-block fa-gross-block--yesterday">
+                  <div class="fa-gross-heading">
+                    <span class="fa-gross-heading-label fa-gross-heading-label--regular">Yesterday</span>
+                    <svg class="fa-gross-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                  </div>
+                  <p class="fa-gross-value fa-gross-value--small">$144.37</p>
+                </div>
+              </div>
+              <div class="fa-gross-action" aria-hidden="true">
+                <svg class="fa-icon-sail" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><use href="#arrowRight"/></svg>
+              </div>
+            </div>
+            <div class="fa-gross-chart">
+              <div class="fa-gross-chart-inner fa-gross-chart-inner--flip">
+                <img src="https://www.figma.com/api/mcp/asset/3f43eefe-f06a-40aa-b5d1-79fe3d4292b0" alt="" class="fa-gross-line" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                <svg class="fa-gross-line" style="display:none; width:100%; height:100%;" viewBox="0 0 470 162" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                  <path d="M0 130 Q47 110 94 100 T188 75 T282 60 T376 40 T470 25" stroke="#9966FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+                </svg>
+              </div>
+              <div class="fa-gross-timerange">
+                <span>Midnight</span>
+                <span>11:59 pm</span>
+              </div>
+            </div>
+          </div>
+          <div class="fa-hero-modules-payments__col">
+            <a href="balances.html" class="fa-hero-module-compact fa-hero-module-compact--balances" aria-label="Go to Balances">
+              <div class="fa-hero-module-compact__header">
+                <span class="fa-hero-module-compact__label">Balances</span>
+                <span class="fa-tooltip-wrap fa-hero-module-compact__info">
+                  <span class="fa-hero-module-compact__info-icon" role="button" aria-label="More information">
+                    <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#info"/></svg>
+                  </span>
+                  <span class="fa-tooltip" role="tooltip">Total balance across all balances</span>
+                </span>
+              </div>
+              <div class="fa-hero-module-compact__value-row">
+                <span class="fa-hero-module-compact__value">$72,450.32</span>
+                <span class="fa-hero-module-compact__arrow" aria-hidden="true">
+                  <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg>
+                </span>
+              </div>
+            </a>
+            <a href="#" class="fa-hero-module-compact fa-hero-module-compact--debits" aria-label="View Debits">
+              <div class="fa-hero-module-compact__header">
+                <span class="fa-hero-module-compact__label">Debits</span>
+                <span class="fa-hero-module-compact__meta">Debited Nov 25, 2024</span>
+              </div>
+              <div class="fa-hero-module-compact__value-row">
+                <span class="fa-hero-module-compact__value">$42,000.00</span>
+                <span class="fa-hero-module-compact__arrow" aria-hidden="true">
+                  <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg>
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- Payments only, insight ON: Gross + Balances + Debits | Add FA card (Figma 1451:145651) -->
+        <div class="fa-hero-payments-insight-on" id="fa-hero-payments-insight-on" aria-hidden="true">
+          <div class="fa-hero-payments-insight-on__main">
+            <div class="fa-hero-payments-insight-on__gross">
+              <div class="fa-gross-module fa-gross-module--insight-layout">
+                <div class="fa-gross-metrics">
+                  <div class="fa-gross-metrics-inner">
+                    <div class="fa-gross-block fa-gross-block--primary">
+                      <div class="fa-gross-heading">
+                        <span class="fa-gross-heading-label">Gross volume</span>
+                        <span class="fa-gross-info" aria-hidden="true"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#info"/></svg></span>
+                        <svg class="fa-gross-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                      </div>
+                      <p class="fa-gross-value">$120,000.00</p>
+                      <span class="fa-gross-meta">2:00 PM</span>
+                    </div>
+                    <div class="fa-gross-block fa-gross-block--yesterday">
+                      <div class="fa-gross-heading">
+                        <span class="fa-gross-heading-label fa-gross-heading-label--regular">Yesterday</span>
+                        <svg class="fa-gross-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                      </div>
+                      <p class="fa-gross-value fa-gross-value--small">$144.37</p>
+                    </div>
+                  </div>
+                  <div class="fa-gross-action" aria-hidden="true">
+                    <svg class="fa-icon-sail" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><use href="#arrowRight"/></svg>
+                  </div>
+                </div>
+                <div class="fa-gross-chart">
+                  <div class="fa-gross-chart-inner fa-gross-chart-inner--flip">
+                    <svg class="fa-gross-line" style="width:100%; height:100%;" viewBox="0 0 470 162" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                      <path d="M0 130 Q47 110 94 100 T188 75 T282 60 T376 40 T470 25" stroke="#9966FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+                    </svg>
+                  </div>
+                  <div class="fa-gross-timerange">
+                    <span>Midnight</span>
+                    <span>11:59 pm</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fa-hero-payments-insight-on__secondary">
+              <a href="balances.html" class="fa-hero-module-compact fa-hero-module-compact--balances" aria-label="Go to Balances">
+                <div class="fa-hero-module-compact__header">
+                  <span class="fa-hero-module-compact__label">Balances</span>
+                  <span class="fa-tooltip-wrap fa-hero-module-compact__info">
+                    <span class="fa-hero-module-compact__info-icon" role="button" aria-label="More information">
+                      <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#info"/></svg>
+                    </span>
+                    <span class="fa-tooltip" role="tooltip">Total balance across all balances</span>
+                  </span>
+                </div>
+                <div class="fa-hero-module-compact__value-row">
+                  <span class="fa-hero-module-compact__value">$72,450.32</span>
+                  <span class="fa-hero-module-compact__arrow" aria-hidden="true">
+                    <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg>
+                  </span>
+                </div>
+              </a>
+              <a href="#" class="fa-hero-module-compact fa-hero-module-compact--debits" aria-label="View Debits">
+                <div class="fa-hero-module-compact__header">
+                  <span class="fa-hero-module-compact__label">Debits</span>
+                  <span class="fa-hero-module-compact__meta">Debited Nov 25, 2024</span>
+                </div>
+                <div class="fa-hero-module-compact__value-row">
+                  <span class="fa-hero-module-compact__value">$42,000.00</span>
+                  <span class="fa-hero-module-compact__arrow" aria-hidden="true">
+                    <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg>
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="fa-insight-card fa-insight-card--add-fa" id="fa-insight-card-add-fa" aria-hidden="false">
+            <div class="fa-insight-card__dismiss">
+              <button type="button" class="fa-insight-card__close fa-insight-card-add-fa-dismiss" aria-label="Dismiss">
+                <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#cancel"/></svg>
+              </button>
+            </div>
+            <div class="fa-insight-card-add-fa__gradient" aria-hidden="true"></div>
+            <p class="fa-insight-card-add-fa__headline">Get a card and spend directly from your balance</p>
+            <p class="fa-insight-card-add-fa__description">Store, send, and spend in multiple currencies</p>
+            <div class="fa-insight-card-add-fa__card-visual" aria-hidden="true">
+              <span class="fa-insight-card-add-fa__card-chip"></span>
+              <span class="fa-insight-card-add-fa__card-logo"></span>
+            </div>
+            <div class="fa-insight-card-add-fa__cta">
+              <a href="#" class="fa-insight-card-add-fa__btn">Get started</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <section class="fa-overview">
         <div class="fa-overview-header">
@@ -395,7 +687,8 @@
         </div>
 
         <div class="fa-overview-data">
-        <div class="fa-overview-grid">
+        <!-- FA enabled / FA Borderless: Spending limits, Payments, Failed payments -->
+        <div class="fa-overview-grid fa-overview-grid--default" id="fa-overview-grid-default">
           <div class="fa-card fa-spending-limits-card">
             <div class="fa-spending-limits-header">
               <div class="fa-spending-limits-title-wrap">
@@ -572,37 +865,239 @@
             </div>
           </div>
         </div>
+        <!-- Payments only: Payments, Failed payments, Dispute activity (Figma 1451:143192) -->
+        <div class="fa-overview-grid fa-overview-grid--payments" id="fa-overview-grid-payments" aria-hidden="true">
+          <div class="fa-card fa-payments-card">
+            <div class="fa-payments-header">
+              <span class="fa-payments-title">Payments</span>
+              <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#info"/></svg>
+            </div>
+            <div class="fa-payments-content">
+              <div class="fa-payments-bar">
+                <span style="background: #9966FF; flex: 130;"></span>
+                <span style="background: #0055bc; flex: 15;"></span>
+                <span style="background: #00a1c2; flex: 10;"></span>
+                <span style="background: #e46602; flex: 5;"></span>
+                <span style="background: #B3063D; flex: 0.33;"></span>
+              </div>
+              <div class="fa-payments-legend">
+                <div class="fa-payments-legend-row">
+                  <div class="fa-payments-legend-key">
+                    <span class="fa-payments-legend-chip" style="background: #9966FF;"></span>
+                    <span class="fa-payments-legend-label">Succeeded</span>
+                  </div>
+                  <span class="fa-payments-legend-value">$130k</span>
+                </div>
+                <div class="fa-payments-legend-row">
+                  <div class="fa-payments-legend-key">
+                    <span class="fa-payments-legend-chip" style="background: #0055bc;"></span>
+                    <span class="fa-payments-legend-label">Uncaptured</span>
+                  </div>
+                  <span class="fa-payments-legend-value">$15k</span>
+                </div>
+                <div class="fa-payments-legend-row">
+                  <div class="fa-payments-legend-key">
+                    <span class="fa-payments-legend-chip" style="background: #00a1c2;"></span>
+                    <span class="fa-payments-legend-label">Refunded</span>
+                  </div>
+                  <span class="fa-payments-legend-value">$10k</span>
+                </div>
+                <div class="fa-payments-legend-row">
+                  <div class="fa-payments-legend-key">
+                    <span class="fa-payments-legend-chip" style="background: #e46602;"></span>
+                    <span class="fa-payments-legend-label">Blocked</span>
+                  </div>
+                  <span class="fa-payments-legend-value">$5k</span>
+                </div>
+                <div class="fa-payments-legend-row">
+                  <div class="fa-payments-legend-key">
+                    <span class="fa-payments-legend-chip" style="background: #B3063D;"></span>
+                    <span class="fa-payments-legend-label">Failed</span>
+                  </div>
+                  <span class="fa-payments-legend-value">$0.00</span>
+                </div>
+              </div>
+              <div class="fa-payments-footer">
+                <a href="#" class="fa-payments-view-more">View more</a>
+              </div>
+            </div>
+          </div>
+          <div class="fa-card fa-failed-payments-card">
+            <div class="fa-failed-payments-header">
+              <span class="fa-failed-payments-title">Failed payments</span>
+            </div>
+            <div class="fa-failed-payments-list-wrap">
+              <div class="fa-failed-payments-list">
+                <div class="fa-failed-payments-item">
+                  <div class="fa-failed-payments-main">
+                    <span class="fa-failed-payments-value">$10.00</span>
+                    <span class="fa-failed-payments-meta">Apr 28, 4:38 PM • pi_2N0uUW58908KAX</span>
+                  </div>
+                  <span class="fa-failed-payments-badge fa-badge fa-badge-failed">Failed</span>
+                </div>
+                <div class="fa-failed-payments-item">
+                  <div class="fa-failed-payments-main">
+                    <span class="fa-failed-payments-value">$20.00</span>
+                    <span class="fa-failed-payments-meta">Apr 25, 2:15 PM • pi_2N0uUW58908KAX</span>
+                  </div>
+                  <span class="fa-failed-payments-badge fa-badge fa-badge-failed">Failed</span>
+                </div>
+                <div class="fa-failed-payments-item">
+                  <div class="fa-failed-payments-main">
+                    <span class="fa-failed-payments-value">$25.00</span>
+                    <span class="fa-failed-payments-meta">Apr 24, 1:26 PM • pi_2N0uUW58908KAX</span>
+                  </div>
+                  <span class="fa-failed-payments-badge fa-badge fa-badge-failed">Failed</span>
+                </div>
+                <div class="fa-failed-payments-item">
+                  <div class="fa-failed-payments-main">
+                    <span class="fa-failed-payments-value">$100.00</span>
+                    <span class="fa-failed-payments-meta">Apr 24, 12:50 PM • pi_2N0uUW58908KAX</span>
+                  </div>
+                  <span class="fa-failed-payments-badge fa-badge fa-badge-canceled">Canceled</span>
+                </div>
+              </div>
+              <div class="fa-failed-payments-footer">
+                <a href="#" class="fa-failed-payments-view-more">View more</a>
+              </div>
+            </div>
+          </div>
+          <div class="fa-card fa-dispute-activity-card">
+            <div class="fa-dispute-activity-header">
+              <span class="fa-dispute-activity-title">Dispute activity</span>
+              <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#info"/></svg>
+            </div>
+            <div class="fa-dispute-activity-metric">
+              <span class="fa-dispute-activity-value">37%</span>
+              <span class="fa-dispute-activity-delta">+1.2%</span>
+            </div>
+            <div class="fa-dispute-activity-chart">
+              <svg class="fa-dispute-activity-chart-svg" viewBox="0 0 240 160" fill="none" preserveAspectRatio="none" aria-hidden="true">
+                <path class="fa-dispute-activity-line fa-dispute-activity-line--current" d="M 0 120 Q 40 80 80 60 T 160 50 T 240 70" stroke="#675DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" fill="none"/>
+                <path class="fa-dispute-activity-line fa-dispute-activity-line--previous" d="M 0 140 L 240 138" stroke="#BAC8DA" stroke-width="1.5" stroke-dasharray="4 4" stroke-linecap="round" vector-effect="non-scaling-stroke" fill="none"/>
+              </svg>
+              <div class="fa-dispute-activity-chart-y">
+                <span>40%</span><span>30%</span><span>20%</span><span>10%</span><span>0%</span>
+              </div>
+              <div class="fa-dispute-activity-chart-x">
+                <span>Dec 1</span>
+                <span>Dec 7</span>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
       </section>
     </div>
     </div>
   </main>
-  <!-- Insight card toggle — floating lower-left (Figma 1246-29898) -->
-  <div class="fa-insight-card-toggle" id="fa-insight-card-toggle">
-    <button type="button" role="switch" aria-checked="false" aria-label="Insight card">
-      <span class="fa-insight-card-toggle__track">
-        <span class="fa-insight-card-toggle__thumb"></span>
-      </span>
-      <span class="fa-insight-card-toggle__label">Insight card</span>
-    </button>
+  <!-- Floating toggles: State (dashboard view) + Insight card (Figma 1451:144211, 1246-29898) -->
+  <div class="fa-floating-toggles">
+    <div class="fa-state-toggle" id="fa-state-toggle" role="tablist" aria-label="Dashboard state">
+      <div class="fa-state-toggle__track">
+        <button type="button" class="fa-state-toggle__option" role="tab" aria-selected="false" data-state="payments-only">Payments only</button>
+        <button type="button" class="fa-state-toggle__option" role="tab" aria-selected="true" data-state="fa-enabled">FA enabled</button>
+        <button type="button" class="fa-state-toggle__option" role="tab" aria-selected="false" data-state="fa-borderless">FA Borderless</button>
+      </div>
+    </div>
+    <div class="fa-insight-card-toggle" id="fa-insight-card-toggle">
+      <button type="button" role="switch" aria-checked="false" aria-label="Insight card">
+        <span class="fa-insight-card-toggle__track">
+          <span class="fa-insight-card-toggle__thumb"></span>
+        </span>
+        <span class="fa-insight-card-toggle__label">Insight card</span>
+      </button>
+    </div>
   </div>
   <script src="components/balance-module/balance-module.js"></script>
   <script>
     (function () {
+      // State toggle — sets dashboard view state (payments-only | fa-enabled | fa-borderless)
+      var stateToggle = document.getElementById('fa-state-toggle');
+      var stateOptions = stateToggle && stateToggle.querySelectorAll('.fa-state-toggle__option');
+      var page = document.body;
+
+      var heroStateFa = document.getElementById('fa-hero-state-fa');
+      var heroStatePayments = document.getElementById('fa-hero-state-payments');
+      var heroStateBorderless = document.getElementById('fa-hero-state-borderless');
       var toggleWrap = document.getElementById('fa-insight-card-toggle');
       var toggleBtn = toggleWrap && toggleWrap.querySelector('button[role="switch"]');
+      var heroModulesPayments = document.getElementById('fa-hero-modules-payments');
+      var heroPaymentsInsightOn = document.getElementById('fa-hero-payments-insight-on');
+
+      function setDashboardState(state) {
+        if (!page) return;
+        page.setAttribute('data-dashboard-state', state);
+        if (stateOptions) {
+          stateOptions.forEach(function (btn) {
+            var isSelected = (btn.getAttribute('data-state') === state);
+            btn.setAttribute('aria-selected', isSelected);
+          });
+        }
+        var isPaymentsOnly = (state === 'payments-only');
+        if (isPaymentsOnly) {
+          if (heroStatePayments) heroStatePayments.classList.remove('fa-hero-state-payments--insight-on');
+          if (toggleBtn) { toggleBtn.setAttribute('aria-checked', 'false'); if (toggleWrap) toggleWrap.classList.remove('fa-insight-card-toggle--on'); }
+          if (heroModulesPayments) heroModulesPayments.setAttribute('aria-hidden', 'false');
+          if (heroPaymentsInsightOn) heroPaymentsInsightOn.setAttribute('aria-hidden', 'true');
+        }
+        var isFaEnabled = (state === 'fa-enabled');
+        var isFaBorderless = (state === 'fa-borderless');
+        if (heroStateFa) heroStateFa.setAttribute('aria-hidden', !isFaEnabled);
+        if (heroStatePayments) heroStatePayments.setAttribute('aria-hidden', !isPaymentsOnly);
+        if (heroStateBorderless) heroStateBorderless.setAttribute('aria-hidden', !isFaBorderless);
+        var actionsDefault = document.getElementById('fa-home-actions-default');
+        var actionsPayments = document.getElementById('fa-home-actions-payments');
+        var actionsBorderless = document.getElementById('fa-home-actions-borderless');
+        if (actionsDefault) actionsDefault.setAttribute('aria-hidden', isPaymentsOnly || isFaBorderless);
+        if (actionsPayments) actionsPayments.setAttribute('aria-hidden', !isPaymentsOnly);
+        if (actionsBorderless) actionsBorderless.setAttribute('aria-hidden', !isFaBorderless);
+        var overviewGridDefault = document.getElementById('fa-overview-grid-default');
+        var overviewGridPayments = document.getElementById('fa-overview-grid-payments');
+        if (overviewGridDefault) overviewGridDefault.setAttribute('aria-hidden', isPaymentsOnly);
+        if (overviewGridPayments) overviewGridPayments.setAttribute('aria-hidden', !isPaymentsOnly);
+      }
+
+      if (stateOptions && stateOptions.length) {
+        stateOptions.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var state = btn.getAttribute('data-state');
+            if (state) setDashboardState(state);
+          });
+        });
+        // Initialize from current selected tab (default: FA enabled)
+        var selected = stateToggle.querySelector('.fa-state-toggle__option[aria-selected="true"]');
+        if (selected) setDashboardState(selected.getAttribute('data-state'));
+      }
+
+      // Insight card toggle — FA enabled: insight in primary hero row; Payments only: Gross+Balances+Debits | Add FA card (1451:145651)
       var primaryHero = document.getElementById('fa-primary-hero');
       var insightCard = document.getElementById('fa-insight-card');
       var insightClose = insightCard && insightCard.querySelector('.fa-insight-card__close');
+      var addFaDismiss = document.querySelector('.fa-insight-card-add-fa-dismiss');
 
       function setInsightVisible(visible) {
         var on = !!visible;
+        var state = page.getAttribute('data-dashboard-state');
+        var isFaView = (state === 'fa-enabled' || state === 'fa-borderless');
+        var isPaymentsOnly = (state === 'payments-only');
         if (toggleBtn) {
           toggleBtn.setAttribute('aria-checked', on);
           toggleWrap.classList.toggle('fa-insight-card-toggle--on', on);
         }
-        if (primaryHero) primaryHero.classList.toggle('fa-primary-hero--insight-visible', on);
+        if (primaryHero) primaryHero.classList.toggle('fa-primary-hero--insight-visible', on && isFaView);
         if (insightCard) insightCard.setAttribute('aria-hidden', !on);
+        if (isPaymentsOnly && heroStatePayments) {
+          if (on) {
+            heroStatePayments.classList.add('fa-hero-state-payments--insight-on');
+            if (heroModulesPayments) heroModulesPayments.setAttribute('aria-hidden', 'true');
+            if (heroPaymentsInsightOn) heroPaymentsInsightOn.setAttribute('aria-hidden', 'false');
+          } else {
+            heroStatePayments.classList.remove('fa-hero-state-payments--insight-on');
+            if (heroModulesPayments) heroModulesPayments.setAttribute('aria-hidden', 'false');
+            if (heroPaymentsInsightOn) heroPaymentsInsightOn.setAttribute('aria-hidden', 'true');
+          }
+        }
       }
 
       if (toggleBtn) {
@@ -613,6 +1108,9 @@
       }
       if (insightClose) {
         insightClose.addEventListener('click', function () { setInsightVisible(false); });
+      }
+      if (addFaDismiss) {
+        addFaDismiss.addEventListener('click', function (e) { e.preventDefault(); setInsightVisible(false); });
       }
     })();
   </script>

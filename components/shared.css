@@ -62,7 +62,7 @@ body {
   box-sizing: border-box;
 }
 
-.fa-main { padding: 0 0 24px; flex: 1; }
+.fa-main { padding: 0 0 24px; flex: 1; position: relative; }
 
 /* Primary hero row: balance + gross; when insight toggle on, flex + insight card animates in (Figma 1237-9593) */
 .fa-primary-hero {
@@ -95,7 +95,8 @@ body {
 }
 .fa-overview-grid .fa-spending-limits-card,
 .fa-overview-grid .fa-payments-card,
-.fa-overview-grid .fa-failed-payments-card {
+.fa-overview-grid .fa-failed-payments-card,
+.fa-overview-grid .fa-dispute-activity-card {
   flex: 1 1 0;
   min-width: 0;
   height: 350px;
