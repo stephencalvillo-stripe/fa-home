@@ -1,0 +1,277 @@
+/**
+ * Money in page — Transactions layout (Figma 1305:126651)
+ * Page title (M1), filter group (chips + search row), table.
+ */
+
+/* Uses .fa-content top padding (60px) to clear fixed header; only add bottom */
+.fa-money-in-page-content {
+  padding-bottom: 24px;
+}
+
+/* M1 Page Title — Transactions header (Figma 1305:126656) */
+.fa-money-in-page-title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.fa-money-in-page-title-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.fa-m1-page-title-heading,
+.fa-money-in-page-title h1 {
+  font-family: var(--font-sans);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: 0.38px;
+  color: #353A44;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.fa-money-in-page-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Secondary action buttons — white bg, border #D8DEE4, 6px radius, top shadow (Figma 1305:126436–126438) */
+.fa-m1-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 28px;
+  min-height: 28px;
+  padding: 4px 8px;
+  background: #FFFFFF;
+  border: 1px solid #D8DEE4;
+  border-radius: 6px;
+  box-shadow: 0 1px 1px rgba(33, 37, 44, 0.16);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #353A44;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.fa-m1-btn--icon {
+  width: 28px;
+  padding: 4px;
+}
+
+.fa-m1-btn .fa-icon-sail {
+  width: 12px;
+  height: 12px;
+  color: #474E5A;
+}
+
+/* M1 Filter Group (Figma 1454:83314) */
+.fa-money-in-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 16px;
+  width: 100%;
+}
+
+.fa-money-in-chip-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.fa-money-in-list-chip {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  height: 36px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #EBEEF1;
+  background: #FFFFFF;
+  box-shadow: 0 2px 3px rgba(33, 37, 44, 0.16);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #353A44;
+}
+
+.fa-money-in-list-chip--selected {
+  border-width: 2px;
+  border-color: #353A44;
+}
+
+.fa-money-in-list-chip--placeholder {
+  min-width: 112px;
+}
+
+.fa-money-in-list-chip--placeholder::after {
+  content: "";
+  display: block;
+  width: 88px;
+  height: 10px;
+  background: #D9D9D9;
+  border-radius: 2px;
+}
+
+.fa-money-in-list-chip-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #EBEEF1;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #474E5A;
+  cursor: pointer;
+}
+
+.fa-money-in-search-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+}
+
+.fa-money-in-search-bar {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid #ECF1F6;
+  border-radius: 12px;
+  background: #FFFFFF;
+}
+
+.fa-money-in-search-bar .fa-icon-sail {
+  width: 16px;
+  height: 16px;
+  color: #6C7688;
+  flex-shrink: 0;
+}
+
+.fa-money-in-search-bar input {
+  flex: 1 1 0;
+  min-width: 0;
+  border: none;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #353A44;
+}
+
+.fa-money-in-search-bar input::placeholder {
+  color: #6C7688;
+}
+
+.fa-money-in-filter-well {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  width: 83px;
+  height: 44px;
+  background: #F8F9FB;
+  border: 1px solid #F5F6F8;
+  border-radius: 12px;
+}
+
+.fa-money-in-filter-chip {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  height: 28px;
+  padding: 6px 10px;
+  background: #FFFFFF;
+  border: 1px solid #EBEEF1;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: -0.2px;
+  color: #6C7688;
+}
+
+.fa-money-in-m0-bar {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #EBEEF1;
+  border-radius: 12px;
+  background: #FFFFFF;
+  color: #474E5A;
+}
+
+/* Table (Figma 1305:126660) */
+.fa-money-in-table-wrap {
+  margin-top: 8px;
+  padding: 0 16px 8px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.fa-money-in-table {
+  width: 100%;
+  min-width: 800px;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 3px rgba(33, 37, 44, 0.16);
+}
+
+.fa-money-in-table thead th {
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #353A44;
+  background: #F8F9FB;
+  border-bottom: 1px solid #EBEEF1;
+}
+
+.fa-money-in-table tbody td {
+  padding: 12px;
+  border-bottom: 1px solid #EBEEF1;
+  color: #353A44;
+  line-height: 20px;
+}
+
+.fa-money-in-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.fa-money-in-table tbody tr:hover {
+  background: #F8F9FB;
+}
+
+.fa-money-in-table .fa-table-cell--muted {
+  color: #6C7688;
+}

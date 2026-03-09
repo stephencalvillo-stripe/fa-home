@@ -11,6 +11,8 @@
   flex-direction: column;
   gap: 4px;
   min-height: 80px;
+  text-decoration: none;
+  color: inherit;
 }
 
 .fa-money-in-header {
