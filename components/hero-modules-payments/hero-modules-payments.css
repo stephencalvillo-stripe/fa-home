@@ -103,6 +103,22 @@ body[data-dashboard-state="payments-only"] .fa-overview-grid--payments {
   visibility: visible;
 }
 
+/* FA Borderless: overview matches Figma 1295:123690 — same 3 cards; Failed payments is header-only (empty body) */
+body[data-dashboard-state="fa-borderless"] .fa-overview-grid--default .fa-failed-payments-card .fa-failed-payments-list-wrap,
+body[data-dashboard-state="fa-borderless"] .fa-overview-grid--default .fa-failed-payments-card .fa-failed-payments-footer {
+  display: none;
+}
+
+/* FA Borderless overview: Spending limits "View all" — 12px regular, subdued, right-aligned (Figma 1295:123690) */
+body[data-dashboard-state="fa-borderless"] .fa-overview-grid--default .fa-spending-limits-footer {
+  text-align: right;
+}
+body[data-dashboard-state="fa-borderless"] .fa-overview-grid--default .fa-spending-limits-view-all {
+  font-size: 12px;
+  font-weight: 400;
+  color: #1A2C44;
+}
+
 .fa-hero-modules-payments {
   display: flex;
   gap: 16px;

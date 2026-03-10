@@ -3,7 +3,7 @@
  * Page title (M1), filter group (chips + search row), table.
  */
 
-/* Uses .fa-content top padding (60px) to clear fixed header; only add bottom */
+/* Uses .fa-content top padding from shared.css; only add bottom */
 .fa-money-in-page-content {
   padding-bottom: 24px;
 }

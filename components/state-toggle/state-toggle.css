@@ -1,8 +1,17 @@
 /**
- * State toggle — three-state segmented control (Figma 1451:144211)
+ * Floating state toggle — fixed lower-left (Figma 1451:144211)
  * Payments only | FA enabled | FA Borderless
- * Sits to the left of the insight card toggle with 16px gap (see .fa-floating-toggles).
  */
+.fa-floating-toggles {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .fa-state-toggle {
   display: flex;
   align-items: stretch;
@@ -14,6 +23,7 @@
 }
 
 .fa-state-toggle__track {
+  position: relative;
   display: flex;
   gap: 4px;
   align-items: center;
@@ -23,7 +33,24 @@
   padding: 0;
 }
 
+/* Sliding thumb — moves to selected option */
+.fa-state-toggle__thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 80px;
+  background: var(--color-bg-subtle, #FFFFFF);
+  border: 1px solid #D4DEE9;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  transition: transform 0.25s ease-out, width 0.25s ease-out;
+  z-index: 0;
+}
+
 .fa-state-toggle__option {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,7 +66,7 @@
   letter-spacing: -0.15px;
   color: #273951;
   white-space: nowrap;
-  transition: background 0.15s ease, box-shadow 0.15s ease;
+  transition: color 0.15s ease;
 }
 
 .fa-state-toggle__option:hover {
@@ -47,9 +74,6 @@
 }
 
 .fa-state-toggle__option[aria-selected="true"] {
-  background: var(--color-bg-subtle, #FFFFFF);
-  border: 1px solid #D4DEE9;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
   cursor: default;
 }
 

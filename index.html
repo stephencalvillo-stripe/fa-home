@@ -42,10 +42,7 @@
   <link rel="stylesheet" href="components/state-toggle/state-toggle.css" />
   <link rel="stylesheet" href="components/hero-modules-payments/hero-modules-payments.css" />
   <link rel="stylesheet" href="components/hero-modules-borderless/hero-modules-borderless.css" />
-  <link rel="stylesheet" href="components/hero-insight-on/hero-insight-on.css" />
   <link rel="stylesheet" href="components/dispute-activity-card/dispute-activity-card.css" />
-  <link rel="stylesheet" href="components/insight-card-toggle/insight-card-toggle.css" />
-  <link rel="stylesheet" href="components/insight-card/insight-card.css" />
 </head>
 <body class="fa-page">
   <!-- Inline Sail icon sprite so <use href="#id"> works (position/overflow hide so refs work in fixed header) -->
@@ -159,6 +156,7 @@
     </nav>
   </aside>
 
+  <div class="fa-center-wrap">
   <main class="fa-center">
     <header class="fa-header">
       <div class="fa-header-content">
@@ -170,7 +168,7 @@
           <button type="button" aria-label="Help"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#help"/></svg></button>
           <button type="button" aria-label="Notifications"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#notifications"/></svg></button>
           <button type="button" aria-label="Settings"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#settings"/></svg></button>
-          <button type="button" aria-label="Add"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#addCircleFilled"/></svg></button>
+          <button type="button" aria-label="Add"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM8.75 4C8.75 3.58579 8.41421 3.25 8 3.25C7.58579 3.25 7.25 3.58579 7.25 4V7.25H4C3.58579 7.25 3.25 7.58579 3.25 8C3.25 8.41421 3.58579 8.75 4 8.75H7.25V12C7.25 12.4142 7.58579 12.75 8 12.75C8.41421 12.75 8.75 12.4142 8.75 12V8.75H12C12.4142 8.75 12.75 8.41421 12.75 8C12.75 7.58579 12.4142 7.25 12 7.25H8.75V4Z" fill="currentColor"/></svg></button>
         </div>
       </div>
     </header>
@@ -205,7 +203,7 @@
     </section>
 
     <div class="fa-main">
-      <!-- FA enabled / FA Borderless: Balance + Gross (+ insight in row when on) and four cards -->
+      <!-- FA enabled / FA Borderless: Balance + Gross and four cards -->
       <div class="fa-hero-state-fa" id="fa-hero-state-fa">
       <div class="fa-primary-hero" id="fa-primary-hero">
       <!-- Total balance module (Figma 1149:85903) -->
@@ -304,27 +302,6 @@
               <span>11:59 pm</span>
             </div>
           </div>
-        </div>
-        <!-- Insight card — visible when toggle on; animates in and pushes modules (Figma 1237-10212) -->
-        <div class="fa-insight-card" id="fa-insight-card" aria-hidden="true">
-          <div class="fa-insight-card__dismiss">
-            <button type="button" class="fa-insight-card__close" aria-label="Dismiss insight card">
-              <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#cancel"/></svg>
-            </button>
-          </div>
-          <div class="fa-insight-card__body">
-            <h3 class="fa-insight-card__title">Insight card</h3>
-            <p class="fa-insight-card__description">This is a description for a product or service that is relevant and useful for the user.</p>
-          </div>
-          <div class="fa-insight-card__footer">
-            <a href="#" class="fa-insight-card__link">Learn more</a>
-            <div class="fa-insight-card__dots" aria-hidden="true">
-              <span class="fa-insight-card__dot fa-insight-card__dot--active"></span>
-              <span class="fa-insight-card__dot"></span>
-              <span class="fa-insight-card__dot"></span>
-            </div>
-          </div>
-          <div class="fa-insight-card__deco" aria-hidden="true"></div>
         </div>
       </div>
 
@@ -507,9 +484,8 @@
         </div>
       </div>
 
-      <!-- Payments only: Gross volume + Balances + Debits (Figma 1451:143187); when insight ON: add Add FA card (1451:145651) -->
+      <!-- Payments only: Gross volume + Balances + Debits (Figma 1451:143187) -->
       <div class="fa-hero-state-payments" id="fa-hero-state-payments" aria-hidden="true">
-        <!-- Payments only, insight OFF: Gross + column (Balances + Debits) -->
         <div class="fa-hero-modules-payments" id="fa-hero-modules-payments">
           <div class="fa-gross-module fa-gross-module--payments-hero">
             <div class="fa-gross-metrics">
@@ -578,97 +554,6 @@
                 </span>
               </div>
             </a>
-          </div>
-        </div>
-        <!-- Payments only, insight ON: Gross + Balances + Debits | Add FA card (Figma 1451:145651) -->
-        <div class="fa-hero-payments-insight-on" id="fa-hero-payments-insight-on" aria-hidden="true">
-          <div class="fa-hero-payments-insight-on__main">
-            <div class="fa-hero-payments-insight-on__gross">
-              <div class="fa-gross-module fa-gross-module--insight-layout">
-                <div class="fa-gross-metrics">
-                  <div class="fa-gross-metrics-inner">
-                    <div class="fa-gross-block fa-gross-block--primary">
-                      <div class="fa-gross-heading">
-                        <span class="fa-gross-heading-label">Gross volume</span>
-                        <span class="fa-gross-info" aria-hidden="true"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#info"/></svg></span>
-                        <svg class="fa-gross-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
-                      </div>
-                      <p class="fa-gross-value">$120,000.00</p>
-                      <span class="fa-gross-meta">2:00 PM</span>
-                    </div>
-                    <div class="fa-gross-block fa-gross-block--yesterday">
-                      <div class="fa-gross-heading">
-                        <span class="fa-gross-heading-label fa-gross-heading-label--regular">Yesterday</span>
-                        <svg class="fa-gross-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
-                      </div>
-                      <p class="fa-gross-value fa-gross-value--small">$144.37</p>
-                    </div>
-                  </div>
-                  <div class="fa-gross-action" aria-hidden="true">
-                    <svg class="fa-icon-sail" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><use href="#arrowRight"/></svg>
-                  </div>
-                </div>
-                <div class="fa-gross-chart">
-                  <div class="fa-gross-chart-inner fa-gross-chart-inner--flip">
-                    <svg class="fa-gross-line" style="width:100%; height:100%;" viewBox="0 0 470 162" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                      <path d="M0 130 Q47 110 94 100 T188 75 T282 60 T376 40 T470 25" stroke="#9966FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-                    </svg>
-                  </div>
-                  <div class="fa-gross-timerange">
-                    <span>Midnight</span>
-                    <span>11:59 pm</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="fa-hero-payments-insight-on__secondary">
-              <a href="balances.html" class="fa-hero-module-compact fa-hero-module-compact--balances" aria-label="Go to Balances">
-                <div class="fa-hero-module-compact__header">
-                  <span class="fa-hero-module-compact__label">Balances</span>
-                  <span class="fa-tooltip-wrap fa-hero-module-compact__info">
-                    <span class="fa-hero-module-compact__info-icon" role="button" aria-label="More information">
-                      <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#info"/></svg>
-                    </span>
-                    <span class="fa-tooltip" role="tooltip">Total balance across all balances</span>
-                  </span>
-                </div>
-                <div class="fa-hero-module-compact__value-row">
-                  <span class="fa-hero-module-compact__value">$72,450.32</span>
-                  <span class="fa-hero-module-compact__arrow" aria-hidden="true">
-                    <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg>
-                  </span>
-                </div>
-              </a>
-              <a href="#" class="fa-hero-module-compact fa-hero-module-compact--debits" aria-label="View Debits">
-                <div class="fa-hero-module-compact__header">
-                  <span class="fa-hero-module-compact__label">Debits</span>
-                  <span class="fa-hero-module-compact__meta">Debited Nov 25, 2024</span>
-                </div>
-                <div class="fa-hero-module-compact__value-row">
-                  <span class="fa-hero-module-compact__value">$42,000.00</span>
-                  <span class="fa-hero-module-compact__arrow" aria-hidden="true">
-                    <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg>
-                  </span>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="fa-insight-card fa-insight-card--add-fa" id="fa-insight-card-add-fa" aria-hidden="false">
-            <div class="fa-insight-card__dismiss">
-              <button type="button" class="fa-insight-card__close fa-insight-card-add-fa-dismiss" aria-label="Dismiss">
-                <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#cancel"/></svg>
-              </button>
-            </div>
-            <div class="fa-insight-card-add-fa__gradient" aria-hidden="true"></div>
-            <p class="fa-insight-card-add-fa__headline">Get a card and spend directly from your balance</p>
-            <p class="fa-insight-card-add-fa__description">Store, send, and spend in multiple currencies</p>
-            <div class="fa-insight-card-add-fa__card-visual" aria-hidden="true">
-              <span class="fa-insight-card-add-fa__card-chip"></span>
-              <span class="fa-insight-card-add-fa__card-logo"></span>
-            </div>
-            <div class="fa-insight-card-add-fa__cta">
-              <a href="#" class="fa-insight-card-add-fa__btn">Get started</a>
-            </div>
           </div>
         </div>
       </div>
@@ -753,8 +638,8 @@
                 </div>
                 <div class="fa-spending-limits-data">
                   <div class="fa-spending-limits-left">
-                    <span class="fa-spending-limits-mask">•••• 5643</span>
-                    <span class="fa-spending-limits-name">Jordan Anderson</span>
+                    <span class="fa-spending-limits-mask">•••• 2345</span>
+                    <span class="fa-spending-limits-name">Mathilde Jeakins</span>
                   </div>
                   <div class="fa-spending-limits-right">
                     <span class="fa-spending-limits-amount">$421.45</span>
@@ -991,22 +876,16 @@
     </div>
     </div>
   </main>
-  <!-- Floating toggles: State (dashboard view) + Insight card (Figma 1451:144211, 1246-29898) -->
+  </div>
+  <!-- Floating toggle: State (dashboard view) -->
   <div class="fa-floating-toggles">
     <div class="fa-state-toggle" id="fa-state-toggle" role="tablist" aria-label="Dashboard state">
       <div class="fa-state-toggle__track">
+        <span class="fa-state-toggle__thumb" id="fa-state-toggle-thumb" aria-hidden="true"></span>
         <button type="button" class="fa-state-toggle__option" role="tab" aria-selected="false" data-state="payments-only">Payments only</button>
         <button type="button" class="fa-state-toggle__option" role="tab" aria-selected="true" data-state="fa-enabled">FA enabled</button>
         <button type="button" class="fa-state-toggle__option" role="tab" aria-selected="false" data-state="fa-borderless">FA Borderless</button>
       </div>
-    </div>
-    <div class="fa-insight-card-toggle" id="fa-insight-card-toggle">
-      <button type="button" role="switch" aria-checked="false" aria-label="Insight card">
-        <span class="fa-insight-card-toggle__track">
-          <span class="fa-insight-card-toggle__thumb"></span>
-        </span>
-        <span class="fa-insight-card-toggle__label">Insight card</span>
-      </button>
     </div>
   </div>
   <script src="components/balance-module/balance-module.js"></script>
@@ -1014,16 +893,24 @@
     (function () {
       // State toggle — sets dashboard view state (payments-only | fa-enabled | fa-borderless)
       var stateToggle = document.getElementById('fa-state-toggle');
+      var stateToggleTrack = stateToggle && stateToggle.querySelector('.fa-state-toggle__track');
+      var stateToggleThumb = document.getElementById('fa-state-toggle-thumb');
       var stateOptions = stateToggle && stateToggle.querySelectorAll('.fa-state-toggle__option');
       var page = document.body;
+
+      function updateStateToggleThumb() {
+        if (!stateToggleThumb || !stateToggleTrack) return;
+        var selected = stateToggle && stateToggle.querySelector('.fa-state-toggle__option[aria-selected="true"]');
+        if (!selected) return;
+        var trackRect = stateToggleTrack.getBoundingClientRect();
+        var btnRect = selected.getBoundingClientRect();
+        stateToggleThumb.style.width = btnRect.width + 'px';
+        stateToggleThumb.style.transform = 'translateX(' + (btnRect.left - trackRect.left) + 'px)';
+      }
 
       var heroStateFa = document.getElementById('fa-hero-state-fa');
       var heroStatePayments = document.getElementById('fa-hero-state-payments');
       var heroStateBorderless = document.getElementById('fa-hero-state-borderless');
-      var toggleWrap = document.getElementById('fa-insight-card-toggle');
-      var toggleBtn = toggleWrap && toggleWrap.querySelector('button[role="switch"]');
-      var heroModulesPayments = document.getElementById('fa-hero-modules-payments');
-      var heroPaymentsInsightOn = document.getElementById('fa-hero-payments-insight-on');
 
       function setDashboardState(state) {
         if (!page) return;
@@ -1034,13 +921,8 @@
             btn.setAttribute('aria-selected', isSelected);
           });
         }
+        updateStateToggleThumb();
         var isPaymentsOnly = (state === 'payments-only');
-        if (isPaymentsOnly) {
-          if (heroStatePayments) heroStatePayments.classList.remove('fa-hero-state-payments--insight-on');
-          if (toggleBtn) { toggleBtn.setAttribute('aria-checked', 'false'); if (toggleWrap) toggleWrap.classList.remove('fa-insight-card-toggle--on'); }
-          if (heroModulesPayments) heroModulesPayments.setAttribute('aria-hidden', 'false');
-          if (heroPaymentsInsightOn) heroPaymentsInsightOn.setAttribute('aria-hidden', 'true');
-        }
         var isFaEnabled = (state === 'fa-enabled');
         var isFaBorderless = (state === 'fa-borderless');
         if (heroStateFa) heroStateFa.setAttribute('aria-hidden', !isFaEnabled);
@@ -1068,49 +950,8 @@
         // Initialize from current selected tab (default: FA enabled)
         var selected = stateToggle.querySelector('.fa-state-toggle__option[aria-selected="true"]');
         if (selected) setDashboardState(selected.getAttribute('data-state'));
-      }
-
-      // Insight card toggle — FA enabled: insight in primary hero row; Payments only: Gross+Balances+Debits | Add FA card (1451:145651)
-      var primaryHero = document.getElementById('fa-primary-hero');
-      var insightCard = document.getElementById('fa-insight-card');
-      var insightClose = insightCard && insightCard.querySelector('.fa-insight-card__close');
-      var addFaDismiss = document.querySelector('.fa-insight-card-add-fa-dismiss');
-
-      function setInsightVisible(visible) {
-        var on = !!visible;
-        var state = page.getAttribute('data-dashboard-state');
-        var isFaView = (state === 'fa-enabled' || state === 'fa-borderless');
-        var isPaymentsOnly = (state === 'payments-only');
-        if (toggleBtn) {
-          toggleBtn.setAttribute('aria-checked', on);
-          toggleWrap.classList.toggle('fa-insight-card-toggle--on', on);
-        }
-        if (primaryHero) primaryHero.classList.toggle('fa-primary-hero--insight-visible', on && isFaView);
-        if (insightCard) insightCard.setAttribute('aria-hidden', !on);
-        if (isPaymentsOnly && heroStatePayments) {
-          if (on) {
-            heroStatePayments.classList.add('fa-hero-state-payments--insight-on');
-            if (heroModulesPayments) heroModulesPayments.setAttribute('aria-hidden', 'true');
-            if (heroPaymentsInsightOn) heroPaymentsInsightOn.setAttribute('aria-hidden', 'false');
-          } else {
-            heroStatePayments.classList.remove('fa-hero-state-payments--insight-on');
-            if (heroModulesPayments) heroModulesPayments.setAttribute('aria-hidden', 'false');
-            if (heroPaymentsInsightOn) heroPaymentsInsightOn.setAttribute('aria-hidden', 'true');
-          }
-        }
-      }
-
-      if (toggleBtn) {
-        toggleBtn.addEventListener('click', function () {
-          var on = toggleBtn.getAttribute('aria-checked') === 'true';
-          setInsightVisible(!on);
-        });
-      }
-      if (insightClose) {
-        insightClose.addEventListener('click', function () { setInsightVisible(false); });
-      }
-      if (addFaDismiss) {
-        addFaDismiss.addEventListener('click', function (e) { e.preventDefault(); setInsightVisible(false); });
+        else updateStateToggleThumb();
+        window.addEventListener('resize', updateStateToggleThumb);
       }
     })();
   </script>

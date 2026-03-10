@@ -1,24 +1,24 @@
 /**
- * FA Home — Header (Figma 1099-3978)
- * Backdrop blur, search bar (Background/Offset, Neutral/50 border), action icons (Icon/Subdued), Add = Icon/Action Primary.
+ * FA Home — Header (Figma 1468:100320)
+ * In flow inside .fa-center so it shares the same width and responsive behavior as page content.
+ * Sticky so it stays at top when scrolling. Search bar + header action icons.
  */
 .fa-header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 228px; /* start after fixed left nav */
-  right: 0;
   z-index: 100;
-  backdrop-filter: blur(2px);
-  background: rgba(255, 255, 255, 0.8);
-  padding: 12px 16px;
+  flex-shrink: 0;
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 0;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  flex-shrink: 0;
+  backdrop-filter: blur(2px);
+  background: rgba(255, 255, 255, 0.8);
   box-sizing: border-box;
 }
 
+/* Full width of parent (.fa-center); 16px side padding to match .fa-content */
 .fa-header-content {
   display: flex;
   align-items: center;
@@ -26,18 +26,20 @@
   gap: 16px;
   width: 100%;
   min-width: 0;
+  padding: 0 16px;
   box-sizing: border-box;
 }
 
-/* Search bar — flexible so action icons stay visible (Figma 1099-4621) */
+/* Search bar — 450px width (Figma 1468:100322), Background/Offset, Neutral/50 border */
 .fa-header-search {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 8px;
-  flex: 1 1 0;
+  width: 450px;
+  max-width: 100%;
   min-width: 0;
-  max-width: 450px;
+  flex-shrink: 0;
   background: #F4F7FA;
   border: 1px solid #ECF1F6;
   border-radius: 4px;
@@ -72,18 +74,12 @@
   outline: none;
 }
 
-/* Header action icons — help, notifications, settings, add (Figma 1099-4626) */
+/* Header action icons — help, notifications, settings, add (Figma 1468:100325); Icon/Subdued #667691 */
 .fa-header-actions {
   display: flex;
   align-items: center;
   gap: 16px;
   flex-shrink: 0;
-}
-
-.fa-header-actions svg {
-  display: block;
-  width: 16px;
-  height: 16px;
 }
 
 .fa-header-actions button {
@@ -104,12 +100,19 @@
   color: #474E5A;
 }
 
-.fa-header-actions .fa-icon-sail {
+.fa-header-actions button .fa-icon-sail,
+.fa-header-actions button svg {
+  display: block;
+  width: 16px;
+  height: 16px;
   color: inherit;
+  fill: none;
+  stroke: currentColor;
 }
 
-/* Add button — Icon/Action Primary #675DFF, white icon (Figma 1099-3987) */
+/* Add button — Icon/Action Primary #675DFF (Figma 1468:100329), white plus icon */
 .fa-header-actions button[aria-label="Add"] {
+  --color-bg: #FFFFFF;
   background: #675DFF;
   color: #FFFFFF;
 }
@@ -119,6 +122,7 @@
   color: #FFFFFF;
 }
 
-.fa-header-actions button[aria-label="Add"] .fa-icon-sail {
+.fa-header-actions button[aria-label="Add"] .fa-icon-sail,
+.fa-header-actions button[aria-label="Add"] svg {
   color: #FFFFFF;
 }

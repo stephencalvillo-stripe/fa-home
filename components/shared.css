@@ -43,20 +43,28 @@ body {
 }
 .fa-page { display: flex; min-height: 100vh; }
 
-.fa-center {
+/* Wrapper: space to the right of nav; centers the content column */
+.fa-center-wrap {
   flex: 1;
   min-width: 0;
-  display: flex;
-  flex-direction: column;
   margin-left: 228px; /* leave space for fixed left nav */
+  display: flex;
+  justify-content: center;
 }
 
-/* Content wrapper — responsive width, 16px side padding, top padding for fixed header */
+.fa-center {
+  width: 100%;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Content wrapper — responsive width, 16px side padding; header is in flow so no top offset needed */
 .fa-content {
   width: 100%;
   flex: 1;
   min-width: 0;
-  padding: 60px 16px 24px; /* 60px top = fixed header, 16px left/right */
+  padding: 24px 16px 24px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -83,7 +91,7 @@ body {
 
 .fa-cards-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
 .fa-cards-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.fa-overview { margin-top: 24px; display: flex; flex-direction: column; gap: 16px; }
+.fa-overview { margin-top: 24px; padding-bottom: 48px; display: flex; flex-direction: column; gap: 16px; }
 /* Performance Data — Figma 1237-9612: offset bg, 8px padding/radius; row 8px gap; each card 350px height, equal width */
 .fa-overview-data { background: #F4F7FA; padding: 8px; border-radius: 8px; }
 .fa-overview-grid {
