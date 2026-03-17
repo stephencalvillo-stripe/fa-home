@@ -1,0 +1,322 @@
+/**
+ * Version 2 — FA enabled hero modules (Figma 1545:70170)
+ * Two equal columns: Gross volume (left) | Balances module + Divider + Incoming earnings (right).
+ * No border strokes, 24px gap, rounded 4px modules.
+ */
+
+/* Hide default FA hero when V2 FA enabled */
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-primary-hero,
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-cards-4 {
+  display: none !important;
+}
+
+.fa-hero-v2-fa {
+  display: none;
+  margin-bottom: 16px;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-hero-v2-fa {
+  display: block;
+}
+
+.fa-hero-modules-v2-fa {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+  height: 250px;
+  min-height: 250px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* Left: Gross volume — flex 1, no border, no side padding, no hover */
+.fa-hero-modules-v2-fa .fa-gross-module {
+  flex: 1 1 0;
+  min-width: 0;
+  border: none;
+  border-radius: 4px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.fa-hero-modules-v2-fa .fa-gross-module:hover {
+  border: none;
+  box-shadow: none;
+}
+
+.fa-hero-modules-v2-fa .fa-gross-module .fa-gross-action {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Right column: flex 1, two stacked modules + divider */
+.fa-hero-v2-fa__col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 250px;
+}
+
+/* Balances module — white, rounded 4px, no border */
+.fa-hero-v2-fa-balances {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  border: none;
+  box-sizing: border-box;
+}
+
+.fa-hero-v2-fa-balances__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.fa-hero-v2-fa-balances__main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fa-hero-v2-fa-balances__dropdowns {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.fa-hero-v2-fa-balances__dropdown {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.fa-hero-v2-fa-balances__dropdown--date {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.fa-hero-v2-fa-balances__label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+}
+
+.fa-hero-v2-fa-balances__label--regular {
+  font-weight: 400;
+}
+
+.fa-hero-v2-fa-balances__metrics {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.fa-hero-v2-fa-balances__value {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.3px;
+  color: #1A2C44;
+  font-variant-numeric: lining-nums proportional-nums;
+  margin: 0;
+}
+
+.fa-hero-v2-fa-balances__meta {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #667691;
+  margin: 0;
+}
+
+.fa-hero-v2-fa-balances__view {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #533AFD;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.fa-hero-v2-fa-balances__view:hover {
+  text-decoration: underline;
+}
+
+.fa-hero-v2-fa-balances__chart {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fa-hero-v2-fa-balances__chart-inner {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scaleY(-1);
+}
+
+.fa-hero-v2-fa-balances__chart-inner svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.fa-hero-v2-fa-balances__timerange {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #667691;
+  padding-top: 4px;
+  flex-shrink: 0;
+}
+
+.fa-hero-v2-fa-divider {
+  height: 1px;
+  background: #ECF1F6;
+  border: none;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* Incoming earnings module */
+.fa-hero-v2-fa-incoming {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  border: none;
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+}
+
+.fa-hero-v2-fa-incoming__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.fa-hero-v2-fa-incoming__main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fa-hero-v2-fa-incoming__title-wrap {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.fa-hero-v2-fa-incoming__title {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+}
+
+.fa-hero-v2-fa-incoming__title-wrap .fa-icon-sail {
+  color: #667691;
+}
+
+.fa-hero-v2-fa-incoming__metrics {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.fa-hero-v2-fa-incoming__value {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.3px;
+  color: #1A2C44;
+  font-variant-numeric: lining-nums proportional-nums;
+  margin: 0;
+}
+
+.fa-hero-v2-fa-incoming__meta {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #667691;
+  margin: 0;
+}
+
+.fa-hero-v2-fa-incoming__view {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #533AFD;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.fa-hero-v2-fa-incoming__view:hover {
+  text-decoration: underline;
+}
+
+.fa-hero-v2-fa-incoming__chart {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.fa-hero-v2-fa-incoming__bars {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 21px;
+  padding: 0 2px;
+}
+
+.fa-hero-v2-fa-incoming__bars span {
+  flex: 1 0 0;
+  min-width: 0;
+  background: #9966FF;
+  border-radius: 2px 2px 0 0;
+}
+
+.fa-hero-v2-fa-incoming__timerange {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #667691;
+  padding-top: 4px;
+  flex-shrink: 0;
+}

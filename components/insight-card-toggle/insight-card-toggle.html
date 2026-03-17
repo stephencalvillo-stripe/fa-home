@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insight card toggle — FA Home</title>
+  <link rel="stylesheet" href="../../_design-system/tokens.css" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="../state-toggle/state-toggle.css" />
+  <link rel="stylesheet" href="insight-card-toggle.css" />
+  <style> body { padding: 120px 24px 80px; } </style>
+</head>
+<body class="fa-page">
+  <p style="margin-bottom: 16px; color: var(--fa-text-subdued);">Floating toggles (State + Insight card):</p>
+  <div class="fa-floating-toggles">
+    <div class="fa-state-toggle">
+      <div class="fa-state-toggle__track">
+        <span class="fa-state-toggle__thumb" aria-hidden="true"></span>
+        <button type="button" class="fa-state-toggle__option" aria-selected="true">FA enabled</button>
+        <button type="button" class="fa-state-toggle__option" aria-selected="false">FA Borderless</button>
+      </div>
+    </div>
+    <div class="fa-insight-card-toggle fa-insight-card-toggle--on">
+      <button type="button" aria-pressed="true">
+        <span class="fa-insight-card-toggle__track">
+          <span class="fa-insight-card-toggle__thumb"></span>
+        </span>
+        <span class="fa-insight-card-toggle__label">Insight card</span>
+      </button>
+    </div>
+  </div>
+</body>
+</html>

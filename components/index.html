@@ -8,8 +8,9 @@
   <link rel="stylesheet" href="shared.css" />
   <style>
     .layout { display: flex; min-height: 100vh; }
-    .sidebar { width: 220px; min-width: 220px; background: var(--color-bg); border-right: 1px solid var(--fa-border); padding: var(--space-medium); }
-    .sidebar h2 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--fa-text-subdued); margin: 0 0 12px; }
+    .sidebar { width: 240px; min-width: 240px; background: var(--color-bg-subtle, #fff); border-right: 1px solid var(--fa-border); padding: 16px; }
+    .sidebar h2 { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--fa-text-subdued); margin: 16px 0 8px; }
+    .sidebar h2:first-child { margin-top: 0; }
     .sidebar a { display: block; padding: 8px 12px; color: var(--fa-text); text-decoration: none; border-radius: 6px; font-size: 14px; margin-bottom: 2px; }
     .sidebar a:hover { background: var(--fa-neutral-50); color: var(--fa-brand); }
     .sidebar a.active { background: var(--fa-brand-25); color: var(--fa-brand); font-weight: 500; }
@@ -24,20 +25,39 @@
     <nav class="sidebar">
       <h2>FA Home components</h2>
       <a href="index.html">All components</a>
+      <h2>Layout &amp; shell</h2>
       <a href="nav/nav.html">Nav</a>
       <a href="header/header.html">Header</a>
       <a href="welcome-section/welcome-section.html">Welcome section</a>
+      <h2>Primary hero</h2>
       <a href="balance-module/balance-module.html">Total balance module</a>
       <a href="gross-volume-module/gross-volume-module.html">Gross volume module</a>
+      <a href="hero-card/hero-card.html">Hero card (Balance + Gross)</a>
+      <a href="insight-card/insight-card.html">Insight card</a>
+      <a href="hero-modules-payments/hero-modules-payments.html">Hero — Payments only</a>
+      <a href="hero-modules-borderless/hero-modules-borderless.html">Hero — FA Borderless</a>
+      <a href="hero-insight-on/hero-insight-on.html">Hero — Add FA card (insight ON)</a>
+      <h2>Four hero modules</h2>
       <a href="money-in-module/money-in-module.html">Money in module</a>
-      <a href="tooltip/tooltip.html">Tooltip</a>
-      <a href="hero-card/hero-card.html">Hero card</a>
-      <a href="summary-cards/summary-cards.html">Summary cards</a>
+      <a href="money-out-module/money-out-module.html">Money out module</a>
+      <a href="incoming-earnings-module/incoming-earnings-module.html">Incoming earnings module</a>
+      <h2>Overview</h2>
       <a href="overview-header/overview-header.html">Overview header</a>
       <a href="spending-limits-card/spending-limits-card.html">Spending limits card</a>
       <a href="payments-card/payments-card.html">Payments card</a>
       <a href="failed-payments-card/failed-payments-card.html">Failed payments card</a>
-      <h2 style="margin-top: 24px;">Full page</h2>
+      <a href="dispute-activity-card/dispute-activity-card.html">Dispute activity card</a>
+      <h2>Shared &amp; toggles</h2>
+      <a href="tooltip/tooltip.html">Tooltip</a>
+      <a href="version-menu/version-menu.html">Version menu</a>
+      <a href="state-toggle/state-toggle.html">State toggle</a>
+      <a href="insight-card-toggle/insight-card-toggle.html">Insight card toggle</a>
+      <h2>Summary &amp; pages</h2>
+      <a href="summary-cards/summary-cards.html">Summary cards</a>
+      <a href="balances-page/balances-page.html">Balances page</a>
+      <a href="money-in-page/money-in-page.html">Money in page</a>
+      <a href="incoming-earnings-page/incoming-earnings-page.html">Incoming earnings page</a>
+      <h2>Full app</h2>
       <a href="../index.html">← FA Home (full)</a>
     </nav>
     <main class="frame">

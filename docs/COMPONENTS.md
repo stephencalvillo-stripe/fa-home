@@ -6,14 +6,16 @@ Where each UI piece lives and how it behaves. Use this when editing or rebuildin
 
 ## Layout & shell
 
+**Note:** The left nav and global header are shared components. Their **canonical source** is `Dashboard Prototypes/_components/left-nav/` and `_components/global-header/`. When updating nav or header, edit those folders first so _components stays the single source of truth; sync to `fa-home/components/nav/` and `header/` if needed.
+
 ### Nav (left sidebar)
-- **Path:** `components/nav/nav.css`, `nav.html`
+- **Path:** `components/nav/nav.css`, `nav.html` (see also `_components/left-nav/`)
 - **Classes:** `.fa-nav`, `.fa-nav-account`, `.fa-nav-list`, `.fa-nav-item`, `.fa-nav-section-title`, `.fa-nav-workload`
 - **Behavior:** Fixed left, 228px wide; account block, nav links, Shortcuts, Products with expandable workloads. Active state on Home.
 - **Figma:** 1149:85857
 
 ### Header (top bar)
-- **Path:** `components/header/header.css`, `header.html`
+- **Path:** `components/header/header.css`, `header.html` (see also `_components/global-header/`)
 - **Classes:** `.fa-header`, `.fa-header-content`, `.fa-header-search`, `.fa-header-actions`
 - **Behavior:** Fixed below nav; search bar (flex, max 450px) + action icons (help, notifications, settings, add). Icons use sprite `#help`, `#notifications`, `#settings`, `#addCircleFilled`.
 - **Figma:** 1099-4621 (Login/header), 1099-4626 (actions)

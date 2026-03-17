@@ -1,0 +1,107 @@
+/**
+ * Version menu — prototype version switcher (Figma 1554:31777, 1554:31815)
+ * Button to the left of state toggle; dropdown animates in above with Version 1 / Version 2.
+ */
+.fa-version-menu {
+  position: relative;
+}
+
+/* Pill button — matches Figma Version menu button */
+.fa-version-menu__btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--color-bg-subtle, #FFFFFF);
+  border: 1px solid #D4DEE9;
+  border-radius: 60px;
+  box-shadow: 0 7px 14px rgba(48, 49, 61, 0.08), 0 3px 6px rgba(0, 0, 0, 0.12);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #273951;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.fa-version-menu__btn:hover {
+  border-color: #BAC8DA;
+}
+
+.fa-version-menu__btn .fa-icon-sail {
+  flex-shrink: 0;
+  color: #474E5A;
+  transition: transform 0.2s ease;
+}
+
+.fa-version-menu.is-open .fa-version-menu__btn .fa-version-menu__chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown panel — above the button, same shadow as Figma */
+.fa-version-menu__dropdown {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 8px;
+  min-width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #D4DEE9;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 7px 14px rgba(48, 49, 61, 0.08), 0 3px 6px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s;
+  z-index: 310;
+  pointer-events: none;
+}
+
+.fa-version-menu.is-open .fa-version-menu__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Menu row */
+.fa-version-menu__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #273951;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.fa-version-menu__row:hover {
+  background: var(--fa-neutral-50, #ECF1F6);
+}
+
+.fa-version-menu__check {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: transparent;
+}
+
+.fa-version-menu__row.is-selected .fa-version-menu__check {
+  color: var(--fa-brand, #675DFF);
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero modules — Payments only — FA Home</title>
+  <link rel="stylesheet" href="../../_design-system/tokens.css" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="../gross-volume-module/gross-volume-module.css" />
+  <link rel="stylesheet" href="hero-modules-payments.css" />
+  <style> .fa-main { max-width: 1052px; } .fa-center-wrap { margin-left: 0; } </style>
+</head>
+<body class="fa-page" data-dashboard-state="payments-only">
+  <main class="fa-center">
+    <div class="fa-main">
+      <div class="fa-hero-state-payments">
+        <div class="fa-hero-modules-payments">
+          <div class="fa-gross-module fa-gross-module--payments-hero">
+            <div class="fa-gross-metrics">
+              <div class="fa-gross-metrics-inner">
+                <div class="fa-gross-block fa-gross-block--primary">
+                  <div class="fa-gross-heading">
+                    <span class="fa-gross-heading-label">Gross volume</span>
+                    <svg class="fa-gross-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24"><use href="../../_design-system/sail-icons.svg#chevronDown"/></svg>
+                  </div>
+                  <p class="fa-gross-value">$120,000.00</p>
+                  <span class="fa-gross-meta">2:00 PM</span>
+                </div>
+              </div>
+            </div>
+            <div class="fa-gross-chart">
+              <div class="fa-gross-chart-inner fa-gross-chart-inner--flip">
+                <svg class="fa-gross-line" style="width:100%; height:100%;" viewBox="0 0 470 162" fill="none"><path d="M0 130 Q47 110 94 100 T188 75 T282 60 T376 40 T470 25" stroke="#9966FF" stroke-width="2" fill="none"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="fa-hero-modules-payments__col">
+            <a href="#" class="fa-hero-module-compact fa-hero-module-compact--balances">
+              <div class="fa-hero-module-compact__header">
+                <span class="fa-hero-module-compact__label">Balances</span>
+              </div>
+              <div class="fa-hero-module-compact__value-row">
+                <span class="fa-hero-module-compact__value">$72,450.32</span>
+                <svg class="fa-hero-module-compact__arrow fa-icon-sail" width="16" height="16" viewBox="0 0 24 24"><use href="../../_design-system/sail-icons.svg#arrowRight"/></svg>
+              </div>
+            </a>
+            <a href="#" class="fa-hero-module-compact fa-hero-module-compact--debits">
+              <div class="fa-hero-module-compact__header">
+                <span class="fa-hero-module-compact__label">Debits</span>
+                <span class="fa-hero-module-compact__meta">Debited Nov 25, 2024</span>
+              </div>
+              <div class="fa-hero-module-compact__value-row">
+                <span class="fa-hero-module-compact__value">$42,000.00</span>
+                <svg class="fa-hero-module-compact__arrow fa-icon-sail" width="16" height="16" viewBox="0 0 24 24"><use href="../../_design-system/sail-icons.svg#arrowRight"/></svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

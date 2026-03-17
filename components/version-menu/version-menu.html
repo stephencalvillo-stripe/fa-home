@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Version menu — FA Home</title>
+  <link rel="stylesheet" href="../../_design-system/tokens.css" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="../state-toggle/state-toggle.css" />
+  <link rel="stylesheet" href="version-menu.css" />
+  <style> body { padding: 120px 24px 80px; } </style>
+</head>
+<body class="fa-page">
+  <p style="margin-bottom: 16px; color: var(--fa-text-subdued);">Version menu (left) + State toggle. Click the version button to open the menu:</p>
+  <div class="fa-floating-toggles">
+    <div class="fa-version-menu" id="fa-version-menu">
+      <button type="button" class="fa-version-menu__btn" id="fa-version-menu-btn" aria-expanded="false" aria-haspopup="true" aria-label="Prototype version">
+        <span class="fa-version-menu__label" id="fa-version-menu-label">Version 1</span>
+        <svg class="fa-icon-sail fa-version-menu__chevron" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="../../_design-system/sail-icons.svg#chevronDown"/></svg>
+      </button>
+      <div class="fa-version-menu__dropdown" id="fa-version-menu-dropdown" role="menu" aria-hidden="true">
+        <button type="button" class="fa-version-menu__row is-selected" role="menuitem" data-version="1">
+          <span>Version 1</span>
+          <svg class="fa-version-menu__check fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+        <button type="button" class="fa-version-menu__row" role="menuitem" data-version="2">
+          <span>Version 2</span>
+          <svg class="fa-version-menu__check fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="fa-state-toggle">
+      <div class="fa-state-toggle__track">
+        <span class="fa-state-toggle__thumb" style="width: 82px; left: 86px;"></span>
+        <button type="button" class="fa-state-toggle__option" aria-selected="true">FA enabled</button>
+        <button type="button" class="fa-state-toggle__option" aria-selected="false">FA Borderless</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function() {
+      var versionMenu = document.getElementById('fa-version-menu');
+      var versionBtn = document.getElementById('fa-version-menu-btn');
+      var versionLabel = document.getElementById('fa-version-menu-label');
+      var versionDropdown = document.getElementById('fa-version-menu-dropdown');
+      var versionRows = versionDropdown && versionDropdown.querySelectorAll('.fa-version-menu__row');
+      function setVersion(version) {
+        var v = String(version);
+        if (versionLabel) versionLabel.textContent = 'Version ' + v;
+        if (versionRows) versionRows.forEach(function(row) {
+          row.classList.toggle('is-selected', row.getAttribute('data-version') === v);
+        });
+      }
+      function closeVersionMenu() {
+        if (versionMenu) versionMenu.classList.remove('is-open');
+        if (versionBtn) versionBtn.setAttribute('aria-expanded', 'false');
+        if (versionDropdown) versionDropdown.setAttribute('aria-hidden', 'true');
+      }
+      if (versionDropdown) versionDropdown.addEventListener('click', function(e) { e.stopPropagation(); });
+      if (versionBtn && versionDropdown) {
+        versionBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var isOpen = versionMenu.classList.toggle('is-open');
+          versionBtn.setAttribute('aria-expanded', isOpen);
+          versionDropdown.setAttribute('aria-hidden', !isOpen);
+        });
+      }
+      if (versionRows) versionRows.forEach(function(row) {
+        row.addEventListener('click', function() {
+          var v = row.getAttribute('data-version');
+          if (v) setVersion(v);
+          closeVersionMenu();
+        });
+      });
+      document.addEventListener('click', function() {
+        if (versionMenu && versionMenu.classList.contains('is-open')) closeVersionMenu();
+      });
+    })();
+  </script>
+</body>
+</html>

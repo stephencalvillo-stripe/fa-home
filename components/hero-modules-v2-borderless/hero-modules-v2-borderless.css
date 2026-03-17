@@ -1,0 +1,221 @@
+/**
+ * Version 2 — FA Borderless hero modules (Figma 1545:71012)
+ * Two columns: Balances module (left, flex 1) | Lifetime yield earned (right, 324px).
+ * Gap 40px, height 230px, no border strokes, rounded 4px / 8px.
+ */
+
+/* Hide default Borderless hero when V2 FA Borderless */
+body[data-prototype-version="2"][data-dashboard-state="fa-borderless"] .fa-hero-modules-borderless {
+  display: none !important;
+}
+
+.fa-hero-v2-borderless {
+  display: none;
+  margin-bottom: 16px;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="fa-borderless"] .fa-hero-v2-borderless {
+  display: block;
+}
+
+.fa-hero-modules-v2-borderless {
+  display: flex;
+  gap: 40px;
+  align-items: stretch;
+  height: 230px;
+  min-height: 230px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* Left: Balances module — flex 1, 230px height, same as V2 FA enabled balances */
+.fa-hero-v2-borderless .fa-hero-v2-borderless-balances {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 230px;
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  border: none;
+  box-sizing: border-box;
+}
+
+.fa-hero-v2-borderless-balances__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.fa-hero-v2-borderless-balances__main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fa-hero-v2-borderless-balances__dropdowns {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.fa-hero-v2-borderless-balances__dropdown {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.fa-hero-v2-borderless-balances__dropdown--date {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.fa-hero-v2-borderless-balances__label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+}
+
+.fa-hero-v2-borderless-balances__label--regular {
+  font-weight: 400;
+}
+
+.fa-hero-v2-borderless-balances__metrics {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.fa-hero-v2-borderless-balances__value {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0.3px;
+  color: #1A2C44;
+  font-variant-numeric: lining-nums proportional-nums;
+  margin: 0;
+}
+
+.fa-hero-v2-borderless-balances__meta {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #667691;
+  margin: 0;
+}
+
+.fa-hero-v2-borderless-balances__view {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #533AFD;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.fa-hero-v2-borderless-balances__view:hover {
+  text-decoration: underline;
+}
+
+.fa-hero-v2-borderless-balances__chart {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fa-hero-v2-borderless-balances__chart-inner {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scaleY(-1);
+}
+
+.fa-hero-v2-borderless-balances__chart-inner svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.fa-hero-v2-borderless-balances__timerange {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #667691;
+  padding-top: 4px;
+  flex-shrink: 0;
+}
+
+/* Right: 324px column — Lifetime yield only */
+.fa-hero-v2-borderless__col {
+  width: 324px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  height: 230px;
+}
+
+.fa-hero-v2-borderless-yield {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  border: none;
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+}
+
+.fa-hero-v2-borderless-yield__title {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+  flex-shrink: 0;
+}
+
+.fa-hero-v2-borderless-yield__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 6px;
+  flex-shrink: 0;
+}
+
+.fa-hero-v2-borderless-yield__value {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.3px;
+  color: #217005;
+  font-variant-numeric: lining-nums proportional-nums;
+  margin: 0;
+}
+
+.fa-hero-v2-borderless-yield .fa-icon-sail {
+  flex-shrink: 0;
+  color: #533AFD;
+}

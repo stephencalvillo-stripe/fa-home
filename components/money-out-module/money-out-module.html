@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Money out module — FA Home</title>
+  <link rel="stylesheet" href="../../_design-system/tokens.css" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="../tooltip/tooltip.css" />
+  <link rel="stylesheet" href="money-out-module.css" />
+  <style> .fa-main { max-width: 340px; } body { margin: 0; } </style>
+</head>
+<body class="fa-page">
+  <main class="fa-center">
+    <div class="fa-main">
+      <div class="fa-money-out-module">
+        <div class="fa-money-out-header">
+          <span class="fa-money-out-label">Money out</span>
+          <div class="fa-money-out-period-wrap">
+            <span class="fa-money-out-period">this month</span>
+            <svg class="fa-money-out-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="../../_design-system/sail-icons.svg#chevronDown"/></svg>
+          </div>
+          <span class="fa-tooltip-wrap fa-hero-module-icon-slot">
+            <span class="fa-money-out-info" role="button" aria-label="More information">
+              <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="../../_design-system/sail-icons.svg#info"/></svg>
+            </span>
+            <span class="fa-tooltip" role="tooltip">All money sent (payouts, refunds, fees)</span>
+          </span>
+        </div>
+        <div class="fa-money-out-value-row">
+          <p class="fa-money-out-value">$42,000.00</p>
+          <span class="fa-money-out-arrow fa-hero-module-arrow fa-hero-module-icon-slot" aria-hidden="true">
+            <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="../../_design-system/sail-icons.svg#arrowRight"/></svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

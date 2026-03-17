@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insight card — FA Home</title>
+  <link rel="stylesheet" href="../../_design-system/tokens.css" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="insight-card.css" />
+  <style>
+    .fa-main { max-width: 360px; }
+    .fa-primary-hero { display: flex; gap: 16px; align-items: flex-start; }
+    .fa-primary-hero--insight-visible .fa-insight-card { display: flex; opacity: 1; transform: translateX(0); }
+  </style>
+</head>
+<body class="fa-page">
+  <main class="fa-center">
+    <div class="fa-main">
+      <div class="fa-primary-hero fa-primary-hero--insight-visible">
+        <div style="width: 200px; height: 250px; background: var(--fa-neutral-50); border-radius: 8px; border: 1px solid var(--fa-border);"></div>
+        <div class="fa-insight-card">
+          <div class="fa-insight-card__dismiss">
+            <button type="button" class="fa-insight-card__close" aria-label="Dismiss">×</button>
+          </div>
+          <div class="fa-insight-card__body">
+            <h3 class="fa-insight-card__title">Insight card</h3>
+            <p class="fa-insight-card__description">Personalized insights and recommendations for your account.</p>
+          </div>
+          <div class="fa-insight-card__footer">
+            <a href="#" class="fa-insight-card__link">Learn more</a>
+            <div class="fa-insight-card__dots">
+              <span class="fa-insight-card__dot fa-insight-card__dot--active"></span>
+              <span class="fa-insight-card__dot"></span>
+              <span class="fa-insight-card__dot"></span>
+            </div>
+          </div>
+          <span class="fa-insight-card__deco" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

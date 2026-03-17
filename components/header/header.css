@@ -74,11 +74,11 @@
   outline: none;
 }
 
-/* Header action icons — help, notifications, settings, add (Figma 1468:100325); Icon/Subdued #667691 */
+/* Header action icons — help, notifications, settings, add (Figma 1554:33380); 24px gap, Icon/Default #474E5A */
 .fa-header-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
   flex-shrink: 0;
 }
 
@@ -93,11 +93,11 @@
   border-radius: 4px;
   background: none;
   cursor: pointer;
-  color: #667691;
+  color: #474E5A;
 }
 
 .fa-header-actions button:hover {
-  color: #474E5A;
+  color: #1A2C44;
 }
 
 .fa-header-actions button .fa-icon-sail,
@@ -110,19 +110,32 @@
   stroke: currentColor;
 }
 
-/* Add button — Icon/Action Primary #675DFF (Figma 1468:100329), white plus icon */
+/* Help, Notifications, and Settings icons are fill-based (not stroke) */
+.fa-header-actions button[aria-label="Help"] .fa-icon-sail,
+.fa-header-actions button[aria-label="Help"] svg,
+.fa-header-actions button[aria-label="Notifications"] .fa-icon-sail,
+.fa-header-actions button[aria-label="Notifications"] svg,
+.fa-header-actions button[aria-label="Settings"] .fa-icon-sail,
+.fa-header-actions button[aria-label="Settings"] svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+/* Add — filled circle + plus, Text/Action Primary #533AFD (Figma 1554:33375); icon is the circle, no button bg */
 .fa-header-actions button[aria-label="Add"] {
   --color-bg: #FFFFFF;
-  background: #675DFF;
-  color: #FFFFFF;
+  color: #533AFD;
+  background: none;
 }
 
 .fa-header-actions button[aria-label="Add"]:hover {
-  background: #5548e8;
-  color: #FFFFFF;
+  color: #4530e0;
+  background: none;
 }
 
 .fa-header-actions button[aria-label="Add"] .fa-icon-sail,
 .fa-header-actions button[aria-label="Add"] svg {
-  color: #FFFFFF;
+  fill: currentColor;
+  stroke: none;
 }
+
