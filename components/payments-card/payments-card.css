@@ -139,11 +139,7 @@
   text-decoration: underline;
 }
 
-/* Version 2, FA Borderless: Payments card — Figma 1545:71882 (exact match: 8px gap) */
-.fa-page[data-prototype-version="2"][data-dashboard-state="fa-borderless"] .fa-overview-grid--default .fa-payments-card {
-  gap: 8px;
-}
-
+/* Version 2, FA Borderless: Payments card — empty (header only, like Failed payments card) */
 .fa-page[data-prototype-version="2"][data-dashboard-state="fa-borderless"] .fa-overview-grid--default .fa-payments-card .fa-payments-content {
-  gap: 8px;
+  display: none;
 }
