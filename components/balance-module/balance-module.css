@@ -141,6 +141,19 @@
   font-weight: 400;
 }
 
+/* Version 2, FA enabled & FA Borderless: All balances dropdown menu — Figma 1573:135389 */
+.fa-page[data-prototype-version="2"] .fa-balance-dropdown-panel--balance {
+  border-radius: 8px;
+  border-width: 1px;
+  box-shadow: 0 15px 35px rgba(48, 49, 61, 0.08), 0 5px 15px rgba(0, 0, 0, 0.12);
+  padding: 4px;
+  min-width: 168px;
+}
+
+.fa-page[data-prototype-version="2"] .fa-balance-dropdown-panel--balance .fa-balance-dropdown-item {
+  padding: 6px 10px;
+}
+
 .fa-balance-chevron {
   flex-shrink: 0;
   color: #1A2C44;

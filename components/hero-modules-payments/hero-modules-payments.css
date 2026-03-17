@@ -259,17 +259,172 @@ body[data-dashboard-state="fa-borderless"] .fa-overview-grid--default .fa-spendi
   justify-content: space-between;
 }
 
-/* ─── Version 2: Payments only hero (Figma 1550:78920) ─── */
+/* ─── Version 2: Payments only hero (Figma 1575-136063, 1550:78920) ─── */
 body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-modules-payments {
-  gap: 40px;
+  display: block;
+  gap: 0;
 }
 
 body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-modules-payments__col {
   display: none;
 }
 
-body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-modules-payments__col-v2 {
+/* V2 grid: Gross + secondary (Balances|Payouts) + insight card */
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 40px 329px;
+  grid-template-rows: 230px auto;
+  grid-template-areas: "gross . insight" "secondary . insight";
+  transition: grid-template-columns 0.35s ease-out, grid-template-areas 0.35s ease-out;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-gross {
+  grid-area: gross;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-secondary {
+  grid-area: secondary;
   display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: stretch;
+  transition: flex-direction 0.35s ease-out, grid-area 0.35s ease-out;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-secondary .fa-hero-v2-card--balances {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-secondary .fa-hero-v2-card--payouts {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-secondary-divider {
+  display: none;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-insight {
+  grid-area: insight;
+  align-self: stretch;
+  transition: opacity 0.28s ease-out, visibility 0.28s ease-out;
+}
+
+/* Dismissed: insight hidden, secondary becomes right column (324px) and stacks */
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-grid.fa-hero-v2-payments--insight-dismissed {
+  grid-template-columns: 1fr 324px;
+  grid-template-areas: "gross secondary" "gross secondary";
+  column-gap: 40px;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-grid.fa-hero-v2-payments--insight-dismissed .fa-hero-v2-payments-secondary {
+  flex-direction: column;
+  gap: 16px;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-grid.fa-hero-v2-payments--insight-dismissed .fa-hero-v2-payments-secondary-divider {
+  display: block;
+  flex-shrink: 0;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-grid.fa-hero-v2-payments--insight-dismissed .fa-hero-v2-payments-insight {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* V2 Payments insight card (Figma 1575-136063) — 329px, #f7f5fd, 10px radius, 24px padding */
+.fa-insight-card-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #f7f5fd;
+  border-radius: 10px;
+  padding: 24px;
+  width: 100%;
+  min-height: 260px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.fa-insight-card-v2__close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #667691;
+  border-radius: 4px;
+  transition: color 200ms ease, background 200ms ease;
+}
+
+.fa-insight-card-v2__close:hover {
+  color: #1a2c44;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.fa-insight-card-v2__title {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.31px;
+  color: #353a44;
+  margin: 0;
+  padding-right: 28px;
+  font-variant-numeric: lining-nums proportional-nums;
+}
+
+.fa-insight-card-v2__description {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #353a44;
+  margin: 0;
+}
+
+.fa-insight-card-v2__link {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #533afd;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+.fa-insight-card-v2__link:hover {
+  text-decoration: underline;
+}
+
+.fa-insight-card-v2__dots {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.fa-insight-card-v2__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d4dee9;
+}
+
+.fa-insight-card-v2__dot:first-child {
+  background: #533afd;
 }
 
 /* V2: Gross volume — flex to fill space, 230px height, 4px radius, no border, no side padding, no hover (Figma 1550:78920) */

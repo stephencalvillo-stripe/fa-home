@@ -18,6 +18,13 @@ body[data-prototype-version="2"][data-dashboard-state="fa-borderless"] .fa-hero-
   display: block;
 }
 
+/* V2 FA Borderless: hero row full width — remove 16px side padding from .fa-content */
+body[data-prototype-version="2"][data-dashboard-state="fa-borderless"] .fa-hero-modules-v2-borderless {
+  margin-left: -16px;
+  margin-right: -16px;
+  width: calc(100% + 32px);
+}
+
 .fa-hero-modules-v2-borderless {
   display: flex;
   gap: 40px;
@@ -215,7 +222,7 @@ body[data-prototype-version="2"][data-dashboard-state="fa-borderless"] .fa-hero-
   margin: 0;
 }
 
+/* Arrow icon removed from Lifetime yield earned */
 .fa-hero-v2-borderless-yield .fa-icon-sail {
-  flex-shrink: 0;
-  color: #533AFD;
+  display: none;
 }

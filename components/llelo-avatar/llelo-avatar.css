@@ -1,0 +1,170 @@
+/**
+ * Llelo avatar (Figma 1575-140217)
+ * Fixed bottom-right of dashboard; visible only in Version 2, FA enabled.
+ */
+.fa-llelo-avatar {
+  display: none;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 300;
+  width: 48px;
+  height: 48px;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-llelo-avatar {
+  display: block;
+}
+
+.fa-llelo-avatar__circle {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #D4DEE9;
+  background: linear-gradient(135deg, #e91e8c 0%, #5c4bb8 100%);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 7px 14px rgba(48, 49, 61, 0.08);
+}
+
+.fa-llelo-avatar__img {
+  position: absolute;
+  /* Extend image to fill circle per Figma (inset -14.58% -29.17% -43.75% -29.17%) */
+  left: -30%;
+  top: -15%;
+  width: 160%;
+  height: 160%;
+  object-fit: cover;
+}
+
+.fa-llelo-avatar {
+  cursor: pointer;
+}
+
+/**
+ * Llelo card — animates in from bottom-right when avatar is clicked (Figma 1575-140148)
+ */
+.fa-llelo-card {
+  display: none;
+  position: fixed;
+  right: 16px;
+  bottom: 72px;
+  z-index: 301;
+  width: 320px;
+  max-width: calc(100vw - 32px);
+  background: #ffffff;
+  border: 1px solid rgba(0, 39, 77, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(48, 49, 61, 0.08), 0 5px 15px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  opacity: 0;
+  transform: translate(100%, 100%);
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+  pointer-events: none;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-llelo-card {
+  display: block;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-llelo-card.fa-llelo-card--open {
+  opacity: 1;
+  transform: translate(0, 0);
+  pointer-events: auto;
+}
+
+.fa-llelo-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+}
+
+.fa-llelo-card__title {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #353a44;
+}
+
+.fa-llelo-card__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #6c7688;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.fa-llelo-card__close:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #353a44;
+}
+
+.fa-llelo-card__body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fa-llelo-card__heading {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.3px;
+  color: #353a44;
+  margin: 0;
+}
+
+.fa-llelo-card__image {
+  height: 150px;
+  border-radius: 8px;
+  background: linear-gradient(230.68deg, rgb(76, 0, 221) 36.07%, rgb(244, 123, 255) 99.93%);
+}
+
+.fa-llelo-card__message {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #353a44;
+  margin: 0;
+}
+
+.fa-llelo-card__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fa-llelo-card__btn {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #d8dee4;
+  color: #353a44;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  align-self: flex-start;
+}
+
+.fa-llelo-card__btn:hover {
+  border-color: #bac8da;
+  background: #f5f6f8;
+}

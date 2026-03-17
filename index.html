@@ -43,10 +43,12 @@
   <link rel="stylesheet" href="components/move-money-dropdown/move-money-dropdown.css" />
   <link rel="stylesheet" href="components/version-menu/version-menu.css" />
   <link rel="stylesheet" href="components/hero-modules-payments/hero-modules-payments.css" />
+  <link rel="stylesheet" href="components/treasury-modal/treasury-modal.css" />
   <link rel="stylesheet" href="components/hero-modules-v2-fa/hero-modules-v2-fa.css" />
   <link rel="stylesheet" href="components/hero-modules-v2-borderless/hero-modules-v2-borderless.css" />
   <link rel="stylesheet" href="components/hero-modules-borderless/hero-modules-borderless.css" />
   <link rel="stylesheet" href="components/dispute-activity-card/dispute-activity-card.css" />
+  <link rel="stylesheet" href="components/llelo-avatar/llelo-avatar.css" />
 </head>
 <body class="fa-page" data-prototype-version="2" data-dashboard-state="payments-only">
   <!-- Inline Sail icon sprite so <use href="#id"> works (position/overflow hide so refs work in fixed header) -->
@@ -512,9 +514,19 @@
               <div class="fa-hero-v2-fa-balances__head">
                 <div class="fa-hero-v2-fa-balances__main">
                   <div class="fa-hero-v2-fa-balances__dropdowns">
-                    <div class="fa-hero-v2-fa-balances__dropdown">
-                      <span class="fa-hero-v2-fa-balances__label">All balances</span>
-                      <svg class="fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                    <div class="fa-hero-v2-fa-balances__dropdown fa-balance-dropdown-wrap">
+                      <button type="button" class="fa-balance-dropdown fa-balance-dropdown--balance" aria-expanded="false" aria-haspopup="true">
+                        <span class="fa-balance-dropdown-label">All balances</span>
+                        <svg class="fa-balance-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                      </button>
+                      <div class="fa-balance-dropdown-panel fa-balance-dropdown-panel--balance" role="menu" aria-hidden="true">
+                        <div class="fa-balance-dropdown-menu">
+                          <button type="button" class="fa-balance-dropdown-item fa-balance-dropdown-item--selected" role="menuitem">All balances</button>
+                          <button type="button" class="fa-balance-dropdown-item" role="menuitem">Payments balance</button>
+                          <button type="button" class="fa-balance-dropdown-item" role="menuitem">Main</button>
+                          <button type="button" class="fa-balance-dropdown-item" role="menuitem">Rainy day</button>
+                        </div>
+                      </div>
                     </div>
                     <div class="fa-hero-v2-fa-balances__dropdown fa-hero-v2-fa-balances__dropdown--date">
                       <span class="fa-hero-v2-fa-balances__label fa-hero-v2-fa-balances__label--regular">Last 30 days</span>
@@ -585,9 +597,19 @@
               <div class="fa-hero-v2-borderless-balances__head">
                 <div class="fa-hero-v2-borderless-balances__main">
                   <div class="fa-hero-v2-borderless-balances__dropdowns">
-                    <div class="fa-hero-v2-borderless-balances__dropdown">
-                      <span class="fa-hero-v2-borderless-balances__label">All balances</span>
-                      <svg class="fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                    <div class="fa-hero-v2-borderless-balances__dropdown fa-balance-dropdown-wrap">
+                      <button type="button" class="fa-balance-dropdown fa-balance-dropdown--balance" aria-expanded="false" aria-haspopup="true">
+                        <span class="fa-balance-dropdown-label">All balances</span>
+                        <svg class="fa-balance-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                      </button>
+                      <div class="fa-balance-dropdown-panel fa-balance-dropdown-panel--balance" role="menu" aria-hidden="true">
+                        <div class="fa-balance-dropdown-menu">
+                          <button type="button" class="fa-balance-dropdown-item fa-balance-dropdown-item--selected" role="menuitem">All balances</button>
+                          <button type="button" class="fa-balance-dropdown-item" role="menuitem">Payments balance</button>
+                          <button type="button" class="fa-balance-dropdown-item" role="menuitem">Main</button>
+                          <button type="button" class="fa-balance-dropdown-item" role="menuitem">Rainy day</button>
+                        </div>
+                      </div>
                     </div>
                     <div class="fa-hero-v2-borderless-balances__dropdown fa-hero-v2-borderless-balances__dropdown--date">
                       <span class="fa-hero-v2-borderless-balances__label fa-hero-v2-borderless-balances__label--regular">Last 30 days</span>
@@ -618,7 +640,6 @@
                 <span class="fa-hero-v2-borderless-yield__title">Lifetime yield earned</span>
                 <div class="fa-hero-v2-borderless-yield__row">
                   <span class="fa-hero-v2-borderless-yield__value">+$57,244.32</span>
-                  <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg>
                 </div>
               </a>
             </div>
@@ -726,7 +747,9 @@
       <!-- Payments only: Gross volume + Balances + Debits (Figma 1451:143187) -->
       <div class="fa-hero-state-payments" id="fa-hero-state-payments" aria-hidden="true">
         <div class="fa-hero-modules-payments" id="fa-hero-modules-payments">
-          <div class="fa-gross-module fa-gross-module--payments-hero">
+          <!-- V2 layout: grid with Gross, secondary (Balances|Payouts), and optional insight card (Figma 1575-136063) -->
+          <div class="fa-hero-v2-payments-grid" id="fa-hero-v2-payments-grid">
+          <div class="fa-gross-module fa-gross-module--payments-hero fa-hero-v2-payments-gross">
             <div class="fa-gross-metrics">
               <div class="fa-gross-metrics-inner">
                 <div class="fa-gross-block fa-gross-block--primary">
@@ -735,7 +758,7 @@
                     <span class="fa-gross-info" aria-hidden="true"><svg class="fa-icon-sail" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><use href="#info"/></svg></span>
                     <svg class="fa-gross-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
                   </div>
-                  <p class="fa-gross-value">$120,000.00</p>
+                  <p class="fa-gross-value">$406.39</p>
                   <span class="fa-gross-meta">2:00 PM</span>
                 </div>
                 <div class="fa-gross-block fa-gross-block--yesterday">
@@ -762,6 +785,42 @@
                 <span>11:59 pm</span>
               </div>
             </div>
+          </div>
+          <div class="fa-hero-v2-payments-secondary" id="fa-hero-v2-payments-secondary">
+            <a href="balances.html" class="fa-hero-v2-card fa-hero-v2-card--balances" aria-label="Go to Balance">
+              <div class="fa-hero-v2-card__header">
+                <span class="fa-hero-v2-card__title">Balance</span>
+                <span class="fa-hero-v2-card__view">View</span>
+              </div>
+              <div class="fa-hero-v2-card__value-row">
+                <span class="fa-hero-v2-card__value">$72,450.32</span>
+                <span class="fa-tooltip-wrap">
+                  <span role="button" aria-label="More information" style="display:inline-flex;cursor:pointer;">
+                    <svg class="fa-icon-sail" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><use href="#info"/></svg>
+                  </span>
+                  <span class="fa-tooltip" role="tooltip">Total balance across all balances</span>
+                </span>
+              </div>
+            </a>
+            <hr class="fa-hero-v2-divider fa-hero-v2-payments-secondary-divider" aria-hidden="true" />
+            <a href="#" class="fa-hero-v2-card fa-hero-v2-card--payouts" aria-label="View Payouts">
+              <div class="fa-hero-v2-card__header">
+                <span class="fa-hero-v2-card__title">Payouts</span>
+                <span class="fa-hero-v2-card__view">View</span>
+              </div>
+              <p class="fa-hero-v2-card__value">$250.00</p>
+              <p class="fa-hero-v2-card__meta">Nov 25, 2024</p>
+            </a>
+          </div>
+          <div class="fa-hero-v2-payments-insight" id="fa-hero-v2-payments-insight">
+            <div class="fa-insight-card-v2">
+              <button type="button" class="fa-insight-card-v2__close" id="fa-hero-v2-insight-close" aria-label="Dismiss"> <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#cancel"/></svg> </button>
+              <h3 class="fa-insight-card-v2__title">Get a card and spend directly from your balance</h3>
+              <p class="fa-insight-card-v2__description">Store, send, and spend in multiple currencies</p>
+              <a href="#" class="fa-insight-card-v2__link" id="fa-hero-v2-insight-get-started">Get started</a>
+              <div class="fa-insight-card-v2__dots" aria-hidden="true"><span class="fa-insight-card-v2__dot"></span><span class="fa-insight-card-v2__dot"></span><span class="fa-insight-card-v2__dot"></span></div>
+            </div>
+          </div>
           </div>
           <div class="fa-hero-modules-payments__col">
             <a href="balances.html" class="fa-hero-module-compact fa-hero-module-compact--balances" aria-label="Go to Balances">
@@ -792,33 +851,6 @@
                   <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#arrowRight"/></svg>
                 </span>
               </div>
-            </a>
-          </div>
-          <!-- Version 2: Payments only — Balances + Divider + Payouts (Figma 1550:78920) -->
-          <div class="fa-hero-modules-payments__col-v2" id="fa-hero-modules-payments-col-v2">
-            <a href="balances.html" class="fa-hero-v2-card fa-hero-v2-card--balances" aria-label="Go to Balances">
-              <div class="fa-hero-v2-card__header">
-                <span class="fa-hero-v2-card__title">Balances</span>
-                <span class="fa-hero-v2-card__view">View</span>
-              </div>
-              <div class="fa-hero-v2-card__value-row">
-                <span class="fa-hero-v2-card__value">$72,450.32</span>
-                <span class="fa-tooltip-wrap">
-                  <span role="button" aria-label="More information" style="display:inline-flex;cursor:pointer;">
-                    <svg class="fa-icon-sail" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><use href="#info"/></svg>
-                  </span>
-                  <span class="fa-tooltip" role="tooltip">Total balance across all balances</span>
-                </span>
-              </div>
-            </a>
-            <hr class="fa-hero-v2-divider" aria-hidden="true" />
-            <a href="#" class="fa-hero-v2-card fa-hero-v2-card--payouts" aria-label="View Payouts">
-              <div class="fa-hero-v2-card__header">
-                <span class="fa-hero-v2-card__title">Payouts</span>
-                <span class="fa-hero-v2-card__view">View</span>
-              </div>
-              <p class="fa-hero-v2-card__value">$250.00</p>
-              <p class="fa-hero-v2-card__meta">Nov 25, 2024</p>
             </a>
           </div>
         </div>
@@ -1170,6 +1202,53 @@
       </div>
     </div>
   </div>
+  <!-- Llelo avatar — bottom-right, Version 2 FA enabled only (Figma 1575-140217). Click opens card (1575-140148). -->
+  <div class="fa-llelo-avatar" id="fa-llelo-avatar" aria-hidden="true" role="button" tabindex="0" aria-label="Open llelo">
+    <div class="fa-llelo-avatar__circle">
+      <img class="fa-llelo-avatar__img" src="https://www.figma.com/api/mcp/asset/552b9145-c326-4d9b-a685-342d4d7d0803" alt="" onerror="this.style.display='none'" />
+    </div>
+  </div>
+  <div class="fa-llelo-card" id="fa-llelo-card" role="dialog" aria-labelledby="fa-llelo-card-title" aria-modal="true" aria-hidden="true">
+    <header class="fa-llelo-card__header">
+      <span class="fa-llelo-card__title" id="fa-llelo-card-title">llelo</span>
+      <button type="button" class="fa-llelo-card__close" id="fa-llelo-card-close" aria-label="Close">
+        <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#cancel"/></svg>
+      </button>
+    </header>
+    <div class="fa-llelo-card__body">
+      <h2 class="fa-llelo-card__heading">Your new Home</h2>
+      <div class="fa-llelo-card__image" aria-hidden="true"></div>
+      <p class="fa-llelo-card__message">With Treasury enabled, you now can view your total balance across all your financial accounts.</p>
+      <div class="fa-llelo-card__actions">
+        <button type="button" class="fa-llelo-card__btn" id="fa-llelo-card-dismiss">Dismiss</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function() {
+      // Restore Version 2 dashboard state from sessionStorage when returning from Balances / Incoming earnings (Home link)
+      var savedState = sessionStorage.getItem('fa-dashboard-state');
+      var savedVersion = sessionStorage.getItem('fa-prototype-version');
+      var validStates = { 'payments-only': true, 'fa-enabled': true, 'fa-borderless': true };
+      var validVersions = { '1': true, '2': true };
+      if (savedVersion && validVersions[savedVersion]) {
+        document.body.setAttribute('data-prototype-version', savedVersion);
+        var versionLabel = document.getElementById('fa-version-menu-label');
+        if (versionLabel) versionLabel.textContent = 'Version ' + savedVersion;
+        var versionRows = document.querySelectorAll('.fa-version-menu__row');
+        versionRows.forEach(function(row) {
+          row.classList.toggle('is-selected', row.getAttribute('data-version') === savedVersion);
+        });
+      }
+      if (savedState && validStates[savedState]) {
+        document.body.setAttribute('data-dashboard-state', savedState);
+        var stateOptions = document.querySelectorAll('.fa-state-toggle__option');
+        stateOptions.forEach(function(btn) {
+          btn.setAttribute('aria-selected', btn.getAttribute('data-state') === savedState ? 'true' : 'false');
+        });
+      }
+    })();
+  </script>
   <script src="components/balance-module/balance-module.js"></script>
   <script>
     (function () {
@@ -1197,6 +1276,7 @@
       function setDashboardState(state) {
         if (!page) return;
         page.setAttribute('data-dashboard-state', state);
+        try { sessionStorage.setItem('fa-dashboard-state', state); } catch (e) {}
         if (stateOptions) {
           stateOptions.forEach(function (btn) {
             var isSelected = (btn.getAttribute('data-state') === state);
@@ -1300,6 +1380,7 @@
       function setVersion(version) {
         var v = String(version);
         document.body.setAttribute('data-prototype-version', v);
+        try { sessionStorage.setItem('fa-prototype-version', v); } catch (e) {}
         if (versionLabel) versionLabel.textContent = 'Version ' + v;
         if (versionRows) {
           versionRows.forEach(function(row) {
@@ -1349,6 +1430,139 @@
 
       var current = document.body.getAttribute('data-prototype-version') || '1';
       setVersion(current);
+    })();
+
+    (function() {
+      var grid = document.getElementById('fa-hero-v2-payments-grid');
+      var closeBtn = document.getElementById('fa-hero-v2-insight-close');
+      if (grid && closeBtn) {
+        closeBtn.addEventListener('click', function() {
+          grid.classList.add('fa-hero-v2-payments--insight-dismissed');
+        });
+      }
+    })();
+  </script>
+  <!-- Treasury application modal (Figma 1575-139423) — must be in DOM before script runs -->
+    <div class="fa-treasury-modal-overlay" id="fa-treasury-modal-overlay" aria-hidden="true"></div>
+    <div class="fa-treasury-modal" id="fa-treasury-modal" role="dialog" aria-modal="true" aria-labelledby="fa-treasury-modal-title" aria-hidden="true">
+      <div class="fa-treasury-modal__dialog">
+        <header class="fa-treasury-modal__header">
+          <span class="fa-treasury-modal__header-title">Treasury application</span>
+          <div class="fa-treasury-modal__header-right">
+            <div class="fa-treasury-modal__progress" aria-hidden="true">
+              <div class="fa-treasury-modal__progress-track"></div>
+              <div class="fa-treasury-modal__progress-fill"></div>
+            </div>
+            <button type="button" class="fa-treasury-modal__close" id="fa-treasury-modal-close" aria-label="Close">
+              <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#cancel"/></svg>
+            </button>
+          </div>
+        </header>
+        <div class="fa-treasury-modal__body">
+          <div class="fa-treasury-modal__content">
+            <div class="fa-treasury-modal__page-header">
+              <h2 class="fa-treasury-modal__heading" id="fa-treasury-modal-title">This is a mock Treasury application.</h2>
+              <p class="fa-treasury-modal__subtext">This is subtext that supports the title.</p>
+            </div>
+            <div class="fa-treasury-modal__blocks">
+              <div class="fa-treasury-modal__block">Content</div>
+              <div class="fa-treasury-modal__block"></div>
+              <div class="fa-treasury-modal__block"></div>
+              <div class="fa-treasury-modal__block"></div>
+            </div>
+          </div>
+        </div>
+        <footer class="fa-treasury-modal__footer">
+          <div class="fa-treasury-modal__footer-actions">
+            <button type="button" class="fa-treasury-modal__btn fa-treasury-modal__btn--secondary">Save and exit</button>
+            <button type="button" class="fa-treasury-modal__btn fa-treasury-modal__btn--primary" id="fa-treasury-modal-submit">Submit</button>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script>
+    (function() {
+      var getStartedLink = document.getElementById('fa-hero-v2-insight-get-started');
+      var modal = document.getElementById('fa-treasury-modal');
+      var modalOverlay = document.getElementById('fa-treasury-modal-overlay');
+      var modalClose = document.getElementById('fa-treasury-modal-close');
+      var submitBtn = document.getElementById('fa-treasury-modal-submit');
+      function openModal() {
+        if (modal) { modal.classList.add('fa-treasury-modal--open'); modal.setAttribute('aria-hidden', 'false'); }
+        if (modalOverlay) { modalOverlay.classList.add('fa-treasury-modal-overlay--open'); modalOverlay.setAttribute('aria-hidden', 'false'); }
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal() {
+        if (modal) { modal.classList.remove('fa-treasury-modal--open'); modal.setAttribute('aria-hidden', 'true'); }
+        if (modalOverlay) { modalOverlay.classList.remove('fa-treasury-modal-overlay--open'); modalOverlay.setAttribute('aria-hidden', 'true'); }
+        document.body.style.overflow = '';
+      }
+      function goToVersion2FaEnabled() {
+        document.body.setAttribute('data-prototype-version', '2');
+        var versionLabel = document.getElementById('fa-version-menu-label');
+        if (versionLabel) versionLabel.textContent = 'Version 2';
+        var versionRows = document.querySelectorAll('.fa-version-menu__row');
+        versionRows.forEach(function(row) {
+          row.classList.toggle('is-selected', row.getAttribute('data-version') === '2');
+        });
+        var faEnabledBtn = document.querySelector('.fa-state-toggle__option[data-state="fa-enabled"]');
+        if (faEnabledBtn) faEnabledBtn.click();
+      }
+      if (getStartedLink) {
+        getStartedLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          openModal();
+        });
+      }
+      if (submitBtn) {
+        submitBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          closeModal();
+          goToVersion2FaEnabled();
+        });
+      }
+      if (modalClose) modalClose.addEventListener('click', closeModal);
+      if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('fa-treasury-modal--open')) closeModal();
+      });
+    })();
+
+    (function() {
+      var avatar = document.getElementById('fa-llelo-avatar');
+      var card = document.getElementById('fa-llelo-card');
+      var cardClose = document.getElementById('fa-llelo-card-close');
+      var cardDismiss = document.getElementById('fa-llelo-card-dismiss');
+      function openCard() {
+        if (card) {
+          card.classList.add('fa-llelo-card--open');
+          card.setAttribute('aria-hidden', 'false');
+        }
+      }
+      function closeCard() {
+        if (card) {
+          card.classList.remove('fa-llelo-card--open');
+          card.setAttribute('aria-hidden', 'true');
+        }
+      }
+      if (avatar && card) {
+        avatar.addEventListener('click', function(e) {
+          e.preventDefault();
+          openCard();
+        });
+        avatar.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openCard();
+          }
+        });
+      }
+      if (cardClose) cardClose.addEventListener('click', closeCard);
+      if (cardDismiss) cardDismiss.addEventListener('click', closeCard);
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && card && card.classList.contains('fa-llelo-card--open')) closeCard();
+      });
     })();
   </script>
 </body>

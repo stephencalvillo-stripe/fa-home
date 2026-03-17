@@ -233,9 +233,44 @@
     document.addEventListener('click', closeDropdowns);
   }
 
+  function initBalanceDropdownOnly(container) {
+    var balanceTrigger = container.querySelector('.fa-balance-dropdown--balance');
+    var balancePanel = container.querySelector('.fa-balance-dropdown-panel--balance');
+    if (!balanceTrigger || !balancePanel) return;
+    balancePanel.addEventListener('click', function (e) { e.stopPropagation(); });
+    balanceTrigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = balancePanel.classList.toggle('fa-balance-dropdown-panel--open');
+      balanceTrigger.setAttribute('aria-expanded', open);
+      balancePanel.setAttribute('aria-hidden', !open);
+    });
+    balancePanel.querySelectorAll('.fa-balance-dropdown-item').forEach(function (item) {
+      item.addEventListener('click', function () {
+        var label = balanceTrigger.querySelector('.fa-balance-dropdown-label');
+        if (label) label.textContent = item.textContent.trim();
+        balancePanel.querySelectorAll('.fa-balance-dropdown-item--selected').forEach(function (s) { s.classList.remove('fa-balance-dropdown-item--selected'); });
+        item.classList.add('fa-balance-dropdown-item--selected');
+        balancePanel.classList.remove('fa-balance-dropdown-panel--open');
+        balanceTrigger.setAttribute('aria-expanded', 'false');
+        balancePanel.setAttribute('aria-hidden', 'true');
+      });
+    });
+    document.addEventListener('click', function () {
+      if (balancePanel.classList.contains('fa-balance-dropdown-panel--open')) {
+        balancePanel.classList.remove('fa-balance-dropdown-panel--open');
+        balanceTrigger.setAttribute('aria-expanded', 'false');
+        balancePanel.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+
   function init() {
     var modules = document.querySelectorAll('.fa-balance-module');
     modules.forEach(initModule);
+    var v2Fa = document.querySelector('.fa-hero-v2-fa-balances');
+    if (v2Fa) initBalanceDropdownOnly(v2Fa);
+    var v2Borderless = document.querySelector('.fa-hero-v2-borderless-balances');
+    if (v2Borderless) initBalanceDropdownOnly(v2Borderless);
   }
 
   if (document.readyState === 'loading') {

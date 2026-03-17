@@ -124,6 +124,17 @@ Shared: hover border + shadow; arrow 4px slide on hover; info (row 1) and arrow 
 
 ---
 
+## Modals
+
+### Treasury application modal (Version 2, Payments only)
+- **Path:** `components/treasury-modal/treasury-modal.css`
+- **Trigger:** User clicks **Get started** on the V2 Payments insight card (`.fa-insight-card-v2` inside `#fa-hero-v2-payments-insight`). Link id: `fa-hero-v2-insight-get-started`.
+- **Classes:** `.fa-treasury-modal-overlay`, `.fa-treasury-modal`, `.fa-treasury-modal__dialog`, `.fa-treasury-modal__header`, `.fa-treasury-modal__progress`, `.fa-treasury-modal__close`, `.fa-treasury-modal__body`, `.fa-treasury-modal__btn`, etc.
+- **Behavior:** Full-screen overlay + centered dialog (1196×758px, max 85vw/85vh). Header: “Treasury application”, progress bar, close button. Body: mock page header, content blocks. Footer: “Save and exit”, “Submit” (disabled). Open/close toggled in `index.html` script; Escape and overlay click close.
+- **Figma:** 1575-139423
+
+---
+
 ## Shared / base
 
 - **shared.css:** Tokens, `.fa-page`, `.fa-center`, `.fa-content`, grids, hero hover/arrow, icon slot.

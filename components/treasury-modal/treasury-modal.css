@@ -1,0 +1,239 @@
+/**
+ * Treasury application modal (Figma 1575-139423)
+ * Shown when user clicks "Get started" on the V2 Payments insight card.
+ */
+
+.fa-treasury-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
+}
+
+.fa-treasury-modal-overlay--open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.fa-treasury-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
+}
+
+.fa-treasury-modal--open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.fa-treasury-modal__dialog {
+  width: 1196px;
+  height: 758px;
+  max-width: 85vw;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(48, 49, 61, 0.08), 0 5px 15px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+/* Header — "Treasury application", progress bar, close (Figma) */
+.fa-treasury-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -2px 5px rgba(48, 49, 61, 0.08), 0 1px 1px rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+
+.fa-treasury-modal__header-title {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: #1a2c44;
+}
+
+.fa-treasury-modal__header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.fa-treasury-modal__progress {
+  position: relative;
+  width: 125px;
+  height: 5px;
+  border-radius: 100px;
+  background: #f5f6f8;
+  overflow: hidden;
+}
+
+.fa-treasury-modal__progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 7px;
+  height: 5px;
+  border-radius: 100px;
+  background: #675dff;
+}
+
+.fa-treasury-modal__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #474e5a;
+  border-radius: 4px;
+  transition: color 200ms ease, background 200ms ease;
+}
+
+.fa-treasury-modal__close:hover {
+  color: #1a2c44;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* Body — scrollable content */
+.fa-treasury-modal__body {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: auto;
+}
+
+.fa-treasury-modal__content {
+  padding: 24px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Page header — title + subtext */
+.fa-treasury-modal__page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fa-treasury-modal__heading {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0.3px;
+  color: #21252c;
+  margin: 0;
+  font-variant-numeric: lining-nums proportional-nums;
+}
+
+.fa-treasury-modal__subtext {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.3px;
+  color: #667691;
+  margin: 0;
+}
+
+/* Content blocks — placeholder areas (Figma: #f4f7fa, 141px, 8px radius) */
+.fa-treasury-modal__blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.fa-treasury-modal__block {
+  height: 141px;
+  background: #f4f7fa;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: -0.48px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* Footer — Save and exit, Submit (Figma) */
+.fa-treasury-modal__footer {
+  padding: 24px;
+  background: #ffffff;
+  box-shadow: 0 -2px 5px rgba(48, 49, 61, 0.08), 0 1px 1px rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+
+.fa-treasury-modal__footer-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.fa-treasury-modal__btn {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
+}
+
+.fa-treasury-modal__btn--secondary {
+  background: #ffffff;
+  border: 1px solid #d8dee4;
+  color: #353a44;
+}
+
+.fa-treasury-modal__btn--secondary:hover {
+  border-color: #bac8da;
+  background: #f5f6f8;
+}
+
+.fa-treasury-modal__btn--primary {
+  background: #675dff;
+  border: none;
+  color: #ffffff;
+  box-shadow: 0 1px 1px rgba(47, 14, 99, 0.32);
+}
+
+.fa-treasury-modal__btn--primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: 0 1px 1px rgba(47, 14, 99, 0.32);
+}
+
+.fa-treasury-modal__btn--primary:not(:disabled):hover {
+  background: #5347e6;
+}
