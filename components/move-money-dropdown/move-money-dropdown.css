@@ -1,0 +1,69 @@
+/**
+ * Move money dropdown — Figma 1545:78862
+ * Shown when user clicks Move money in Version 2, FA enabled.
+ * Panel: white, border #D4DEE9, 8px radius, 16px padding, 8px gap, shadow.
+ * Items: pill bg #F4F7FA, 12px/6px padding, Send | Request | Transfer.
+ */
+
+.fa-move-money-dropdown-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.fa-move-money-dropdown-panel {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 6px);
+  z-index: 25;
+  width: 175px;
+  background: #FFFFFF;
+  border: 1px solid #D4DEE9;
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(48, 49, 61, 0.08), 0 5px 15px rgba(0, 0, 0, 0.12);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 200ms ease-out, transform 200ms ease-out, visibility 0s linear 200ms;
+  pointer-events: none;
+}
+
+.fa-move-money-dropdown-panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 200ms ease-out, transform 200ms ease-out, visibility 0s linear 0s;
+  pointer-events: auto;
+}
+
+.fa-move-money-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 54px;
+  background: #F4F7FA;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1A2C44;
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.fa-move-money-dropdown-item:hover {
+  background: #ECF1F6;
+}
+
+.fa-move-money-dropdown-item .fa-icon-sail {
+  flex-shrink: 0;
+  color: #3C4F69;
+}
