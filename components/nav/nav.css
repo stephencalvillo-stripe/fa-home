@@ -48,10 +48,18 @@
   overflow: hidden;
 }
 
-.fa-nav-account-icon img {
+.fa-nav-account-icon:has(svg) {
+  width: 24px;
+  height: 24px;
+  background: transparent;
+}
+
+.fa-nav-account-icon img,
+.fa-nav-account-icon svg {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .fa-nav-account-name {
@@ -211,4 +219,21 @@
 .fa-nav-workload .fa-nav-toggle .fa-icon-sail {
   width: 16px;
   height: 16px;
+}
+
+/* ─── FA Borderless nav (Figma 1568:57337): only when Version 2 + FA Borderless ─── */
+.fa-nav--borderless {
+  display: none;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="fa-borderless"] .fa-nav--default {
+  display: none;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="fa-borderless"] .fa-nav--borderless {
+  display: flex;
+}
+
+.fa-nav-section-title--subdued {
+  color: #667691;
 }
