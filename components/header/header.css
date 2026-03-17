@@ -74,11 +74,11 @@
   outline: none;
 }
 
-/* Header action icons — help, notifications, settings, add (Figma 1554:33380); 24px gap, Icon/Default #474E5A */
+/* Header action icons — help, notifications, settings, add (Figma 1554:33380); 16px gap, Icon/Default #474E5A */
 .fa-header-actions {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
   flex-shrink: 0;
 }
 
