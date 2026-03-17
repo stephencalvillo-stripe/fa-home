@@ -260,6 +260,10 @@ body[data-dashboard-state="fa-borderless"] .fa-overview-grid--default .fa-spendi
 }
 
 /* ─── Version 2: Payments only hero (Figma 1550:78920) ─── */
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-modules-payments {
+  gap: 40px;
+}
+
 body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-modules-payments__col {
   display: none;
 }
