@@ -1,0 +1,119 @@
+/**
+ * All balances spotlight — Figma FA-Home-Sessions 1583:38522 / Spotlight 1579:137321
+ * Fixed popover below All balances (V2 FA enabled).
+ */
+.fa-balances-spotlight--portal {
+  position: fixed;
+  z-index: 400;
+  width: 280px;
+  max-width: min(280px, calc(100vw - 32px));
+  left: 16px;
+  top: 120px;
+  margin: 0;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.35s;
+}
+
+.fa-balances-spotlight--portal.fa-balances-spotlight--visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition:
+    opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0s;
+}
+
+.fa-balances-spotlight__caret {
+  position: absolute;
+  top: -7px;
+  left: var(--fa-balances-spotlight-caret, 18px);
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  transform: rotate(45deg);
+  box-shadow: -2px -2px 4px rgba(48, 49, 61, 0.04);
+  z-index: 1;
+  border-left: 1px solid rgba(0, 39, 77, 0.06);
+  border-top: 1px solid rgba(0, 39, 77, 0.06);
+}
+
+.fa-balances-spotlight__card {
+  position: relative;
+  z-index: 2;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 39, 77, 0.08);
+  box-shadow:
+    0 15px 35px rgba(48, 49, 61, 0.08),
+    0 5px 15px rgba(0, 0, 0, 0.12);
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.fa-balances-spotlight__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.fa-balances-spotlight__title {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #1a2c44;
+  font-variant-numeric: lining-nums proportional-nums;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.fa-balances-spotlight__close {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #474e5a;
+  cursor: pointer;
+}
+
+.fa-balances-spotlight__close:hover {
+  background: rgba(0, 39, 77, 0.06);
+  color: #1a2c44;
+}
+
+.fa-balances-spotlight__close:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(83, 58, 253, 0.3);
+}
+
+.fa-balances-spotlight__body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #1a2c44;
+}
+
+/* Only mount in DOM for V2 + FA enabled; keeps accessibility simple */
+body:not([data-prototype-version="2"]) .fa-balances-spotlight--portal,
+body:not([data-dashboard-state="fa-enabled"]) .fa-balances-spotlight--portal {
+  display: none !important;
+}
