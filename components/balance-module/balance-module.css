@@ -302,3 +302,9 @@
 .fa-balance-timerange span:last-child {
   text-align: right;
 }
+
+/* Version 2, FA enabled: no time-range on All balances (dropdown + chart axis) */
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-balance-module .fa-balance-dropdown-wrap:has(.fa-balance-dropdown--time),
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-balance-module .fa-balance-timerange {
+  display: none !important;
+}

@@ -41,20 +41,29 @@ body {
   color: var(--fa-text);
   background: var(--color-bg-subtle);
 }
-.fa-page { display: flex; min-height: 100vh; }
+.fa-page {
+  display: flex;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-/* Wrapper: space to the right of nav; centers the content column */
+/* aside.fa-nav is position:fixed — do not zero its width or strip borders (that hid the nav stroke). */
+
+/* Inset for fixed nav; center the max 1280px column in the area to the right */
 .fa-center-wrap {
   flex: 1;
   min-width: 0;
-  margin-left: 228px; /* leave space for fixed left nav */
+  padding-left: 228px;
+  box-sizing: border-box;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .fa-center {
-  width: 100%;
+  width: min(100%, 1280px);
   max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
 }

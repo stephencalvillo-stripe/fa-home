@@ -33,21 +33,39 @@
 .fa-chip-value { color: #533AFD; }
 .fa-chip-sep { width: 1px; height: 12px; background: #BAC8DA; flex-shrink: 0; }
 .fa-chip svg { flex-shrink: 0; color: #667691; }
+/* Customize — Figma 1578-73435 (Button secondary): bg #fff, border #D4DEE9, radius 6, text/icon onAction secondary */
 .fa-btn-customize {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  box-sizing: border-box;
+  min-height: 32px;
   padding: 6px 12px;
-  background: #FFFFFF;
-  border: 1px solid #D4DEE9;
-  border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid #d4dee9;
+  border-radius: 6px;
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
   letter-spacing: -0.15px;
-  color: #667691;
+  color: #273951;
   cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
-.fa-btn-customize:hover { background: var(--fa-bg-offset); }
-.fa-btn-customize .fa-icon-sail { color: #667691; }
+.fa-btn-customize:hover {
+  background: #f4f7fa;
+  border-color: #c5d0de;
+}
+.fa-btn-customize:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(83, 58, 253, 0.2);
+}
+.fa-btn-customize .fa-icon-sail {
+  flex-shrink: 0;
+  color: #3c4f69;
+}
+.fa-btn-customize:hover .fa-icon-sail {
+  color: #273951;
+}

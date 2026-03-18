@@ -1,84 +1,166 @@
 /**
- * Llelo avatar (Figma 1575-140217)
- * Fixed bottom-right of dashboard; visible only in Version 2, FA enabled.
+ * Llelo — V2 + FA enabled only.
+ * Avatar default: Figma 1577-32376 · active: 1577-32366 · badge: 1578-32381 · card: 1578-73383
  */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .fa-llelo-avatar {
   display: none;
   position: fixed;
   right: 16px;
   bottom: 16px;
-  z-index: 300;
-  width: 48px;
-  height: 48px;
+  z-index: 302;
+  width: 44px;
+  height: 40px;
+  cursor: pointer;
 }
 
 body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-llelo-avatar {
   display: block;
 }
 
+.fa-llelo-avatar__stack {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 32px;
+  height: 32px;
+}
+
+/* Badge — 1578-32381: Border/Form Error #E61947, Shadow/Small, Inter Bold 8px */
+.fa-llelo-avatar__badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  z-index: 4;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  background: #e61947;
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.12),
+    0 2px 5px rgba(48, 49, 61, 0.08);
+  pointer-events: none;
+}
+
+.fa-llelo-avatar__badge--hidden {
+  display: none !important;
+}
+
+.fa-llelo-avatar__badge-text {
+  font-family: Inter, var(--font-sans), system-ui, sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 11.25px;
+  letter-spacing: -0.0844px;
+  color: #ffffff;
+  text-align: center;
+}
+
 .fa-llelo-avatar__circle {
   position: relative;
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid #D4DEE9;
-  background: linear-gradient(135deg, #e91e8c 0%, #5c4bb8 100%);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 7px 14px rgba(48, 49, 61, 0.08);
+  border: 1px solid #d4dee9;
+  background: #ffffff;
+  box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.12),
+    0 7px 14px rgba(48, 49, 61, 0.08);
 }
 
 .fa-llelo-avatar__img {
   position: absolute;
-  /* Extend image to fill circle per Figma (inset -14.58% -29.17% -43.75% -29.17%) */
-  left: -30%;
-  top: -15%;
-  width: 160%;
-  height: 160%;
+  left: -43.75%;
+  top: -21.88%;
+  width: 187.5%;
+  height: 187.5%;
   object-fit: cover;
+  object-position: center;
+  transition: opacity 0.28s ease-out;
+  pointer-events: none;
 }
 
-.fa-llelo-avatar {
-  cursor: pointer;
+.fa-llelo-avatar__img--inactive {
+  opacity: 1;
+  z-index: 1;
 }
 
-/**
- * Llelo card — animates in from bottom-right when avatar is clicked (Figma 1575-140148)
- */
+.fa-llelo-avatar__img--active {
+  opacity: 0;
+  z-index: 2;
+}
+
+.fa-llelo-avatar--active .fa-llelo-avatar__img--inactive {
+  opacity: 0;
+}
+
+.fa-llelo-avatar--active .fa-llelo-avatar__img--active {
+  opacity: 1;
+}
+
+/* Card — 1578-73383: border rgba(0,39,77,0.08), radius 12, Shadow/Overlay */
 .fa-llelo-card {
   display: none;
   position: fixed;
   right: 16px;
-  bottom: 72px;
+  bottom: 64px;
   z-index: 301;
   width: 320px;
   max-width: calc(100vw - 32px);
+  max-height: min(560px, calc(100vh - 32px));
+  flex-direction: column;
   background: #ffffff;
   border: 1px solid rgba(0, 39, 77, 0.08);
   border-radius: 12px;
-  box-shadow: 0 15px 35px rgba(48, 49, 61, 0.08), 0 5px 15px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0 15px 35px rgba(48, 49, 61, 0.08),
+    0 5px 15px rgba(0, 0, 0, 0.12);
   overflow: hidden;
   opacity: 0;
-  transform: translate(100%, 100%);
-  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+  transform: scale(0.1);
+  transform-origin: 100% 100%;
+  transition:
+    opacity 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
   pointer-events: none;
+  visibility: hidden;
 }
 
 body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-llelo-card {
-  display: block;
+  display: flex;
 }
 
 body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-llelo-card.fa-llelo-card--open {
   opacity: 1;
-  transform: translate(0, 0);
+  transform: scale(1);
   pointer-events: auto;
+  visibility: visible;
 }
 
 .fa-llelo-card__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  flex-shrink: 0;
   padding: 8px 12px;
+  gap: 12px;
 }
 
 .fa-llelo-card__title {
@@ -87,33 +169,45 @@ body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-llelo-ca
   font-weight: 600;
   line-height: 20px;
   letter-spacing: -0.15px;
-  color: #353a44;
+  color: #1a2c44;
 }
 
 .fa-llelo-card__close {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   padding: 0;
+  margin: 0;
   border: none;
-  background: none;
-  color: #6c7688;
+  background: transparent;
+  color: #667691;
   cursor: pointer;
   border-radius: 4px;
 }
 
 .fa-llelo-card__close:hover {
-  background: rgba(0, 0, 0, 0.06);
-  color: #353a44;
+  background: rgba(0, 39, 77, 0.06);
+  color: #1a2c44;
 }
 
-.fa-llelo-card__body {
-  padding: 12px;
+.fa-llelo-card__close .fa-icon-sail {
+  color: currentColor;
+}
+
+/* Content — border-b #D4DEE9, pt 8 pb 12 px 12, gap 16 */
+.fa-llelo-card__content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   gap: 16px;
+  padding: 8px 12px 12px;
+  border-bottom: 1px solid #d4dee9;
+  background: #ffffff;
 }
 
 .fa-llelo-card__heading {
@@ -122,14 +216,19 @@ body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-llelo-ca
   font-weight: 400;
   line-height: 28px;
   letter-spacing: 0.3px;
-  color: #353a44;
+  color: #1a2c44;
   margin: 0;
+  font-variant-numeric: lining-nums proportional-nums;
 }
 
 .fa-llelo-card__image {
+  display: block;
+  width: 100%;
   height: 150px;
   border-radius: 8px;
-  background: linear-gradient(230.68deg, rgb(76, 0, 221) 36.07%, rgb(244, 123, 255) 99.93%);
+  object-fit: cover;
+  object-position: center;
+  flex-shrink: 0;
 }
 
 .fa-llelo-card__message {
@@ -138,33 +237,81 @@ body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-llelo-ca
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.15px;
-  color: #353a44;
+  color: #1a2c44;
   margin: 0;
+  min-height: 60px;
 }
 
 .fa-llelo-card__actions {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 8px;
 }
 
+/* Dismiss — secondary outline */
+/* Dismiss — plain text button (no border, no padding) */
 .fa-llelo-card__btn {
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
   letter-spacing: -0.15px;
-  padding: 10px 16px;
-  border-radius: 6px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
   cursor: pointer;
-  background: #ffffff;
-  border: 1px solid #d8dee4;
-  color: #353a44;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  background: none;
+  color: #1a2c44;
+  text-align: left;
   align-self: flex-start;
+  transition: color 0.15s ease, opacity 0.15s ease;
 }
 
 .fa-llelo-card__btn:hover {
-  border-color: #bac8da;
-  background: #f5f6f8;
+  color: #141f33;
+}
+
+.fa-llelo-card__btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px rgba(83, 58, 253, 0.25);
+  border-radius: 2px;
+}
+
+/* Footer — Background/Offset #F4F7FA, p 12 */
+.fa-llelo-card__footer {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background: #f4f7fa;
+}
+
+.fa-llelo-card__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  padding: 10px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #1a2c44;
+  background: #ffffff;
+  border: 1px solid #d4dee9;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-variant-numeric: lining-nums proportional-nums;
+}
+
+.fa-llelo-card__input::placeholder {
+  color: #99a5b8;
+}
+
+.fa-llelo-card__input:focus {
+  outline: none;
+  border-color: #675dff;
+  box-shadow: 0 0 0 3px rgba(103, 93, 255, 0.12);
 }

@@ -320,3 +320,16 @@ body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-hero-v2-
   padding-top: 4px;
   flex-shrink: 0;
 }
+
+/* Version 2, FA enabled: no date/timerange on All balances + Incoming earnings (V2 hero column) */
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-hero-v2-fa-balances__dropdown--date,
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-hero-v2-fa-balances__timerange,
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-hero-v2-fa-incoming__timerange {
+  display: none !important;
+}
+
+/* V2 FA enabled: descope charts — hide entire balances chart block (inner + timerange) to avoid empty flex gap */
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-hero-v2-fa-balances__chart,
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-hero-v2-fa-incoming__chart {
+  display: none !important;
+}

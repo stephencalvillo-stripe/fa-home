@@ -6,16 +6,14 @@ Where each UI piece lives and how it behaves. Use this when editing or rebuildin
 
 ## Layout & shell
 
-**Note:** The left nav and global header are shared components. Their **canonical source** is `Dashboard Prototypes/_components/left-nav/` and `_components/global-header/`. When updating nav or header, edit those folders first so _components stays the single source of truth; sync to `fa-home/components/nav/` and `header/` if needed.
-
 ### Nav (left sidebar)
-- **Path:** `components/nav/nav.css`, `nav.html` (see also `_components/left-nav/`)
+- **Path:** `components/nav/nav.css`, `nav.html`
 - **Classes:** `.fa-nav`, `.fa-nav-account`, `.fa-nav-list`, `.fa-nav-item`, `.fa-nav-section-title`, `.fa-nav-workload`
 - **Behavior:** Fixed left, 228px wide; account block, nav links, Shortcuts, Products with expandable workloads. Active state on Home.
 - **Figma:** 1149:85857
 
 ### Header (top bar)
-- **Path:** `components/header/header.css`, `header.html` (see also `_components/global-header/`)
+- **Path:** `components/header/header.css`, `header.html`
 - **Classes:** `.fa-header`, `.fa-header-content`, `.fa-header-search`, `.fa-header-actions`
 - **Behavior:** Fixed below nav; search bar (flex, max 450px) + action icons (help, notifications, settings, add). Icons use sprite `#help`, `#notifications`, `#settings`, `#addCircleFilled`.
 - **Figma:** 1099-4621 (Login/header), 1099-4626 (actions)
@@ -44,19 +42,8 @@ Where each UI piece lives and how it behaves. Use this when editing or rebuildin
 ### Insight card (conditional)
 - **Path:** `components/insight-card/insight-card.css`
 - **Classes:** `.fa-insight-card`, `.fa-insight-card__body`, `.fa-insight-card__title`, `.fa-insight-card__close`, `.fa-insight-card__view-more`
-- **Behavior:** In default hero row when Insight toggle is on (Balance + Gross + this card). 324px wide, Brand/25 background, “Insight card” title, description, “Learn more” link, dismiss (X). Slide+fade animation.
+- **Behavior:** Shown when Insight toggle is on; 324px wide, Brand/25 background, “Insight card” title, description, “Learn more” link, dismiss (X). Slide+fade animation when toggled on.
 - **Figma:** 1237-10212
-
-### Hero when insight ON — Payments only (1451:145651)
-- **Path:** `components/hero-insight-on/hero-insight-on.css`
-- **Behavior:** When State is **Payments only** and Insight toggle is **on**, the hero-modules section switches to: left 680px (Gross volume 230px + row of Balances and Debits compact cards), right 324px **Add FA** card. Add FA card: offset bg, 16px radius, “Get a card and spend directly from your balance”, “Store, send, and spend in multiple currencies”, card visual, “Get started” button, dismiss. Fade transition (0.28s). **FA enabled** with insight ON keeps the default hero (Balance + Gross + insight card in row, four cards below).
-- **Figma:** 1451:145651
-
-### Hero modules — Payments only (1451:143187)
-- **Path:** `components/hero-modules-payments/hero-modules-payments.css`
-- **Classes:** `.fa-hero-state-payments`, `.fa-hero-modules-payments`, `.fa-hero-modules-payments__col`, `.fa-gross-module--payments-hero`, `.fa-hero-module-compact`, `.fa-hero-module-compact--balances`, `.fa-hero-module-compact--debits`
-- **Behavior:** Shown when State toggle is “Payments only”. One row: Gross volume (flex 1, 230px height) + 324px column with two compact cards — **Balances** ($72,450.32, link to balances.html) and **Debits** (“Debited Nov 25, 2024”, $42,000.00). FA enabled / FA Borderless show `.fa-hero-state-fa` (primary hero + four cards) instead.
-- **Figma:** 1451:143187
 
 ### State toggle
 - **Path:** `components/state-toggle/state-toggle.css`
@@ -107,31 +94,11 @@ Shared: hover border + shadow; arrow 4px slide on hover; info (row 1) and arrow 
 - **Behavior:** Title + info; 16px meter bar (1px gap, 5 segments: Succeeded, Uncaptured, Refunded, Blocked, Failed); legend rows with chip + label + value; “View more” footer.
 - **Figma:** 1237-9615
 
-### Overview — Payments only (1451:143192)
-- When State toggle is **Payments only**, the overview grid shows three cards: **Payments**, **Failed payments**, **Dispute activity** (no Spending limits). Toggled via `.fa-overview-grid--default` / `.fa-overview-grid--payments` in `hero-modules-payments.css`.
-
-### Dispute activity card (Payments only)
-- **Path:** `components/dispute-activity-card/dispute-activity-card.css`
-- **Classes:** `.fa-dispute-activity-card`, `.fa-dispute-activity-header`, `.fa-dispute-activity-title`, `.fa-dispute-activity-metric`, `.fa-dispute-activity-value`, `.fa-dispute-activity-delta`, `.fa-dispute-activity-chart`
-- **Behavior:** Title “Dispute activity” + info icon; metric “37%” + “+1.2%” (red); line chart (Dec 1–Dec 7, 0–40%), purple current period line, dashed grey previous period. Same 350px height as other overview cards.
-- **Figma:** 1451:145488 (within 1451:143192)
-
 ### Failed payments card
 - **Path:** `components/failed-payments-card/failed-payments-card.css`, `failed-payments-card.html`
 - **Classes:** `.fa-failed-payments-card`, `.fa-failed-payments-header`, `.fa-failed-payments-list`, `.fa-failed-payments-item`, `.fa-failed-payments-value`, `.fa-failed-payments-meta`, `.fa-badge-failed`, `.fa-badge-canceled`, `.fa-failed-payments-view-more`
 - **Behavior:** “Failed payments” title; list rows with amount, meta (date • pi_id), and Failed/Canceled badge; “View more” footer.
 - **Figma:** 1237-9634
-
----
-
-## Modals
-
-### Treasury application modal (Version 2, Payments only)
-- **Path:** `components/treasury-modal/treasury-modal.css`
-- **Trigger:** User clicks **Get started** on the V2 Payments insight card (`.fa-insight-card-v2` inside `#fa-hero-v2-payments-insight`). Link id: `fa-hero-v2-insight-get-started`.
-- **Classes:** `.fa-treasury-modal-overlay`, `.fa-treasury-modal`, `.fa-treasury-modal__dialog`, `.fa-treasury-modal__header`, `.fa-treasury-modal__progress`, `.fa-treasury-modal__close`, `.fa-treasury-modal__body`, `.fa-treasury-modal__btn`, etc.
-- **Behavior:** Full-screen overlay + centered dialog (1196×758px, max 85vw/85vh). Header: “Treasury application”, progress bar, close button. Body: mock page header, content blocks. Footer: “Save and exit”, “Submit” (disabled). Open/close toggled in `index.html` script; Escape and overlay click close.
-- **Figma:** 1575-139423
 
 ---
 

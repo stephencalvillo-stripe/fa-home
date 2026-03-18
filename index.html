@@ -558,7 +558,6 @@
                 <div class="fa-hero-v2-fa-incoming__main">
                   <div class="fa-hero-v2-fa-incoming__title-wrap">
                     <span class="fa-hero-v2-fa-incoming__title">Incoming earnings</span>
-                    <svg class="fa-icon-sail" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><use href="#info"/></svg>
                   </div>
                   <div class="fa-hero-v2-fa-incoming__metrics">
                     <p class="fa-hero-v2-fa-incoming__value">$25,000.00</p>
@@ -1202,10 +1201,14 @@
       </div>
     </div>
   </div>
-  <!-- Llelo avatar — bottom-right, Version 2 FA enabled only (Figma 1575-140217). Click opens card (1575-140148). -->
+  <!-- Llelo — V2 FA only. Avatar 1577-32376 / 1577-32366; badge 1578-32381; card 1578-73383 -->
   <div class="fa-llelo-avatar" id="fa-llelo-avatar" aria-hidden="true" role="button" tabindex="0" aria-label="Open llelo">
-    <div class="fa-llelo-avatar__circle">
-      <img class="fa-llelo-avatar__img" src="https://www.figma.com/api/mcp/asset/552b9145-c326-4d9b-a685-342d4d7d0803" alt="" onerror="this.style.display='none'" />
+    <div class="fa-llelo-avatar__stack">
+      <span class="fa-llelo-avatar__badge" id="fa-llelo-avatar-badge" aria-hidden="true"><span class="fa-llelo-avatar__badge-text">1</span></span>
+      <div class="fa-llelo-avatar__circle">
+        <img class="fa-llelo-avatar__img fa-llelo-avatar__img--inactive" src="https://www.figma.com/api/mcp/asset/a2062f79-a0f5-40e0-8aa0-b9ca76acecc7" alt="" />
+        <img class="fa-llelo-avatar__img fa-llelo-avatar__img--active" src="https://www.figma.com/api/mcp/asset/6b67e133-0ca8-4059-aab2-b3bcfe9cea4a" alt="" />
+      </div>
     </div>
   </div>
   <div class="fa-llelo-card" id="fa-llelo-card" role="dialog" aria-labelledby="fa-llelo-card-title" aria-modal="true" aria-hidden="true">
@@ -1215,13 +1218,17 @@
         <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#cancel"/></svg>
       </button>
     </header>
-    <div class="fa-llelo-card__body">
+    <div class="fa-llelo-card__content">
       <h2 class="fa-llelo-card__heading">Your new Home</h2>
-      <div class="fa-llelo-card__image" aria-hidden="true"></div>
+      <img class="fa-llelo-card__image" src="assets/new-home-image.png" alt="" width="296" height="150" loading="lazy" />
       <p class="fa-llelo-card__message">With Treasury enabled, you now can view your total balance across all your financial accounts.</p>
       <div class="fa-llelo-card__actions">
         <button type="button" class="fa-llelo-card__btn" id="fa-llelo-card-dismiss">Dismiss</button>
       </div>
+    </div>
+    <div class="fa-llelo-card__footer">
+      <label class="fa-llelo-card__input-label visually-hidden" for="fa-llelo-card-ask">Ask anything</label>
+      <input type="text" class="fa-llelo-card__input" id="fa-llelo-card-ask" placeholder="Ask anything..." autocomplete="off" />
     </div>
   </div>
   <script>
@@ -1531,16 +1538,20 @@
 
     (function() {
       var avatar = document.getElementById('fa-llelo-avatar');
+      var badge = document.getElementById('fa-llelo-avatar-badge');
       var card = document.getElementById('fa-llelo-card');
       var cardClose = document.getElementById('fa-llelo-card-close');
       var cardDismiss = document.getElementById('fa-llelo-card-dismiss');
       function openCard() {
+        if (avatar) avatar.classList.add('fa-llelo-avatar--active');
+        if (badge) badge.classList.add('fa-llelo-avatar__badge--hidden');
         if (card) {
           card.classList.add('fa-llelo-card--open');
           card.setAttribute('aria-hidden', 'false');
         }
       }
       function closeCard() {
+        if (avatar) avatar.classList.remove('fa-llelo-avatar--active');
         if (card) {
           card.classList.remove('fa-llelo-card--open');
           card.setAttribute('aria-hidden', 'true');
@@ -1566,4 +1577,5 @@
     })();
   </script>
 </body>
+
 </html>
