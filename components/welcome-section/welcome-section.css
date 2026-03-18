@@ -31,3 +31,15 @@
   min-width: 32px;
   min-height: 32px;
 }
+
+/* V2 + FA enabled: filled 8×8 chevron on Move money (Figma) */
+#fa-move-money-btn .fa-move-money-btn-chevron--v2fa {
+  display: none;
+  flex-shrink: 0;
+}
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] #fa-move-money-btn .fa-move-money-btn-chevron--legacy {
+  display: none !important;
+}
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] #fa-move-money-btn .fa-move-money-btn-chevron--v2fa {
+  display: block !important;
+}
