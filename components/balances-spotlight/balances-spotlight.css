@@ -1,6 +1,6 @@
 /**
  * All balances spotlight — Figma FA-Home-Sessions 1583:38522 / Spotlight 1579:137321
- * Fixed popover below All balances (V2 FA enabled).
+ * Fixed popover below total balance value (V2 FA enabled).
  */
 .fa-balances-spotlight--portal {
   position: fixed;

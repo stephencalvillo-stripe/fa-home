@@ -515,7 +515,7 @@
               <div class="fa-hero-v2-fa-balances__head">
                 <div class="fa-hero-v2-fa-balances__main">
                   <div class="fa-hero-v2-fa-balances__dropdowns">
-                    <div class="fa-hero-v2-fa-balances__dropdown fa-balance-dropdown-wrap" id="fa-all-balances-spotlight-anchor">
+                    <div class="fa-hero-v2-fa-balances__dropdown fa-balance-dropdown-wrap">
                       <button type="button" class="fa-balance-dropdown fa-balance-dropdown--balance" aria-expanded="false" aria-haspopup="true">
                         <span class="fa-balance-dropdown-label">All balances</span>
                         <svg class="fa-balance-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
@@ -535,7 +535,7 @@
                     </div>
                   </div>
                   <div class="fa-hero-v2-fa-balances__metrics">
-                    <p class="fa-hero-v2-fa-balances__value">$500,000.00</p>
+                    <p class="fa-hero-v2-fa-balances__value" id="fa-all-balances-spotlight-anchor">$500,000.00</p>
                     <span class="fa-hero-v2-fa-balances__meta">4 accounts · 3 currencies</span>
                   </div>
                 </div>
@@ -1623,10 +1623,9 @@
       function positionSpotlight() {
         if (!spotlight || !spotlight.classList.contains("fa-balances-spotlight--visible")) return;
         var anchor = document.getElementById("fa-all-balances-spotlight-anchor");
-        var btn = anchor && anchor.querySelector(".fa-balance-dropdown--balance");
-        if (!btn) return;
-        var r = btn.getBoundingClientRect();
-        if (r.width < 2) return;
+        if (!anchor) return;
+        var r = anchor.getBoundingClientRect();
+        if (r.width < 2 || r.height < 2) return;
         var left = r.left;
         if (left + W > window.innerWidth - PAD) left = window.innerWidth - PAD - W;
         left = Math.max(PAD, left);
@@ -1644,8 +1643,8 @@
         function tick() {
           attempts++;
           if (!isV2FaEnabled()) return;
-          var btn = anchor && anchor.querySelector(".fa-balance-dropdown--balance");
-          var ok = btn && btn.getBoundingClientRect().width >= 2;
+          var rect = anchor && anchor.getBoundingClientRect();
+          var ok = rect && rect.width >= 2 && rect.height >= 2;
           if (ok || attempts > 90) {
             if (!ok) return;
             spotlight.classList.add("fa-balances-spotlight--visible");
