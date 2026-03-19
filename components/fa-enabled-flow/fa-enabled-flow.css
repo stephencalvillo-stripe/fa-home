@@ -1,0 +1,161 @@
+/**
+ * V2 + FA enabled — multi-step flow (4 steps).
+ * Default: step 1 (Figma hero + overview strip). Steps 1–3 share the same overview strip. Step 4 = final .fa-hero-v2-fa + default overview grids.
+ */
+
+.fa-fa-flow-placeholder-wrap {
+  display: none;
+  margin-bottom: 0;
+}
+
+.fa-fa-flow-placeholder {
+  box-sizing: border-box;
+  min-height: 250px;
+  padding: 24px;
+  border-radius: 8px;
+  background: #f4f7fa;
+  border: 1px dashed #d4dee9;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+
+.fa-fa-flow-placeholder__eyebrow {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  color: #667691;
+  text-transform: uppercase;
+}
+
+.fa-fa-flow-placeholder__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #1a2c44;
+}
+
+.fa-fa-flow-placeholder__hint {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #596171;
+  max-width: 420px;
+}
+
+/* Show exactly one placeholder for steps 1–3 */
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"][data-fa-enabled-flow-step="1"] .fa-fa-flow-placeholder-wrap[data-fa-flow-step="1"],
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"][data-fa-enabled-flow-step="2"] .fa-fa-flow-placeholder-wrap[data-fa-flow-step="2"],
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"][data-fa-enabled-flow-step="3"] .fa-fa-flow-placeholder-wrap[data-fa-flow-step="3"] {
+  display: block;
+}
+
+/* Final hero: only on step 4 */
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"]:not([data-fa-enabled-flow-step="4"]) .fa-hero-v2-fa {
+  display: none !important;
+}
+
+/* Insight card for flow (steps 1–3 only) */
+.fa-fa-flow-insight-wrap {
+  display: none;
+  margin-top: 16px;
+  max-width: 329px;
+}
+
+/* Steps 1–3: offer card lives in hero — hide duplicate flow insight strip */
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"][data-fa-enabled-flow-step="1"] .fa-fa-flow-insight-wrap,
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"][data-fa-enabled-flow-step="2"] .fa-fa-flow-insight-wrap,
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"][data-fa-enabled-flow-step="3"] .fa-fa-flow-insight-wrap {
+  display: none !important;
+}
+
+/* Steps 1–3: same Figma overview strip (1609-95495); hide default / payments grids */
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"][data-fa-enabled-flow-step="1"] #fa-overview-step1,
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"][data-fa-enabled-flow-step="2"] #fa-overview-step1,
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"][data-fa-enabled-flow-step="3"] #fa-overview-step1 {
+  display: block !important;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"][data-fa-enabled-flow-step="1"] #fa-overview-grid-default,
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"][data-fa-enabled-flow-step="1"] #fa-overview-grid-payments,
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"][data-fa-enabled-flow-step="2"] #fa-overview-grid-default,
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"][data-fa-enabled-flow-step="2"] #fa-overview-grid-payments,
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"][data-fa-enabled-flow-step="3"] #fa-overview-grid-default,
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"][data-fa-enabled-flow-step="3"] #fa-overview-grid-payments {
+  display: none !important;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"]:not([data-fa-enabled-flow-step="1"]):not([data-fa-enabled-flow-step="2"]):not([data-fa-enabled-flow-step="3"]) #fa-overview-step1 {
+  display: none !important;
+}
+
+/* V2 + FA enabled — 100px between hero modules block and overview (flow steps 1–4) */
+body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-main > .fa-overview {
+  margin-top: 100px;
+}
+
+/* Flow transition modal stacks above treasury modal */
+#fa-fa-flow-modal-overlay {
+  z-index: 1002;
+}
+
+#fa-fa-flow-modal {
+  z-index: 1003;
+}
+
+/* Step 1 flow modal — workbench page header (Figma 1609-95761) */
+.fa-fa-flow-modal__page-header-workbench {
+  width: 100%;
+  max-width: 760px;
+}
+
+.fa-fa-flow-modal__workbench-title {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0.3px;
+  margin: 0;
+  padding-bottom: 24px;
+  font-feature-settings: "lnum" 1, "pnum" 1;
+}
+
+.fa-fa-flow-modal__workbench-strong {
+  font-weight: 700;
+  color: #1a2c44;
+}
+
+.fa-fa-flow-modal__workbench-gap {
+  font-weight: 400;
+  color: #95a4ba;
+}
+
+.fa-fa-flow-modal__workbench-muted {
+  font-weight: 400;
+  color: #667691;
+}
+
+/* Step 2 flow modal — workbench body (Figma 1611-96343): muted line uses #95A4BA */
+.fa-fa-flow-modal__workbench-muted--step2 {
+  color: #95a4ba;
+}
+
+.fa-treasury-modal__block--empty {
+  color: transparent;
+}
+
+.fa-fa-flow-modal .fa-treasury-modal__progress {
+  background: #f4f7fa;
+}
+
+/* Generic flow step — 24px below heading + subtext (matches workbench title spacing; wrapper has no content gap) */
+#fa-fa-flow-modal-body-generic .fa-treasury-modal__page-header {
+  padding-bottom: 24px;
+}

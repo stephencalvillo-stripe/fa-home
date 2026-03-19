@@ -271,6 +271,7 @@
     if (v2Fa) initBalanceDropdownOnly(v2Fa);
     var v2Borderless = document.querySelector('.fa-hero-v2-borderless-balances');
     if (v2Borderless) initBalanceDropdownOnly(v2Borderless);
+    document.querySelectorAll('.fa-fa-flow-s1-mini--all-balances-dropdown').forEach(initBalanceDropdownOnly);
   }
 
   if (document.readyState === 'loading') {

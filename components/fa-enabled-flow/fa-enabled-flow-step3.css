@@ -1,0 +1,66 @@
+/**
+ * FA enabled flow — Step 3 hero only (Figma 1611-96461)
+ * Payments topper: Gross volume (flex) + 329px column with All balances, divider, Incoming earnings
+ * (info icon). No offer card.
+ */
+
+.fa-fa-flow-step3-hero {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.fa-fa-flow-step3-hero__topper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 40px;
+  width: 100%;
+  min-height: 230px;
+  border-radius: 8px;
+  background: #ffffff;
+  /* allow All balances dropdown panel to extend below row (dropdown is position:absolute) */
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+.fa-fa-flow-step3-hero__topper > .fa-fa-flow-s1-gross {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.fa-fa-flow-step3-hero__secondary-col {
+  flex: 0 0 329px;
+  width: 329px;
+  max-width: 329px;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+.fa-fa-flow-step3-hero__secondary-col > .fa-fa-flow-s1-mini {
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+hr.fa-fa-flow-step3-hero__divider {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  height: 0;
+  border: 0;
+  border-top: 1px solid #d4dee9;
+  width: 100%;
+  background: transparent;
+}
+
+.fa-fa-flow-s1-mini__title-row--incoming {
+  gap: 4px;
+}
+
+.fa-fa-flow-s1-mini__title-row--incoming .fa-icon-sail {
+  color: #667691;
+  flex-shrink: 0;
+}

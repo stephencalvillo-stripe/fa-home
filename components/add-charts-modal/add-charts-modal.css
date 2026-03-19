@@ -1,0 +1,233 @@
+/**
+ * Add charts modal — Figma 1602-39986 (footer: Cancel + Apply)
+ * Step 3 overview: opens from #fa-overview-add-spotlight-anchor when flow step is 3.
+ */
+
+#fa-add-charts-modal-overlay {
+  z-index: 1006;
+}
+
+#fa-add-charts-modal.fa-treasury-modal {
+  z-index: 1007;
+}
+
+.fa-add-charts-modal__shell {
+  width: min(1280px, calc(100vw - 48px));
+  min-width: min(1020px, calc(100vw - 48px));
+  max-height: min(90vh, 900px);
+  display: flex;
+  flex-direction: column;
+  background: #f4f7fa;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(48, 49, 61, 0.08), 0 5px 15px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.fa-add-charts-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 16px 24px;
+  background: #f4f7fa;
+  flex-shrink: 0;
+}
+
+.fa-add-charts-modal__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0.3px;
+  color: #1a2c44;
+}
+
+.fa-add-charts-modal__close-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid #d4dee9;
+  border-radius: 90px;
+  background: #ffffff;
+  color: #474e5a;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.fa-add-charts-modal__close-pill:hover {
+  background: #f4f7fa;
+}
+
+.fa-add-charts-modal__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 16px 16px;
+  background: #f4f7fa;
+}
+
+.fa-add-charts-modal__section-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.fa-add-charts-modal__section-label {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.31px;
+  color: #1a2c44;
+}
+
+.fa-add-charts-modal__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #ede9fe;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 14px;
+  color: #533afd;
+}
+
+.fa-add-charts-modal__row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.fa-add-charts-modal__chart-card.fa-spending-limits-card {
+  flex: 0 0 324px;
+  width: 324px;
+  height: 350px;
+  box-sizing: border-box;
+}
+
+.fa-add-charts-modal__chart-card .fa-spending-limits-list {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.fa-add-charts-modal__card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.fa-add-charts-modal__card-head .fa-spending-limits-title-wrap {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.fa-add-charts-modal__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #474e5a;
+  cursor: pointer;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+
+.fa-add-charts-modal__icon-btn:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* Spending limits card — plus ↔ purple check (selected) */
+.fa-add-charts-modal__icon-swap--check {
+  display: none;
+  color: #533afd;
+}
+
+.fa-add-charts-modal__icon-swap--check use {
+  color: inherit;
+}
+
+.fa-add-charts-modal__icon-btn.fa-add-charts-modal__icon-btn--selected .fa-add-charts-modal__icon-swap--plus {
+  display: none;
+}
+
+.fa-add-charts-modal__icon-btn.fa-add-charts-modal__icon-btn--selected .fa-add-charts-modal__icon-swap--check {
+  display: block;
+}
+
+.fa-add-charts-modal__placeholder-card {
+  flex: 0 0 324px;
+  width: 324px;
+  height: 350px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #ecf1f6;
+  border-radius: 4px;
+}
+
+.fa-add-charts-modal__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 16px;
+  background: #f4f7fa;
+  border-top: 1px solid #d4dee9;
+  flex-shrink: 0;
+}
+
+.fa-add-charts-modal__footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.fa-add-charts-modal__view-all {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #1a2c44;
+  text-align: right;
+  width: 100%;
+  cursor: default;
+}
+
+@media (max-width: 1100px) {
+  .fa-add-charts-modal__shell {
+    min-width: 0;
+    width: calc(100vw - 32px);
+  }
+
+  .fa-add-charts-modal__row {
+    flex-wrap: wrap;
+  }
+
+  .fa-add-charts-modal__chart-card.fa-spending-limits-card,
+  .fa-add-charts-modal__placeholder-card {
+    flex: 1 1 280px;
+    width: auto;
+    min-width: 260px;
+  }
+}

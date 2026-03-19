@@ -45,13 +45,17 @@
   <link rel="stylesheet" href="components/hero-modules-payments/hero-modules-payments.css" />
   <link rel="stylesheet" href="components/treasury-modal/treasury-modal.css" />
   <link rel="stylesheet" href="components/hero-modules-v2-fa/hero-modules-v2-fa.css" />
+  <link rel="stylesheet" href="components/fa-enabled-flow/fa-enabled-flow.css" />
+  <link rel="stylesheet" href="components/fa-enabled-flow/fa-enabled-flow-step1.css" />
+  <link rel="stylesheet" href="components/fa-enabled-flow/fa-enabled-flow-step3.css" />
   <link rel="stylesheet" href="components/balances-spotlight/balances-spotlight.css" />
+  <link rel="stylesheet" href="components/add-charts-modal/add-charts-modal.css" />
   <link rel="stylesheet" href="components/hero-modules-v2-borderless/hero-modules-v2-borderless.css" />
   <link rel="stylesheet" href="components/hero-modules-borderless/hero-modules-borderless.css" />
   <link rel="stylesheet" href="components/dispute-activity-card/dispute-activity-card.css" />
   <link rel="stylesheet" href="components/llelo-avatar/llelo-avatar.css" />
 </head>
-<body class="fa-page" data-prototype-version="2" data-dashboard-state="payments-only">
+<body class="fa-page" data-prototype-version="2" data-dashboard-state="payments-only" data-fa-enabled-flow-step="1">
   <!-- Inline Sail icon sprite so <use href="#id"> works (position/overflow hide so refs work in fixed header) -->
   <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" id="sail-icons-sprite">
     <symbol id="home" viewBox="0 0 15 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.5 16C1.11929 16 0 14.8807 0 13.5V5.54791C0 4.89162 0.321983 4.27709 0.861579 3.90352L5.98633 0.355616C6.32081 0.124056 6.71794 0 7.12475 0H7.87525C8.28206 0 8.67919 0.124056 9.01367 0.355615L14.1384 3.90352C14.678 4.27709 15 4.89162 15 5.54791V13.5C15 14.8807 13.8807 16 12.5 16H2.5ZM4.5 14.5H2.5C1.94772 14.5 1.5 14.0523 1.5 13.5V5.54791C1.5 5.38383 1.5805 5.2302 1.71539 5.13681L6.84015 1.5889C6.92377 1.53101 7.02305 1.5 7.12475 1.5H7.87525C7.97695 1.5 8.07623 1.53101 8.15985 1.5889L13.2846 5.13681C13.4195 5.2302 13.5 5.38383 13.5 5.54791V13.5C13.5 14.0523 13.0523 14.5 12.5 14.5H10.5V8C10.5 7.44772 10.0523 7 9.5 7H5.5C4.94772 7 4.5 7.44772 4.5 8V14.5ZM6 14.5H9V8.5H6V14.5Z" fill="currentColor"/></symbol>
@@ -476,6 +480,301 @@
       </div>
 
       <!-- Version 2: FA enabled hero — Gross volume | Balances + Incoming earnings (Figma 1545:70170) -->
+      <!-- V2 FA enabled flow: steps 1–3 placeholders; step 4 = .fa-hero-v2-fa (final, unchanged) -->
+      <div class="fa-fa-flow-placeholder-wrap" data-fa-flow-step="1" id="fa-fa-flow-step-1" aria-hidden="true">
+        <div class="fa-fa-flow-step1-hero">
+          <div class="fa-fa-flow-step1-hero__main">
+            <div class="fa-fa-flow-s1-gross">
+              <div class="fa-fa-flow-s1-gross__metrics">
+                <div class="fa-fa-flow-s1-gross__metrics-inner">
+                  <div class="fa-fa-flow-s1-gross__block">
+                    <div class="fa-fa-flow-s1-gross__heading">
+                      <span class="fa-fa-flow-s1-gross__heading-label">Gross volume</span>
+                      <svg class="fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                    </div>
+                    <p class="fa-fa-flow-s1-gross__value-lg">$406.39</p>
+                    <p class="fa-fa-flow-s1-gross__meta">2:00 PM</p>
+                  </div>
+                  <div class="fa-fa-flow-s1-gross__block">
+                    <div class="fa-fa-flow-s1-gross__heading">
+                      <span class="fa-fa-flow-s1-gross__heading-label fa-fa-flow-s1-gross__heading-label--regular">Yesterday</span>
+                      <svg class="fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                    </div>
+                    <p class="fa-fa-flow-s1-gross__value-sm">$144.37</p>
+                  </div>
+                </div>
+              </div>
+              <div class="fa-fa-flow-s1-gross__chart-wrap">
+                <div class="fa-fa-flow-s1-gross__chart-inner">
+                  <svg viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0 60 Q50 55 100 58 T200 45 T300 35 T400 25" stroke="#9966FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+                  </svg>
+                </div>
+                <div class="fa-fa-flow-s1-gross__timerange">
+                  <span>Midnight</span>
+                  <span>11:59 pm</span>
+                </div>
+              </div>
+            </div>
+            <div class="fa-fa-flow-step1-hero__secondary">
+              <div class="fa-fa-flow-s1-mini fa-fa-flow-s1-mini--all-balances-dropdown">
+                <div class="fa-fa-flow-s1-mini__head">
+                  <div class="fa-fa-flow-s1-mini__main">
+                    <div class="fa-fa-flow-s1-mini__title-dropdown">
+                      <div class="fa-balance-dropdown-wrap">
+                        <button type="button" class="fa-balance-dropdown fa-balance-dropdown--balance" aria-expanded="false" aria-haspopup="true">
+                          <span class="fa-balance-dropdown-label">All balances</span>
+                          <svg class="fa-balance-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                        </button>
+                        <div class="fa-balance-dropdown-panel fa-balance-dropdown-panel--balance" role="menu" aria-hidden="true">
+                          <div class="fa-balance-dropdown-menu">
+                            <button type="button" class="fa-balance-dropdown-item fa-balance-dropdown-item--selected" role="menuitem">All balances</button>
+                            <button type="button" class="fa-balance-dropdown-item" role="menuitem">Payments balance</button>
+                            <button type="button" class="fa-balance-dropdown-item" role="menuitem">Main</button>
+                            <button type="button" class="fa-balance-dropdown-item" role="menuitem">Rainy day</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="fa-fa-flow-s1-mini__metrics">
+                      <p class="fa-fa-flow-s1-mini__value" id="fa-flow-step1-all-balances-spotlight-anchor">$500,000.00</p>
+                      <span class="fa-fa-flow-s1-mini__meta">4 accounts · 3 currencies</span>
+                    </div>
+                  </div>
+                  <a href="balances.html" class="fa-fa-flow-s1-mini__view">View</a>
+                </div>
+              </div>
+              <div class="fa-fa-flow-s1-mini">
+                <div class="fa-fa-flow-s1-mini__head">
+                  <div class="fa-fa-flow-s1-mini__main">
+                    <div class="fa-fa-flow-s1-mini__title-row">
+                      <span class="fa-fa-flow-s1-mini__title">Payouts</span>
+                    </div>
+                    <div class="fa-fa-flow-s1-mini__metrics">
+                      <p class="fa-fa-flow-s1-mini__value">$25,000.00</p>
+                      <span class="fa-fa-flow-s1-mini__meta">Next 7 days</span>
+                    </div>
+                  </div>
+                  <a href="#" class="fa-fa-flow-s1-mini__view">View</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="fa-fa-flow-s1-offer" aria-labelledby="fa-fa-flow-s1-offer-title">
+            <div class="fa-fa-flow-s1-offer__deco" aria-hidden="true"></div>
+            <div class="fa-fa-flow-s1-offer__top">
+              <button type="button" class="fa-fa-flow-s1-offer__close" aria-label="Dismiss" id="fa-fa-flow-s1-offer-close">
+                <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#cancel"/></svg>
+              </button>
+            </div>
+            <div class="fa-fa-flow-s1-offer__body">
+              <h2 class="fa-fa-flow-s1-offer__title" id="fa-fa-flow-s1-offer-title">Add funds to your financial account</h2>
+              <p class="fa-fa-flow-s1-offer__text">Get faster access to your earnings by funding your new account from your payments balance.</p>
+              <div class="fa-fa-flow-s1-offer__footer">
+                <a href="#" class="fa-fa-flow-s1-offer__cta" data-fa-flow-get-started>Get started</a>
+                <div class="fa-fa-flow-s1-offer__dots" aria-hidden="true">
+                  <span class="fa-fa-flow-s1-offer__dot fa-fa-flow-s1-offer__dot--active"></span>
+                  <span class="fa-fa-flow-s1-offer__dot"></span>
+                  <span class="fa-fa-flow-s1-offer__dot"></span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+      <div class="fa-fa-flow-placeholder-wrap" data-fa-flow-step="2" id="fa-fa-flow-step-2" aria-hidden="true">
+        <!-- Figma 1610-95997: Gross volume + All balances / Incoming earnings + card offer -->
+        <div class="fa-fa-flow-step1-hero">
+          <div class="fa-fa-flow-step1-hero__main">
+            <div class="fa-fa-flow-s1-gross">
+              <div class="fa-fa-flow-s1-gross__metrics">
+                <div class="fa-fa-flow-s1-gross__metrics-inner">
+                  <div class="fa-fa-flow-s1-gross__block">
+                    <div class="fa-fa-flow-s1-gross__heading">
+                      <span class="fa-fa-flow-s1-gross__heading-label">Gross volume</span>
+                      <svg class="fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                    </div>
+                    <p class="fa-fa-flow-s1-gross__value-lg">$406.39</p>
+                    <p class="fa-fa-flow-s1-gross__meta">2:00 PM</p>
+                  </div>
+                  <div class="fa-fa-flow-s1-gross__block">
+                    <div class="fa-fa-flow-s1-gross__heading">
+                      <span class="fa-fa-flow-s1-gross__heading-label fa-fa-flow-s1-gross__heading-label--regular">Yesterday</span>
+                      <svg class="fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                    </div>
+                    <p class="fa-fa-flow-s1-gross__value-sm">$144.37</p>
+                  </div>
+                </div>
+              </div>
+              <div class="fa-fa-flow-s1-gross__chart-wrap">
+                <div class="fa-fa-flow-s1-gross__chart-inner">
+                  <svg viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0 60 Q50 55 100 58 T200 45 T300 35 T400 25" stroke="#9966FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+                  </svg>
+                </div>
+                <div class="fa-fa-flow-s1-gross__timerange">
+                  <span>Midnight</span>
+                  <span>11:59 pm</span>
+                </div>
+              </div>
+            </div>
+            <div class="fa-fa-flow-step1-hero__secondary">
+              <div class="fa-fa-flow-s1-mini fa-fa-flow-s1-mini--all-balances-dropdown">
+                <div class="fa-fa-flow-s1-mini__head">
+                  <div class="fa-fa-flow-s1-mini__main">
+                    <div class="fa-fa-flow-s1-mini__title-dropdown">
+                      <div class="fa-balance-dropdown-wrap">
+                        <button type="button" class="fa-balance-dropdown fa-balance-dropdown--balance" aria-expanded="false" aria-haspopup="true">
+                          <span class="fa-balance-dropdown-label">All balances</span>
+                          <svg class="fa-balance-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                        </button>
+                        <div class="fa-balance-dropdown-panel fa-balance-dropdown-panel--balance" role="menu" aria-hidden="true">
+                          <div class="fa-balance-dropdown-menu">
+                            <button type="button" class="fa-balance-dropdown-item fa-balance-dropdown-item--selected" role="menuitem">All balances</button>
+                            <button type="button" class="fa-balance-dropdown-item" role="menuitem">Payments balance</button>
+                            <button type="button" class="fa-balance-dropdown-item" role="menuitem">Main</button>
+                            <button type="button" class="fa-balance-dropdown-item" role="menuitem">Rainy day</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="fa-fa-flow-s1-mini__metrics">
+                      <p class="fa-fa-flow-s1-mini__value">$500,000.00</p>
+                      <span class="fa-fa-flow-s1-mini__meta">4 accounts · 3 currencies</span>
+                    </div>
+                  </div>
+                  <a href="balances.html" class="fa-fa-flow-s1-mini__view">View</a>
+                </div>
+              </div>
+              <div class="fa-fa-flow-s1-mini">
+                <div class="fa-fa-flow-s1-mini__head">
+                  <div class="fa-fa-flow-s1-mini__main">
+                    <div class="fa-fa-flow-s1-mini__title-row">
+                      <span class="fa-fa-flow-s1-mini__title">Incoming earnings</span>
+                    </div>
+                    <div class="fa-fa-flow-s1-mini__metrics">
+                      <p class="fa-fa-flow-s1-mini__value" id="fa-incoming-earnings-spotlight-anchor--step2">$25,000.00</p>
+                      <span class="fa-fa-flow-s1-mini__meta">Next 7 days</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="fa-fa-flow-s1-offer" aria-labelledby="fa-fa-flow-s2-offer-title">
+            <div class="fa-fa-flow-s1-offer__deco" aria-hidden="true"></div>
+            <div class="fa-fa-flow-s1-offer__top">
+              <button type="button" class="fa-fa-flow-s1-offer__close" aria-label="Dismiss" id="fa-fa-flow-s2-offer-close">
+                <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#cancel"/></svg>
+              </button>
+            </div>
+            <div class="fa-fa-flow-s1-offer__body">
+              <h2 class="fa-fa-flow-s1-offer__title" id="fa-fa-flow-s2-offer-title">Get a card and spend directly from your balance</h2>
+              <p class="fa-fa-flow-s1-offer__text">Store, send, and spend in multiple currencies</p>
+              <div class="fa-fa-flow-s1-offer__footer">
+                <a href="#" class="fa-fa-flow-s1-offer__cta" data-fa-flow-get-started>Get started</a>
+                <div class="fa-fa-flow-s1-offer__dots" aria-hidden="true">
+                  <span class="fa-fa-flow-s1-offer__dot fa-fa-flow-s1-offer__dot--active"></span>
+                  <span class="fa-fa-flow-s1-offer__dot"></span>
+                  <span class="fa-fa-flow-s1-offer__dot"></span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+      <div class="fa-fa-flow-placeholder-wrap" data-fa-flow-step="3" id="fa-fa-flow-step-3" aria-hidden="true">
+        <!-- Figma 1611-96461: Gross volume + 329px column (All balances | divider | Incoming earnings + info). -->
+        <div class="fa-fa-flow-step3-hero">
+          <div class="fa-fa-flow-step3-hero__topper">
+            <div class="fa-fa-flow-s1-gross">
+              <div class="fa-fa-flow-s1-gross__metrics">
+                <div class="fa-fa-flow-s1-gross__metrics-inner">
+                  <div class="fa-fa-flow-s1-gross__block">
+                    <div class="fa-fa-flow-s1-gross__heading">
+                      <span class="fa-fa-flow-s1-gross__heading-label">Gross volume</span>
+                      <svg class="fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                    </div>
+                    <p class="fa-fa-flow-s1-gross__value-lg">$406.39</p>
+                    <p class="fa-fa-flow-s1-gross__meta">2:00 PM</p>
+                  </div>
+                  <div class="fa-fa-flow-s1-gross__block">
+                    <div class="fa-fa-flow-s1-gross__heading">
+                      <span class="fa-fa-flow-s1-gross__heading-label fa-fa-flow-s1-gross__heading-label--regular">Yesterday</span>
+                      <svg class="fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                    </div>
+                    <p class="fa-fa-flow-s1-gross__value-sm">$144.37</p>
+                  </div>
+                </div>
+              </div>
+              <div class="fa-fa-flow-s1-gross__chart-wrap">
+                <div class="fa-fa-flow-s1-gross__chart-inner">
+                  <svg viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0 60 Q50 55 100 58 T200 45 T300 35 T400 25" stroke="#9966FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+                  </svg>
+                </div>
+                <div class="fa-fa-flow-s1-gross__timerange">
+                  <span>Midnight</span>
+                  <span>11:59 pm</span>
+                </div>
+              </div>
+            </div>
+            <div class="fa-fa-flow-step3-hero__secondary-col">
+              <div class="fa-fa-flow-s1-mini fa-fa-flow-s1-mini--all-balances-dropdown">
+                <div class="fa-fa-flow-s1-mini__head">
+                  <div class="fa-fa-flow-s1-mini__main">
+                    <div class="fa-fa-flow-s1-mini__title-dropdown">
+                      <div class="fa-balance-dropdown-wrap">
+                        <button type="button" class="fa-balance-dropdown fa-balance-dropdown--balance" aria-expanded="false" aria-haspopup="true">
+                          <span class="fa-balance-dropdown-label">All balances</span>
+                          <svg class="fa-balance-chevron fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg>
+                        </button>
+                        <div class="fa-balance-dropdown-panel fa-balance-dropdown-panel--balance" role="menu" aria-hidden="true">
+                          <div class="fa-balance-dropdown-menu">
+                            <button type="button" class="fa-balance-dropdown-item fa-balance-dropdown-item--selected" role="menuitem">All balances</button>
+                            <button type="button" class="fa-balance-dropdown-item" role="menuitem">Payments balance</button>
+                            <button type="button" class="fa-balance-dropdown-item" role="menuitem">Main</button>
+                            <button type="button" class="fa-balance-dropdown-item" role="menuitem">Rainy day</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="fa-fa-flow-s1-mini__metrics">
+                      <p class="fa-fa-flow-s1-mini__value">$500,000.00</p>
+                      <span class="fa-fa-flow-s1-mini__meta">4 accounts · 3 currencies</span>
+                    </div>
+                  </div>
+                  <a href="balances.html" class="fa-fa-flow-s1-mini__view">View</a>
+                </div>
+              </div>
+              <hr class="fa-fa-flow-step3-hero__divider" aria-hidden="true" />
+              <div class="fa-fa-flow-s1-mini">
+                <div class="fa-fa-flow-s1-mini__head">
+                  <div class="fa-fa-flow-s1-mini__main">
+                    <div class="fa-fa-flow-s1-mini__title-row fa-fa-flow-s1-mini__title-row--incoming">
+                      <span class="fa-fa-flow-s1-mini__title">Incoming earnings</span>
+                      <svg class="fa-icon-sail" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><use href="#info"/></svg>
+                    </div>
+                    <div class="fa-fa-flow-s1-mini__metrics">
+                      <p class="fa-fa-flow-s1-mini__value">$25,000.00</p>
+                      <span class="fa-fa-flow-s1-mini__meta">Next 7 days</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fa-fa-flow-insight-wrap" id="fa-fa-flow-insight-wrap" aria-hidden="true">
+        <div class="fa-insight-card-v2">
+          <h3 class="fa-insight-card-v2__title">Introducing Treasury</h3>
+          <p class="fa-insight-card-v2__description">Store and convert currencies, create cards, pay bills, and more...</p>
+          <a href="#" class="fa-insight-card-v2__link" data-fa-flow-get-started>Get started</a>
+          <div class="fa-insight-card-v2__dots" aria-hidden="true"><span class="fa-insight-card-v2__dot"></span><span class="fa-insight-card-v2__dot"></span><span class="fa-insight-card-v2__dot"></span></div>
+        </div>
+      </div>
+
       <div class="fa-hero-v2-fa" id="fa-hero-v2-fa">
         <div class="fa-hero-modules-v2-fa">
           <div class="fa-gross-module">
@@ -866,13 +1165,108 @@
               <span class="fa-chip"><svg class="fa-icon-sail" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><use href="#cancel"/></svg><span class="fa-chip-label">Compare</span><span class="fa-chip-sep"></span><span class="fa-chip-value">Previous period</span><svg class="fa-icon-sail fa-icon-sail--xs" width="8" height="8" viewBox="0 0 24 24" aria-hidden="true"><use href="#chevronDown"/></svg></span>
             </div>
             <div class="fa-overview-header-buttons" role="group" aria-label="Overview actions">
-              <button type="button" class="fa-btn-overview-secondary"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#plus"/></svg> Add</button>
+              <button type="button" class="fa-btn-overview-secondary" id="fa-overview-add-spotlight-anchor"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#plus"/></svg> Add</button>
               <button type="button" class="fa-btn-overview-secondary"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#settings"/></svg> Edit</button>
             </div>
           </div>
         </div>
 
         <div class="fa-overview-data">
+        <div class="fa-overview-step1" id="fa-overview-step1" aria-hidden="true">
+          <div class="fa-overview-step1__row">
+            <div class="fa-overview-step1__card">
+              <div class="fa-payments-header">
+                <span class="fa-payments-title">Payments</span>
+                <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#info"/></svg>
+              </div>
+              <div class="fa-payments-content">
+                <div class="fa-payments-bar">
+                  <span style="background: #9966FF; flex: 130;"></span>
+                  <span style="background: #0055bc; flex: 15;"></span>
+                  <span style="background: #00a1c2; flex: 10;"></span>
+                  <span style="background: #e46602; flex: 5;"></span>
+                  <span style="background: #B3063D; flex: 0.33;"></span>
+                </div>
+                <div class="fa-payments-legend">
+                  <div class="fa-payments-legend-row">
+                    <div class="fa-payments-legend-key"><span class="fa-payments-legend-chip" style="background: #9966FF;"></span><span class="fa-payments-legend-label">Succeeded</span></div>
+                    <span class="fa-payments-legend-value">$130k</span>
+                  </div>
+                  <div class="fa-payments-legend-row">
+                    <div class="fa-payments-legend-key"><span class="fa-payments-legend-chip" style="background: #0055bc;"></span><span class="fa-payments-legend-label">Uncaptured</span></div>
+                    <span class="fa-payments-legend-value">$15k</span>
+                  </div>
+                  <div class="fa-payments-legend-row">
+                    <div class="fa-payments-legend-key"><span class="fa-payments-legend-chip" style="background: #00a1c2;"></span><span class="fa-payments-legend-label">Refunded</span></div>
+                    <span class="fa-payments-legend-value">$10k</span>
+                  </div>
+                  <div class="fa-payments-legend-row">
+                    <div class="fa-payments-legend-key"><span class="fa-payments-legend-chip" style="background: #e46602;"></span><span class="fa-payments-legend-label">Blocked</span></div>
+                    <span class="fa-payments-legend-value">$5k</span>
+                  </div>
+                  <div class="fa-payments-legend-row">
+                    <div class="fa-payments-legend-key"><span class="fa-payments-legend-chip" style="background: #B3063D;"></span><span class="fa-payments-legend-label">Failed</span></div>
+                    <span class="fa-payments-legend-value">$0.00</span>
+                  </div>
+                </div>
+                <a href="#" class="fa-overview-step1__view-more">View more</a>
+              </div>
+            </div>
+            <div class="fa-overview-step1__card">
+              <div class="fa-overview-step1__head">
+                <h3 class="fa-overview-step1__title">New customers</h3>
+                <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#info"/></svg>
+              </div>
+              <div class="fa-overview-step1__kpi-row">
+                <p class="fa-overview-step1__kpi">65</p>
+                <span class="fa-overview-step1__delta">+1.1%</span>
+              </div>
+              <div class="fa-overview-step1__spark">
+                <div class="fa-fa-flow-s1-gross__chart-inner fa-overview-step1__spark-y">
+                  <div class="fa-overview-step1__spark-row"><div class="fa-overview-step1__spark-rule"></div><span class="fa-overview-step1__spark-label">80</span></div>
+                  <div class="fa-overview-step1__spark-row"><div class="fa-overview-step1__spark-rule"></div><span class="fa-overview-step1__spark-label">60</span></div>
+                  <div class="fa-overview-step1__spark-row"><div class="fa-overview-step1__spark-rule"></div><span class="fa-overview-step1__spark-label">40</span></div>
+                  <div class="fa-overview-step1__spark-row"><div class="fa-overview-step1__spark-rule"></div><span class="fa-overview-step1__spark-label">20</span></div>
+                  <div class="fa-overview-step1__spark-row"><div class="fa-overview-step1__spark-rule"></div><span class="fa-overview-step1__spark-label">0</span></div>
+                </div>
+                <div class="fa-overview-step1__spark-chart">
+                  <svg viewBox="0 0 277 100" fill="none" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0 85 Q40 70 80 75 T160 40 T220 50 T277 20" stroke="#9966FF" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <path d="M0 90 Q50 88 100 82 T200 75 T277 70" stroke="#BAC8DA" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/>
+                  </svg>
+                </div>
+                <div class="fa-overview-step1__spark-axis"><span>Dec 1</span><span>Dec 31</span></div>
+              </div>
+            </div>
+            <div class="fa-overview-step1__card">
+              <div class="fa-overview-step1__head">
+                <h3 class="fa-overview-step1__title">Net volume from sales</h3>
+                <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#info"/></svg>
+              </div>
+              <div class="fa-overview-step1__kpi-row">
+                <p class="fa-overview-step1__kpi">$148k</p>
+                <span class="fa-overview-step1__delta">+1.0%</span>
+              </div>
+              <div class="fa-overview-step1__spark">
+                <div class="fa-fa-flow-s1-gross__chart-inner fa-overview-step1__spark-y">
+                  <div class="fa-overview-step1__spark-row"><div class="fa-overview-step1__spark-rule"></div><span class="fa-overview-step1__spark-label">$5k</span></div>
+                  <div class="fa-overview-step1__spark-row"><div class="fa-overview-step1__spark-rule"></div><span class="fa-overview-step1__spark-label">$4k</span></div>
+                  <div class="fa-overview-step1__spark-row"><div class="fa-overview-step1__spark-rule"></div><span class="fa-overview-step1__spark-label">$2k</span></div>
+                  <div class="fa-overview-step1__spark-row"><div class="fa-overview-step1__spark-rule"></div><span class="fa-overview-step1__spark-label">$1k</span></div>
+                  <div class="fa-overview-step1__spark-row"><div class="fa-overview-step1__spark-rule"></div><span class="fa-overview-step1__spark-label">0</span></div>
+                </div>
+                <div class="fa-overview-step1__spark-chart">
+                  <svg viewBox="0 0 277 100" fill="none" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0 75 Q50 60 100 55 T200 35 T277 25" stroke="#9966FF" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <path d="M0 88 Q60 85 120 80 T240 78 T277 72" stroke="#BAC8DA" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/>
+                  </svg>
+                </div>
+                <div class="fa-overview-step1__spark-axis"><span>Dec 1</span><span>Dec 31</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- FA enabled / FA Borderless: Spending limits, Payments, Failed payments -->
         <div class="fa-overview-grid fa-overview-grid--default" id="fa-overview-grid-default">
           <div class="fa-card fa-spending-limits-card">
@@ -1192,6 +1586,49 @@
     </div>
   </div>
 
+  <!-- FA flow step 1 — All balances spotlight (Figma 1607-88255); anchor: #fa-flow-step1-all-balances-spotlight-anchor -->
+  <div class="fa-balances-spotlight--portal" id="fa-flow-step1-all-balances-spotlight" role="dialog" aria-modal="false" aria-labelledby="fa-flow-step1-all-balances-spotlight-title" aria-hidden="true">
+    <div class="fa-balances-spotlight__caret" aria-hidden="true"></div>
+    <div class="fa-balances-spotlight__card">
+      <div class="fa-balances-spotlight__header">
+        <span class="fa-balances-spotlight__title" id="fa-flow-step1-all-balances-spotlight-title">Your new Home</span>
+        <button type="button" class="fa-balances-spotlight__close" id="fa-flow-step1-all-balances-spotlight-close" aria-label="Dismiss">
+          <svg class="fa-icon-sail" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><use href="#cancel"/></svg>
+        </button>
+      </div>
+      <p class="fa-balances-spotlight__body">With Treasury enabled, you now can view your total balance across all your financial accounts.</p>
+    </div>
+  </div>
+
+  <!-- FA flow step 2 — Incoming earnings spotlight (Figma 1602-34801); anchor: --step2 -->
+  <div class="fa-balances-spotlight--portal" id="fa-incoming-earnings-spotlight" role="dialog" aria-modal="false" aria-labelledby="fa-incoming-earnings-spotlight-title" aria-hidden="true">
+    <div class="fa-balances-spotlight__caret" aria-hidden="true"></div>
+    <div class="fa-balances-spotlight__card">
+      <div class="fa-balances-spotlight__header">
+        <span class="fa-balances-spotlight__title" id="fa-incoming-earnings-spotlight-title">Money on the way</span>
+        <button type="button" class="fa-balances-spotlight__close" id="fa-incoming-earnings-spotlight-close" aria-label="Dismiss">
+          <svg class="fa-icon-sail" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><use href="#cancel"/></svg>
+        </button>
+      </div>
+      <p class="fa-balances-spotlight__body">View the money you&rsquo;ve earned from customers that is not available yet.</p>
+    </div>
+  </div>
+  <!-- FA flow step 3 — Overview Add button spotlight (Figma 1594-41139); anchor: #fa-overview-add-spotlight-anchor -->
+  <div class="fa-balances-spotlight--portal" id="fa-overview-add-spotlight" role="dialog" aria-modal="false" aria-labelledby="fa-overview-add-spotlight-title" aria-hidden="true">
+    <div class="fa-balances-spotlight__caret" aria-hidden="true"></div>
+    <div class="fa-balances-spotlight__card">
+      <div class="fa-balances-spotlight__header">
+        <span class="fa-balances-spotlight__title" id="fa-overview-add-spotlight-title">More charts available</span>
+        <button type="button" class="fa-balances-spotlight__close" id="fa-overview-add-spotlight-close" aria-label="Dismiss">
+          <svg class="fa-icon-sail" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><use href="#cancel"/></svg>
+        </button>
+      </div>
+      <p class="fa-balances-spotlight__body">With Treasury enabled, you can add even more charts.</p>
+    </div>
+  </div>
+
+
+
   <!-- Floating toggles: Version menu (left) + State (dashboard view) -->
   <div class="fa-floating-toggles">
     <div class="fa-version-menu" id="fa-version-menu">
@@ -1251,6 +1688,8 @@
   </div>
   <script>
     (function() {
+      // Full page load: always start the FA enabled flow at step 1 (do not restore step across refresh)
+      try { sessionStorage.removeItem('fa-enabled-flow-step'); } catch (e) {}
       // Restore Version 2 dashboard state from sessionStorage when returning from Balances / Incoming earnings (Home link)
       var savedState = sessionStorage.getItem('fa-dashboard-state');
       var savedVersion = sessionStorage.getItem('fa-prototype-version');
@@ -1312,6 +1751,15 @@
         var isPaymentsOnly = (state === 'payments-only');
         var isFaEnabled = (state === 'fa-enabled');
         var isFaBorderless = (state === 'fa-borderless');
+        if (isFaEnabled && (document.body.getAttribute('data-prototype-version') || '2') === '2') {
+          try {
+            var _fs = sessionStorage.getItem('fa-enabled-flow-step');
+            if (_fs && /^[1-4]$/.test(_fs)) document.body.setAttribute('data-fa-enabled-flow-step', _fs);
+            else document.body.setAttribute('data-fa-enabled-flow-step', '1');
+          } catch (e) {
+            document.body.setAttribute('data-fa-enabled-flow-step', '1');
+          }
+        }
         if (heroStateFa) heroStateFa.setAttribute('aria-hidden', !isFaEnabled);
         if (heroStatePayments) heroStatePayments.setAttribute('aria-hidden', !isPaymentsOnly);
         if (heroStateBorderless) heroStateBorderless.setAttribute('aria-hidden', !isFaBorderless);
@@ -1336,6 +1784,15 @@
         if (moveMoneyBtn) moveMoneyBtn.setAttribute('aria-expanded', 'false');
         if (typeof window.__faHomeOnBalancesSpotlightContext === 'function') {
           window.__faHomeOnBalancesSpotlightContext();
+        }
+        if (typeof window.__faHomeOnIncomingEarningsSpotlightContext === 'function') {
+          window.__faHomeOnIncomingEarningsSpotlightContext();
+        }
+        if (typeof window.__faHomeOnFlowStep1AllBalancesSpotlightContext === 'function') {
+          window.__faHomeOnFlowStep1AllBalancesSpotlightContext();
+        }
+        if (typeof window.__faHomeOnOverviewAddSpotlightContext === 'function') {
+          window.__faHomeOnOverviewAddSpotlightContext();
         }
       }
 
@@ -1425,6 +1882,15 @@
         if (typeof window.__faHomeOnBalancesSpotlightContext === 'function') {
           window.__faHomeOnBalancesSpotlightContext();
         }
+        if (typeof window.__faHomeOnIncomingEarningsSpotlightContext === 'function') {
+          window.__faHomeOnIncomingEarningsSpotlightContext();
+        }
+        if (typeof window.__faHomeOnFlowStep1AllBalancesSpotlightContext === 'function') {
+          window.__faHomeOnFlowStep1AllBalancesSpotlightContext();
+        }
+        if (typeof window.__faHomeOnOverviewAddSpotlightContext === 'function') {
+          window.__faHomeOnOverviewAddSpotlightContext();
+        }
       }
 
       function closeVersionMenu() {
@@ -1511,6 +1977,280 @@
         </footer>
       </div>
     </div>
+    <!-- FA enabled flow modal — Step 1: Figma 1609-95761; Step 2: Figma 1611-96343; step 3+: generic -->
+    <div class="fa-treasury-modal-overlay" id="fa-fa-flow-modal-overlay" aria-hidden="true"></div>
+    <div class="fa-treasury-modal fa-fa-flow-modal" id="fa-fa-flow-modal" role="dialog" aria-modal="true" aria-labelledby="fa-fa-flow-modal-context-title" aria-hidden="true">
+      <div class="fa-treasury-modal__dialog">
+        <header class="fa-treasury-modal__header">
+          <span class="fa-treasury-modal__header-title" id="fa-fa-flow-modal-context-title">Set up Financial account</span>
+          <div class="fa-treasury-modal__header-right">
+            <div class="fa-treasury-modal__progress" aria-hidden="true">
+              <div class="fa-treasury-modal__progress-track"></div>
+              <div class="fa-treasury-modal__progress-fill"></div>
+            </div>
+            <button type="button" class="fa-treasury-modal__close" id="fa-fa-flow-modal-close" aria-label="Close">
+              <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#cancel"/></svg>
+            </button>
+          </div>
+        </header>
+        <div class="fa-treasury-modal__body">
+          <div class="fa-treasury-modal__content">
+            <div id="fa-fa-flow-modal-body-step1">
+              <div class="fa-fa-flow-modal__page-header-workbench">
+                <p class="fa-fa-flow-modal__workbench-title" id="fa-fa-flow-modal-workbench-heading">
+                  <span class="fa-fa-flow-modal__workbench-strong">Add funds to your financial account.</span><span class="fa-fa-flow-modal__workbench-gap"> </span><span class="fa-fa-flow-modal__workbench-muted">This is subtext that supports the title.</span>
+                </p>
+              </div>
+              <div class="fa-treasury-modal__blocks">
+                <div class="fa-treasury-modal__block">Content</div>
+                <div class="fa-treasury-modal__block fa-treasury-modal__block--empty"></div>
+                <div class="fa-treasury-modal__block fa-treasury-modal__block--empty"></div>
+                <div class="fa-treasury-modal__block fa-treasury-modal__block--empty"></div>
+              </div>
+            </div>
+            <!-- FA enabled flow modal — Step 2: Figma 1611-96343 -->
+            <div id="fa-fa-flow-modal-body-step2" hidden>
+              <div class="fa-fa-flow-modal__page-header-workbench">
+                <p class="fa-fa-flow-modal__workbench-title" id="fa-fa-flow-modal-workbench-heading-step2">
+                  <span class="fa-fa-flow-modal__workbench-strong">Tell us about your business.</span><span class="fa-fa-flow-modal__workbench-gap"> </span><span class="fa-fa-flow-modal__workbench-muted fa-fa-flow-modal__workbench-muted--step2">Set up cards for your employees to manage spend better. Answer a few questions to set up Cards for your business.</span>
+                </p>
+              </div>
+              <div class="fa-treasury-modal__blocks">
+                <div class="fa-treasury-modal__block">Content</div>
+                <div class="fa-treasury-modal__block fa-treasury-modal__block--empty"></div>
+                <div class="fa-treasury-modal__block fa-treasury-modal__block--empty"></div>
+                <div class="fa-treasury-modal__block fa-treasury-modal__block--empty"></div>
+              </div>
+            </div>
+            <div id="fa-fa-flow-modal-body-generic" hidden>
+              <div class="fa-treasury-modal__page-header">
+                <h2 class="fa-treasury-modal__heading" id="fa-fa-flow-modal-title">Next step</h2>
+                <p class="fa-treasury-modal__subtext" id="fa-fa-flow-modal-subtext">Placeholder copy for this transition. Replace per step.</p>
+              </div>
+              <div class="fa-treasury-modal__blocks">
+                <div class="fa-treasury-modal__block">Content</div>
+                <div class="fa-treasury-modal__block"></div>
+                <div class="fa-treasury-modal__block"></div>
+                <div class="fa-treasury-modal__block"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="fa-treasury-modal__footer">
+          <div class="fa-treasury-modal__footer-actions">
+            <button type="button" class="fa-treasury-modal__btn fa-treasury-modal__btn--secondary" id="fa-fa-flow-modal-dismiss">Close</button>
+            <button type="button" class="fa-treasury-modal__btn fa-treasury-modal__btn--primary" id="fa-fa-flow-modal-continue">Done</button>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Add charts modal — Figma 1602-39986; Step 3 overview Add button -->
+    <div class="fa-treasury-modal-overlay" id="fa-add-charts-modal-overlay" aria-hidden="true"></div>
+    <div class="fa-treasury-modal fa-add-charts-modal" id="fa-add-charts-modal" role="dialog" aria-modal="true" aria-labelledby="fa-add-charts-modal-title" aria-hidden="true">
+      <div class="fa-add-charts-modal__shell">
+        <header class="fa-add-charts-modal__header">
+          <h2 class="fa-add-charts-modal__title" id="fa-add-charts-modal-title">Add charts</h2>
+          <button type="button" class="fa-add-charts-modal__close-pill" id="fa-add-charts-modal-close" aria-label="Close">
+            <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#cancel"/></svg>
+          </button>
+        </header>
+        <div class="fa-add-charts-modal__body">
+          <div class="fa-add-charts-modal__section-heading">
+            <span class="fa-add-charts-modal__section-label">Treasury</span>
+            <span class="fa-add-charts-modal__badge">New</span>
+          </div>
+          <div class="fa-add-charts-modal__row">
+            <div class="fa-spending-limits-card fa-add-charts-modal__chart-card">
+              <div class="fa-add-charts-modal__card-head">
+                <div class="fa-spending-limits-title-wrap">
+                  <span class="fa-spending-limits-title">Spending limits this month</span>
+                  <svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#info"/></svg>
+                </div>
+                <button type="button" class="fa-add-charts-modal__icon-btn" id="fa-add-charts-spending-toggle" aria-label="Add chart" aria-pressed="false">
+                  <svg class="fa-icon-sail fa-add-charts-modal__icon-swap fa-add-charts-modal__icon-swap--plus" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><use href="#addCircleFilled"/></svg>
+                  <svg class="fa-icon-sail fa-add-charts-modal__icon-swap fa-add-charts-modal__icon-swap--check" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#check"/></svg>
+                </button>
+              </div>
+              <div class="fa-spending-limits-list">
+                <div class="fa-spending-limits-item">
+                  <div class="fa-spending-limits-bar">
+                    <span class="fa-spending-limits-bar-fill" style="flex: 1 1 0;"></span>
+                    <span class="fa-spending-limits-bar-remainder" style="flex: 0 0 40px;"></span>
+                  </div>
+                  <div class="fa-spending-limits-data">
+                    <div class="fa-spending-limits-left">
+                      <span class="fa-spending-limits-mask">•••• 2345</span>
+                      <span class="fa-spending-limits-name">Cam Sackett</span>
+                    </div>
+                    <div class="fa-spending-limits-right">
+                      <span class="fa-spending-limits-amount">$489.93</span>
+                      <span class="fa-spending-limits-limit">$500.00 limit</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="fa-spending-limits-item">
+                  <div class="fa-spending-limits-bar">
+                    <span class="fa-spending-limits-bar-fill" style="flex: 1 1 0;"></span>
+                    <span class="fa-spending-limits-bar-remainder" style="flex: 0 0 83px;"></span>
+                  </div>
+                  <div class="fa-spending-limits-data">
+                    <div class="fa-spending-limits-left">
+                      <span class="fa-spending-limits-mask">•••• 8893</span>
+                      <span class="fa-spending-limits-name">Steven Johnson</span>
+                    </div>
+                    <div class="fa-spending-limits-right">
+                      <span class="fa-spending-limits-amount">$768.54</span>
+                      <span class="fa-spending-limits-limit">$1,000.00 limit</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="fa-spending-limits-item">
+                  <div class="fa-spending-limits-bar">
+                    <span class="fa-spending-limits-bar-fill" style="flex: 0 0 103px;"></span>
+                    <span class="fa-spending-limits-bar-remainder" style="flex: 1 1 0;"></span>
+                  </div>
+                  <div class="fa-spending-limits-data">
+                    <div class="fa-spending-limits-left">
+                      <span class="fa-spending-limits-mask">•••• 2345</span>
+                      <span class="fa-spending-limits-name">Mathilde Jeakins</span>
+                    </div>
+                    <div class="fa-spending-limits-right">
+                      <span class="fa-spending-limits-amount">$87.45</span>
+                      <span class="fa-spending-limits-limit">$250.00 limit</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="fa-spending-limits-item">
+                  <div class="fa-spending-limits-bar">
+                    <span class="fa-spending-limits-bar-fill" style="flex: 0 0 103px;"></span>
+                    <span class="fa-spending-limits-bar-remainder" style="flex: 1 1 0;"></span>
+                  </div>
+                  <div class="fa-spending-limits-data">
+                    <div class="fa-spending-limits-left">
+                      <span class="fa-spending-limits-mask">•••• 2345</span>
+                      <span class="fa-spending-limits-name">Mathilde Jeakins</span>
+                    </div>
+                    <div class="fa-spending-limits-right">
+                      <span class="fa-spending-limits-amount">$421.45</span>
+                      <span class="fa-spending-limits-limit">$1,000.00 limit</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="fa-add-charts-modal__view-all">View all</p>
+            </div>
+            <div class="fa-add-charts-modal__placeholder-card" aria-hidden="true"></div>
+            <div class="fa-add-charts-modal__placeholder-card" aria-hidden="true"></div>
+          </div>
+          <div class="fa-add-charts-modal__section-heading">
+            <span class="fa-add-charts-modal__section-label">Payments</span>
+          </div>
+          <div class="fa-add-charts-modal__row">
+            <div class="fa-add-charts-modal__placeholder-card" aria-hidden="true"></div>
+            <div class="fa-add-charts-modal__placeholder-card" aria-hidden="true"></div>
+            <div class="fa-add-charts-modal__placeholder-card" aria-hidden="true"></div>
+          </div>
+        </div>
+        <footer class="fa-add-charts-modal__footer">
+          <div class="fa-add-charts-modal__footer-actions">
+            <button type="button" class="fa-treasury-modal__btn fa-treasury-modal__btn--secondary" id="fa-add-charts-modal-cancel">Cancel</button>
+            <button type="button" class="fa-treasury-modal__btn fa-treasury-modal__btn--primary" id="fa-add-charts-modal-apply">Apply</button>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+
+
+    <script>
+    (function () {
+      var addBtn = document.getElementById("fa-overview-add-spotlight-anchor");
+      var modal = document.getElementById("fa-add-charts-modal");
+      var overlay = document.getElementById("fa-add-charts-modal-overlay");
+      var closeBtn = document.getElementById("fa-add-charts-modal-close");
+      var cancelBtn = document.getElementById("fa-add-charts-modal-cancel");
+      var applyBtn = document.getElementById("fa-add-charts-modal-apply");
+      var spendingToggle = document.getElementById("fa-add-charts-spending-toggle");
+      function getFlowStep() {
+        var s = parseInt(document.body.getAttribute("data-fa-enabled-flow-step") || "1", 10);
+        if (s < 1 || s > 4 || isNaN(s)) return 1;
+        return s;
+      }
+      function isV2FaEnabled() {
+        return (
+          document.body.getAttribute("data-prototype-version") === "2" &&
+          document.body.getAttribute("data-dashboard-state") === "fa-enabled"
+        );
+      }
+      function openAddChartsModal() {
+        if (!modal || !overlay) return;
+        modal.classList.add("fa-treasury-modal--open");
+        overlay.classList.add("fa-treasury-modal-overlay--open");
+        modal.setAttribute("aria-hidden", "false");
+        overlay.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+      function resetSpendingToggle() {
+        if (!spendingToggle) return;
+        spendingToggle.classList.remove("fa-add-charts-modal__icon-btn--selected");
+        spendingToggle.setAttribute("aria-pressed", "false");
+        spendingToggle.setAttribute("aria-label", "Add chart");
+      }
+      function closeAddChartsModal() {
+        if (!modal || !overlay) return;
+        modal.classList.remove("fa-treasury-modal--open");
+        overlay.classList.remove("fa-treasury-modal-overlay--open");
+        modal.setAttribute("aria-hidden", "true");
+        overlay.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        resetSpendingToggle();
+      }
+      function isAddChartsOpen() {
+        return modal && modal.classList.contains("fa-treasury-modal--open");
+      }
+      if (addBtn) {
+        addBtn.addEventListener(
+          "click",
+          function (e) {
+            if (!isV2FaEnabled() || getFlowStep() !== 3) return;
+            e.preventDefault();
+            e.stopPropagation();
+            openAddChartsModal();
+          },
+          true
+        );
+      }
+      if (closeBtn) closeBtn.addEventListener("click", closeAddChartsModal);
+      if (cancelBtn) cancelBtn.addEventListener("click", closeAddChartsModal);
+      if (applyBtn) {
+        applyBtn.addEventListener("click", function () {
+          closeAddChartsModal();
+          if (window.faFlow && typeof window.faFlow.setStep === "function") {
+            window.faFlow.setStep(4);
+          }
+        });
+      }
+      if (overlay) {
+        overlay.addEventListener("click", function () {
+          closeAddChartsModal();
+        });
+      }
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && isAddChartsOpen()) {
+          closeAddChartsModal();
+        }
+      });
+      if (spendingToggle) {
+        spendingToggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          var on = spendingToggle.classList.toggle("fa-add-charts-modal__icon-btn--selected");
+          spendingToggle.setAttribute("aria-pressed", on ? "true" : "false");
+          spendingToggle.setAttribute("aria-label", on ? "Chart added" : "Add chart");
+        });
+      }
+    })();
+    </script>
 
     <script>
     (function() {
@@ -1703,6 +2443,470 @@
         }
       }, 0);
     })();
+  </script>
+
+  <script>
+    (function () {
+      var DELAY_MS = 1000;
+      var timer = null;
+      var spotlight = document.getElementById("fa-flow-step1-all-balances-spotlight");
+      var closeBtn = document.getElementById("fa-flow-step1-all-balances-spotlight-close");
+      var W = 280;
+      var PAD = 16;
+
+      function isV2FaEnabled() {
+        return (
+          document.body.getAttribute("data-prototype-version") === "2" &&
+          document.body.getAttribute("data-dashboard-state") === "fa-enabled"
+        );
+      }
+
+      function getFlowStep() {
+        var s = parseInt(document.body.getAttribute("data-fa-enabled-flow-step") || "1", 10);
+        if (s < 1 || s > 4 || isNaN(s)) return 1;
+        return s;
+      }
+
+      function hideSpotlight() {
+        if (!spotlight) return;
+        spotlight.classList.remove("fa-balances-spotlight--visible");
+        spotlight.setAttribute("aria-hidden", "true");
+      }
+
+      function positionSpotlight() {
+        if (!spotlight || !spotlight.classList.contains("fa-balances-spotlight--visible")) return;
+        var anchor = document.getElementById("fa-flow-step1-all-balances-spotlight-anchor");
+        if (!anchor) return;
+        var r = anchor.getBoundingClientRect();
+        if (r.width < 2 || r.height < 2) return;
+        var left = r.left;
+        if (left + W > window.innerWidth - PAD) left = window.innerWidth - PAD - W;
+        left = Math.max(PAD, left);
+        spotlight.style.left = left + "px";
+        spotlight.style.top = r.bottom + 8 + "px";
+        var tip = r.left + r.width / 2 - left - 7;
+        tip = Math.max(14, Math.min(tip, W - 28));
+        spotlight.style.setProperty("--fa-balances-spotlight-caret", tip + "px");
+      }
+
+      function showSpotlight() {
+        if (!spotlight || !isV2FaEnabled() || getFlowStep() !== 1) return;
+        var anchor = document.getElementById("fa-flow-step1-all-balances-spotlight-anchor");
+        var attempts = 0;
+        function tick() {
+          attempts++;
+          if (!isV2FaEnabled() || getFlowStep() !== 1) return;
+          var rect = anchor && anchor.getBoundingClientRect();
+          var ok = rect && rect.width >= 2 && rect.height >= 2;
+          if (ok || attempts > 90) {
+            if (!ok) return;
+            spotlight.classList.add("fa-balances-spotlight--visible");
+            spotlight.setAttribute("aria-hidden", "false");
+            positionSpotlight();
+            return;
+          }
+          requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(function () {
+          requestAnimationFrame(tick);
+        });
+      }
+
+      function clearTimer() {
+        if (timer) {
+          clearTimeout(timer);
+          timer = null;
+        }
+      }
+
+      window.__faHomeOnFlowStep1AllBalancesSpotlightContext = function () {
+        clearTimer();
+        hideSpotlight();
+        if (!isV2FaEnabled() || getFlowStep() !== 1) return;
+        timer = setTimeout(function () {
+          timer = null;
+          showSpotlight();
+        }, DELAY_MS);
+      };
+
+      if (closeBtn) {
+        closeBtn.addEventListener("click", function () {
+          clearTimer();
+          hideSpotlight();
+        });
+      }
+
+      window.addEventListener("resize", function () {
+        positionSpotlight();
+      });
+      window.addEventListener(
+        "scroll",
+        function () {
+          positionSpotlight();
+        },
+        true
+      );
+
+      setTimeout(function () {
+        if (typeof window.__faHomeOnFlowStep1AllBalancesSpotlightContext === "function") {
+          window.__faHomeOnFlowStep1AllBalancesSpotlightContext();
+        }
+      }, 0);
+    })();
+  </script>
+
+
+  <script>
+    (function () {
+      var DELAY_MS = 1000;
+      var timer = null;
+      var spotlight = document.getElementById("fa-incoming-earnings-spotlight");
+      var closeBtn = document.getElementById("fa-incoming-earnings-spotlight-close");
+      var W = 280;
+      var PAD = 16;
+
+      function isV2FaEnabled() {
+        return (
+          document.body.getAttribute("data-prototype-version") === "2" &&
+          document.body.getAttribute("data-dashboard-state") === "fa-enabled"
+        );
+      }
+
+      function getFlowStep() {
+        var s = parseInt(document.body.getAttribute("data-fa-enabled-flow-step") || "1", 10);
+        if (s < 1 || s > 4 || isNaN(s)) return 1;
+        return s;
+      }
+
+      function isIncomingEarningsSpotlightStep() {
+        return getFlowStep() === 2;
+      }
+
+      function getIncomingEarningsAnchor() {
+        if (getFlowStep() === 2) return document.getElementById("fa-incoming-earnings-spotlight-anchor--step2");
+        return null;
+      }
+
+      function hideSpotlight() {
+        if (!spotlight) return;
+        spotlight.classList.remove("fa-balances-spotlight--visible");
+        spotlight.setAttribute("aria-hidden", "true");
+      }
+
+      function positionSpotlight() {
+        if (!spotlight || !spotlight.classList.contains("fa-balances-spotlight--visible")) return;
+        var anchor = getIncomingEarningsAnchor();
+        if (!anchor) return;
+        var r = anchor.getBoundingClientRect();
+        if (r.width < 2 || r.height < 2) return;
+        var left = r.left;
+        if (left + W > window.innerWidth - PAD) left = window.innerWidth - PAD - W;
+        left = Math.max(PAD, left);
+        spotlight.style.left = left + "px";
+        spotlight.style.top = r.bottom + 8 + "px";
+        var tip = r.left + r.width / 2 - left - 7;
+        tip = Math.max(14, Math.min(tip, W - 28));
+        spotlight.style.setProperty("--fa-balances-spotlight-caret", tip + "px");
+      }
+
+      function showSpotlight() {
+        if (!spotlight || !isV2FaEnabled() || !isIncomingEarningsSpotlightStep()) return;
+        var anchor = getIncomingEarningsAnchor();
+        var attempts = 0;
+        function tick() {
+          attempts++;
+          if (!isV2FaEnabled() || !isIncomingEarningsSpotlightStep()) return;
+          var rect = anchor && anchor.getBoundingClientRect();
+          var ok = rect && rect.width >= 2 && rect.height >= 2;
+          if (ok || attempts > 90) {
+            if (!ok) return;
+            spotlight.classList.add("fa-balances-spotlight--visible");
+            spotlight.setAttribute("aria-hidden", "false");
+            positionSpotlight();
+            return;
+          }
+          requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(function () {
+          requestAnimationFrame(tick);
+        });
+      }
+
+      function clearTimer() {
+        if (timer) {
+          clearTimeout(timer);
+          timer = null;
+        }
+      }
+
+      window.__faHomeOnIncomingEarningsSpotlightContext = function () {
+        clearTimer();
+        hideSpotlight();
+        if (!isV2FaEnabled() || !isIncomingEarningsSpotlightStep()) return;
+        timer = setTimeout(function () {
+          timer = null;
+          showSpotlight();
+        }, DELAY_MS);
+      };
+
+      if (closeBtn) {
+        closeBtn.addEventListener("click", function () {
+          clearTimer();
+          hideSpotlight();
+        });
+      }
+
+      window.addEventListener("resize", function () {
+        positionSpotlight();
+      });
+      window.addEventListener(
+        "scroll",
+        function () {
+          positionSpotlight();
+        },
+        true
+      );
+
+      setTimeout(function () {
+        if (typeof window.__faHomeOnIncomingEarningsSpotlightContext === "function") {
+          window.__faHomeOnIncomingEarningsSpotlightContext();
+        }
+      }, 0);
+    })();
+  </script>
+
+
+
+
+  <script>
+    (function () {
+      var DELAY_MS = 1000;
+      var timer = null;
+      var spotlight = document.getElementById("fa-overview-add-spotlight");
+      var closeBtn = document.getElementById("fa-overview-add-spotlight-close");
+      var W = 280;
+      var PAD = 16;
+
+      function isV2FaEnabled() {
+        return (
+          document.body.getAttribute("data-prototype-version") === "2" &&
+          document.body.getAttribute("data-dashboard-state") === "fa-enabled"
+        );
+      }
+
+      function getFlowStep() {
+        var s = parseInt(document.body.getAttribute("data-fa-enabled-flow-step") || "1", 10);
+        if (s < 1 || s > 4 || isNaN(s)) return 1;
+        return s;
+      }
+
+      function isOverviewAddSpotlightStep() {
+        return getFlowStep() === 3;
+      }
+
+      function hideSpotlight() {
+        if (!spotlight) return;
+        spotlight.classList.remove("fa-balances-spotlight--visible");
+        spotlight.setAttribute("aria-hidden", "true");
+      }
+
+      function positionSpotlight() {
+        if (!spotlight || !spotlight.classList.contains("fa-balances-spotlight--visible")) return;
+        var anchor = document.getElementById("fa-overview-add-spotlight-anchor");
+        if (!anchor) return;
+        var r = anchor.getBoundingClientRect();
+        if (r.width < 2 || r.height < 2) return;
+        var left = r.left;
+        if (left + W > window.innerWidth - PAD) left = window.innerWidth - PAD - W;
+        left = Math.max(PAD, left);
+        spotlight.style.left = left + "px";
+        spotlight.style.top = r.bottom + 8 + "px";
+        var tip = r.left + r.width / 2 - left - 7;
+        tip = Math.max(14, Math.min(tip, W - 28));
+        spotlight.style.setProperty("--fa-balances-spotlight-caret", tip + "px");
+      }
+
+      function showSpotlight() {
+        if (!spotlight || !isV2FaEnabled() || !isOverviewAddSpotlightStep()) return;
+        var anchor = document.getElementById("fa-overview-add-spotlight-anchor");
+        var attempts = 0;
+        function tick() {
+          attempts++;
+          if (!isV2FaEnabled() || !isOverviewAddSpotlightStep()) return;
+          var rect = anchor && anchor.getBoundingClientRect();
+          var ok = rect && rect.width >= 2 && rect.height >= 2;
+          if (ok || attempts > 90) {
+            if (!ok) return;
+            spotlight.classList.add("fa-balances-spotlight--visible");
+            spotlight.setAttribute("aria-hidden", "false");
+            positionSpotlight();
+            return;
+          }
+          requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(function () {
+          requestAnimationFrame(tick);
+        });
+      }
+
+      function clearTimer() {
+        if (timer) {
+          clearTimeout(timer);
+          timer = null;
+        }
+      }
+
+      window.__faHomeOnOverviewAddSpotlightContext = function () {
+        clearTimer();
+        hideSpotlight();
+        if (!isV2FaEnabled() || !isOverviewAddSpotlightStep()) return;
+        timer = setTimeout(function () {
+          timer = null;
+          showSpotlight();
+        }, DELAY_MS);
+      };
+
+      if (closeBtn) {
+        closeBtn.addEventListener("click", function () {
+          clearTimer();
+          hideSpotlight();
+        });
+      }
+
+      window.addEventListener("resize", function () {
+        positionSpotlight();
+      });
+      window.addEventListener(
+        "scroll",
+        function () {
+          positionSpotlight();
+        },
+        true
+      );
+
+      setTimeout(function () {
+        if (typeof window.__faHomeOnOverviewAddSpotlightContext === "function") {
+          window.__faHomeOnOverviewAddSpotlightContext();
+        }
+      }, 0);
+    })();
+  </script>
+
+
+  <script>
+  (function () {
+    var FLOW_KEY = 'fa-enabled-flow-step';
+    var body = document.body;
+    function isV2FaEnabled() {
+      return body.getAttribute('data-prototype-version') === '2' && body.getAttribute('data-dashboard-state') === 'fa-enabled';
+    }
+    function getFlowStep() {
+      var s = parseInt(body.getAttribute('data-fa-enabled-flow-step') || '1', 10);
+      if (s < 1 || s > 4 || isNaN(s)) return 1;
+      return s;
+    }
+    function setFlowStep(n) {
+      if (n < 1 || n > 4) return;
+      body.setAttribute('data-fa-enabled-flow-step', String(n));
+      try { sessionStorage.setItem(FLOW_KEY, String(n)); } catch (e) {}
+      if (typeof window.__faHomeOnIncomingEarningsSpotlightContext === 'function') {
+        window.__faHomeOnIncomingEarningsSpotlightContext();
+      }
+      if (typeof window.__faHomeOnFlowStep1AllBalancesSpotlightContext === 'function') {
+        window.__faHomeOnFlowStep1AllBalancesSpotlightContext();
+      }
+      if (typeof window.__faHomeOnOverviewAddSpotlightContext === 'function') {
+        window.__faHomeOnOverviewAddSpotlightContext();
+      }
+    }
+    var flowModal = document.getElementById('fa-fa-flow-modal');
+    var flowOverlay = document.getElementById('fa-fa-flow-modal-overlay');
+    var flowClose = document.getElementById('fa-fa-flow-modal-close');
+    var flowContinue = document.getElementById('fa-fa-flow-modal-continue');
+    var getStartedFlows = document.querySelectorAll('[data-fa-flow-get-started]');
+    var titleEl = document.getElementById('fa-fa-flow-modal-title');
+    var subEl = document.getElementById('fa-fa-flow-modal-subtext');
+    var bodyStep1 = document.getElementById('fa-fa-flow-modal-body-step1');
+    var bodyStep2 = document.getElementById('fa-fa-flow-modal-body-step2');
+    var bodyGeneric = document.getElementById('fa-fa-flow-modal-body-generic');
+    var ctxTitle = document.getElementById('fa-fa-flow-modal-context-title');
+    var flowDismiss = document.getElementById('fa-fa-flow-modal-dismiss');
+    function syncFlowModalCopy() {
+      var step = getFlowStep();
+      if (step === 1) {
+        if (bodyStep1) bodyStep1.hidden = false;
+        if (bodyStep2) bodyStep2.hidden = true;
+        if (bodyGeneric) bodyGeneric.hidden = true;
+        if (ctxTitle) ctxTitle.textContent = 'Set up Financial account';
+        if (flowDismiss) flowDismiss.hidden = true;
+        if (flowContinue) {
+          flowContinue.textContent = 'Done';
+          flowContinue.disabled = false;
+        }
+      } else if (step === 2) {
+        if (bodyStep1) bodyStep1.hidden = true;
+        if (bodyStep2) bodyStep2.hidden = false;
+        if (bodyGeneric) bodyGeneric.hidden = true;
+        if (ctxTitle) ctxTitle.textContent = 'Set up cards';
+        if (flowDismiss) flowDismiss.hidden = true;
+        if (flowContinue) {
+          flowContinue.textContent = 'Done';
+          flowContinue.disabled = false;
+        }
+      } else {
+        if (bodyStep1) bodyStep1.hidden = true;
+        if (bodyStep2) bodyStep2.hidden = true;
+        if (bodyGeneric) bodyGeneric.hidden = false;
+        if (ctxTitle) ctxTitle.textContent = 'Continue';
+        if (flowDismiss) flowDismiss.hidden = false;
+        if (flowContinue) {
+          flowContinue.textContent = 'Continue';
+          flowContinue.disabled = false;
+        }
+        if (titleEl) titleEl.textContent = 'Step ' + step + ' — continue';
+        if (subEl) subEl.textContent = 'Placeholder modal between flow steps. Replace with real content per step.';
+      }
+    }
+    function openFlowModal() {
+      if (!flowModal || !flowOverlay) return;
+      syncFlowModalCopy();
+      flowModal.classList.add('fa-treasury-modal--open');
+      flowModal.setAttribute('aria-hidden', 'false');
+      flowOverlay.classList.add('fa-treasury-modal-overlay--open');
+      flowOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeFlowModal() {
+      if (!flowModal || !flowOverlay) return;
+      flowModal.classList.remove('fa-treasury-modal--open');
+      flowModal.setAttribute('aria-hidden', 'true');
+      flowOverlay.classList.remove('fa-treasury-modal-overlay--open');
+      flowOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    getStartedFlows.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (!isV2FaEnabled()) return;
+        openFlowModal();
+      });
+    });
+    if (flowContinue) {
+      flowContinue.addEventListener('click', function (e) {
+        e.preventDefault();
+        closeFlowModal();
+        var next = getFlowStep() + 1;
+        if (next <= 4) setFlowStep(next);
+      });
+    }
+    if (flowClose) flowClose.addEventListener('click', closeFlowModal);
+    if (flowDismiss) flowDismiss.addEventListener('click', closeFlowModal);
+    if (flowOverlay) flowOverlay.addEventListener('click', closeFlowModal);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && flowModal && flowModal.classList.contains('fa-treasury-modal--open')) closeFlowModal();
+    });
+    window.faFlow = { getStep: getFlowStep, setStep: setFlowStep, openModal: openFlowModal, closeModal: closeFlowModal };
+  })();
   </script>
 
 </body>

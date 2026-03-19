@@ -1,6 +1,10 @@
 /**
  * All balances spotlight — Figma FA-Home-Sessions 1583:38522 / Spotlight 1579:137321
  * Fixed popover below total balance value (V2 FA enabled).
+ *
+ * Incoming earnings spotlight — Figma 1602-34801 (#fa-incoming-earnings-spotlight), FA flow step 2 only.
+ * Overview Add spotlight — Figma 1594-41139 (#fa-overview-add-spotlight), FA flow step 3 only.
+ * Flow step 1 All balances — Figma 1607-88255 (#fa-flow-step1-all-balances-spotlight).
  */
 .fa-balances-spotlight--portal {
   position: fixed;
@@ -115,5 +119,38 @@
 /* Only mount in DOM for V2 + FA enabled; keeps accessibility simple */
 body:not([data-prototype-version="2"]) .fa-balances-spotlight--portal,
 body:not([data-dashboard-state="fa-enabled"]) .fa-balances-spotlight--portal {
+  display: none !important;
+}
+
+/* Incoming earnings spotlight — Figma 1602-34801; only FA flow step 3 */
+#fa-incoming-earnings-spotlight.fa-balances-spotlight--portal {
+  z-index: 401;
+}
+
+body:not([data-prototype-version="2"]) #fa-incoming-earnings-spotlight,
+body:not([data-dashboard-state="fa-enabled"]) #fa-incoming-earnings-spotlight,
+body:not([data-fa-enabled-flow-step="2"]) #fa-incoming-earnings-spotlight {
+  display: none !important;
+}
+
+/* Overview Add button spotlight — Figma 1594-41139; FA flow step 3 */
+#fa-overview-add-spotlight.fa-balances-spotlight--portal {
+  z-index: 403;
+}
+
+body:not([data-prototype-version="2"]) #fa-overview-add-spotlight,
+body:not([data-dashboard-state="fa-enabled"]) #fa-overview-add-spotlight,
+body:not([data-fa-enabled-flow-step="3"]) #fa-overview-add-spotlight {
+  display: none !important;
+}
+
+/* FA flow step 1 — All balances spotlight (Figma 1607-88255) */
+#fa-flow-step1-all-balances-spotlight.fa-balances-spotlight--portal {
+  z-index: 402;
+}
+
+body:not([data-prototype-version="2"]) #fa-flow-step1-all-balances-spotlight,
+body:not([data-dashboard-state="fa-enabled"]) #fa-flow-step1-all-balances-spotlight,
+body:not([data-fa-enabled-flow-step="1"]) #fa-flow-step1-all-balances-spotlight {
   display: none !important;
 }

@@ -17,6 +17,8 @@ body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-cards-4 
 
 body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-hero-v2-fa {
   display: block;
+  /* Space to overview is from .fa-overview margin-top (see fa-enabled-flow.css); avoid stacking with that */
+  margin-bottom: 0;
 }
 
 .fa-hero-modules-v2-fa {
