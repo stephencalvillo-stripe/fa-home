@@ -36,7 +36,8 @@ Use these when matching design or handing off to dev.
 | 1237-9614 | Spending limits card |
 | 1237-9615 | Payments card (line chart / meter + legend) |
 | 1237-9634 | Failed payments card |
-| 1149-85912 | Overview header (title + chips + Customize) |
+| 1149-85912 | Overview header (title + chips) |
+| 1601-33507 | Overview actions (Add + Edit buttons) |
 
 ---
 

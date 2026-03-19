@@ -48,7 +48,7 @@ fa-home/
 │   ├── incoming-earnings-module/
 │   ├── hero-card/          # Balance + Gross preview
 │   ├── summary-cards/      # Four hero modules preview
-│   ├── overview-header/    # "Your overview" + chips + Customize
+│   ├── overview-header/    # "Your overview" + chips + Add / Edit
 │   ├── spending-limits-card/
 │   ├── payments-card/
 │   ├── failed-payments-card/

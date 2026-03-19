@@ -78,9 +78,9 @@ Shared: hover border + shadow; arrow 4px slide on hover; info (row 1) and arrow 
 
 ### Overview header
 - **Path:** `components/overview-header/overview-header.css`, `overview-header.html`
-- **Classes:** `.fa-overview-header`, `.fa-overview-title`, `.fa-overview-actions-row`, `.fa-chip`, `.fa-btn-customize`
-- **Behavior:** “Your overview” title + filter chips + Customize button.
-- **Figma:** 1149-85912
+- **Classes:** `.fa-overview-header`, `.fa-overview-title`, `.fa-overview-actions-row`, `.fa-overview-header-buttons`, `.fa-chip`, `.fa-btn-overview-secondary`
+- **Behavior:** “Your overview” title + filter chips + Add / Edit buttons (secondary).
+- **Figma:** 1149-85912 (header); 1601-33507 (Add / Edit button group)
 
 ### Spending limits card
 - **Path:** `components/spending-limits-card/spending-limits-card.css`, `spending-limits-card.html`

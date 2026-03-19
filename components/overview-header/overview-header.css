@@ -1,6 +1,6 @@
 /**
  * FA Home — Overview section header (Figma 1149-85912)
- * Section header: title + actions row (chips + Customize). Chips = Sail Chip (pill, 24px).
+ * Section header: title + actions row (chips + Add / Edit). Chips = Sail Chip (pill, 24px).
  */
 .fa-overview-header { display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; width: 100%; }
 .fa-overview-title {
@@ -33,8 +33,15 @@
 .fa-chip-value { color: #533AFD; }
 .fa-chip-sep { width: 1px; height: 12px; background: #BAC8DA; flex-shrink: 0; }
 .fa-chip svg { flex-shrink: 0; color: #667691; }
-/* Customize — Figma 1578-73435 (Button secondary): bg #fff, border #D4DEE9, radius 6, text/icon onAction secondary */
-.fa-btn-customize {
+/* Add / Edit button group — Figma 1601-33507 (Button secondary, gap 8) */
+.fa-overview-header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+/* Secondary: bg #fff, border #D4DEE9, radius 6; Label/Medium emphasized 14/20; Icon/Default #474E5A */
+.fa-btn-overview-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -54,18 +61,20 @@
   cursor: pointer;
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
-.fa-btn-customize:hover {
+.fa-btn-overview-secondary:hover {
   background: #f4f7fa;
   border-color: #c5d0de;
 }
-.fa-btn-customize:focus-visible {
+.fa-btn-overview-secondary:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px rgba(83, 58, 253, 0.2);
 }
-.fa-btn-customize .fa-icon-sail {
+.fa-btn-overview-secondary svg,
+.fa-btn-overview-secondary .fa-icon-sail {
   flex-shrink: 0;
-  color: #3c4f69;
+  color: #474e5a;
 }
-.fa-btn-customize:hover .fa-icon-sail {
+.fa-btn-overview-secondary:hover svg,
+.fa-btn-overview-secondary:hover .fa-icon-sail {
   color: #273951;
 }
