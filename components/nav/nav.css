@@ -237,3 +237,8 @@ body[data-prototype-version="2"][data-dashboard-state="fa-borderless"] .fa-nav--
 .fa-nav-section-title--subdued {
   color: #667691;
 }
+
+/* V2 + Payments only: hide Treasury under Products (Treasury not in nav for this state) */
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-nav--default .fa-nav-workload--treasury {
+  display: none !important;
+}
