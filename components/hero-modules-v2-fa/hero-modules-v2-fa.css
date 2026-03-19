@@ -272,20 +272,6 @@ body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-hero-v2-
   margin: 0;
 }
 
-.fa-hero-v2-fa-incoming__view {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
-  letter-spacing: -0.15px;
-  color: #533AFD;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-
-.fa-hero-v2-fa-incoming__view:hover {
-  text-decoration: underline;
-}
-
 .fa-hero-v2-fa-incoming__chart {
   flex: 1 1 0;
   min-height: 0;
