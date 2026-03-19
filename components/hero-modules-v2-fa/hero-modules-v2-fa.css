@@ -1,6 +1,6 @@
 /**
  * Version 2 — FA enabled hero modules (Figma 1545:70170)
- * Two equal columns: Gross volume (left) | Balances module + Divider + Incoming earnings (right).
+ * Gross volume (left, flex) | Balances + Incoming earnings (right column 329px).
  * No border strokes, 24px gap, rounded 4px modules.
  */
 
@@ -49,14 +49,17 @@ body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-hero-v2-
   pointer-events: none;
 }
 
-/* Right column: flex 1, two stacked modules + divider */
+/* Right column: 329px — All balances + Incoming earnings (Figma) */
 .fa-hero-v2-fa__col {
-  flex: 1 1 0;
+  flex: 0 0 329px;
+  width: 329px;
+  max-width: 329px;
   min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 12px;
   height: 250px;
+  box-sizing: border-box;
 }
 
 /* Balances module — white, rounded 4px, no border */
