@@ -1,7 +1,7 @@
 /**
  * FA enabled flow — Step 3 hero only (Figma 1611-96461)
- * Payments topper: Gross volume (flex) + 329px column with All balances, divider, Incoming earnings
- * (info icon). No offer card.
+ * Payments topper: Gross volume (~2/3) + right column (~1/3) with All balances, divider, Incoming earnings
+ * (info icon). Same 2:1 flex ratio as Step 4 `.fa-hero-modules-v2-fa`. No offer card.
  */
 
 .fa-fa-flow-step3-hero {
@@ -24,14 +24,13 @@
 }
 
 .fa-fa-flow-step3-hero__topper > .fa-fa-flow-s1-gross {
-  flex: 1 1 0;
+  flex: 2 1 0;
   min-width: 0;
 }
 
 .fa-fa-flow-step3-hero__secondary-col {
-  flex: 0 0 329px;
-  width: 329px;
-  max-width: 329px;
+  flex: 1 1 0;
+  min-width: 0;
   min-height: 0;
   display: flex;
   flex-direction: column;
