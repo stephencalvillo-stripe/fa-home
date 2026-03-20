@@ -54,8 +54,14 @@ Where each UI piece lives and how it behaves. Use this when editing or rebuildin
 - **Figma:** 1451:144211
 
 ### Floating toggles wrapper
-- **Class:** `.fa-floating-toggles` (in `insight-card-toggle.css`)
-- **Behavior:** Fixed lower-left (16px inset), flex row with 16px gap; contains State toggle then Insight card toggle.
+- **Class:** `.fa-floating-toggles` (in `state-toggle.css` + `version-menu.css` on `index.html`)
+- **Behavior:** Fixed lower-left (16px inset), flex row with 16px gap: **Version menu** → **Dashboard state** → **Action buttons** (V2 only).
+
+### Action buttons toggle (V2)
+- **Path:** `components/action-buttons-toggle/action-buttons-toggle.css`, `action-buttons-toggle.js`
+- **Classes:** `.fa-action-buttons-toggle`, `.fa-action-buttons-toggle__control` (`role="switch"`), `__track`, `__thumb`, `__label`
+- **Behavior:** Shown only when `data-prototype-version="2"`. Off sets `data-fa-welcome-actions-bar="false"` on `body`, hides `#fa-welcome-actions` (all dashboard state action rows), tightens `.fa-welcome` spacing so hero moves up. Persists in `sessionStorage` key `fa-welcome-actions-bar-visible` (`1`/`0`). Closes Move money + More menus when hiding.
+- **Figma:** 1621:187729
 
 ### Insight card toggle
 - **Path:** `components/insight-card-toggle/insight-card-toggle.css`

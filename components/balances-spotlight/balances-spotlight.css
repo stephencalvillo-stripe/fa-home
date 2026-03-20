@@ -144,6 +144,12 @@ body:not([data-fa-enabled-flow-step="3"]) #fa-overview-add-spotlight {
   display: none !important;
 }
 
+/* Step 3 — Add button: popover right-aligned to main column; caret on top-right (still points up) */
+#fa-overview-add-spotlight .fa-balances-spotlight__caret {
+  left: auto;
+  right: var(--fa-balances-spotlight-caret-right, 18px);
+}
+
 /* FA flow step 1 — All balances spotlight (Figma 1607-88255) */
 #fa-flow-step1-all-balances-spotlight.fa-balances-spotlight--portal {
   z-index: 402;

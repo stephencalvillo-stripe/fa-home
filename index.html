@@ -40,6 +40,7 @@
   <link rel="stylesheet" href="components/payments-card/payments-card.css" />
   <link rel="stylesheet" href="components/failed-payments-card/failed-payments-card.css" />
   <link rel="stylesheet" href="components/state-toggle/state-toggle.css" />
+  <link rel="stylesheet" href="components/action-buttons-toggle/action-buttons-toggle.css" />
   <link rel="stylesheet" href="components/move-money-dropdown/move-money-dropdown.css" />
   <link rel="stylesheet" href="components/home-actions-more/home-actions-more.css" />
   <link rel="stylesheet" href="components/version-menu/version-menu.css" />
@@ -269,6 +270,7 @@
     <div class="fa-content">
     <section class="fa-welcome">
       <h1 class="fa-welcome-title">Today</h1>
+      <div class="fa-welcome-actions" id="fa-welcome-actions" aria-label="Home action buttons">
       <!-- FA enabled / FA Borderless: full action set -->
       <div class="fa-home-actions fa-home-actions-default" id="fa-home-actions-default" data-fa-home-actions-container>
         <button type="button" class="fa-action-btn" data-fa-action="instant-payout"><svg class="fa-icon-sail" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.71344 0.281086C9.04385 0.379172 9.26488 0.689824 9.24923 1.03413L9.03487 5.75007H11.6258C12.5926 5.75007 13.1934 6.80056 12.7032 7.63385L8.14645 15.3803C8.0091 15.6138 7.76054 15.7501 7.5 15.7501C7.42908 15.7501 7.35726 15.7401 7.28656 15.7191C6.95615 15.621 6.73513 15.3103 6.75078 14.966L6.96514 10.2501H4.37421C3.40744 10.2501 2.80662 9.19959 3.29679 8.3663L7.85355 0.619809C7.99091 0.386301 8.23946 0.250005 8.5 0.25C8.57093 0.249999 8.64274 0.260098 8.71344 0.281086ZM4.81132 8.75007H7.75C7.95482 8.75007 8.15074 8.83384 8.29224 8.98192C8.43374 9.13001 8.50853 9.32952 8.49923 9.53413L8.38652 12.0138L11.1887 7.25007H8.25C8.04518 7.25007 7.84927 7.16631 7.70777 7.01822C7.56626 6.87014 7.49148 6.67063 7.50078 6.46602L7.61349 3.98638L4.81132 8.75007Z" fill="currentColor"/></svg> Instant payout</button>
@@ -309,6 +311,7 @@
         <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#send"/></svg> Send</button>
         <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><use href="#invoice"/></svg> Request</button>
         <button type="button" class="fa-action-btn"><svg class="fa-icon-sail" xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none" aria-hidden="true"><path d="M10.2603 8.20041C9.95681 7.91856 9.48226 7.93613 9.20041 8.23967C8.91856 8.5432 8.93613 9.01775 9.23967 9.2996L11.3401 11.25H0.75C0.335786 11.25 0 11.5858 0 12C0 12.4142 0.335786 12.75 0.75 12.75H11.3401L9.23967 14.7004C8.93613 14.9823 8.91856 15.4568 9.20041 15.7603C9.34741 15.9187 9.54683 15.9992 9.74707 16C9.93075 16.0008 10.1151 15.9344 10.2603 15.7996L13.7603 12.5496C13.9132 12.4077 14 12.2086 14 12C14 11.7915 13.9132 11.5923 13.7603 11.4504L10.2603 8.20041Z" fill="#3C4F69"/><path d="M4.76034 1.2996C5.06387 1.01775 5.08145 0.543198 4.79959 0.239665C4.65285 0.0816272 4.45386 0.0011089 4.25397 1.13746e-05C4.06995 -0.00099905 3.88516 0.0653053 3.73966 0.200408L0.241905 3.44832C0.0931743 3.58538 0 3.78181 0 4C0 4.21759 0.0926619 4.41354 0.240678 4.55054L3.73966 7.7996C4.04319 8.08145 4.51774 8.06387 4.7996 7.76034C5.08145 7.45681 5.06387 6.98226 4.76034 6.70041L2.6599 4.75H13.25C13.6642 4.75 14 4.41421 14 4C14 3.58579 13.6642 3.25 13.25 3.25H2.65991L4.76034 1.2996Z" fill="#3C4F69"/></svg> Transfer</button>
+      </div>
       </div>
     </section>
 
@@ -1673,6 +1676,12 @@
         <button type="button" class="fa-state-toggle__option" role="tab" aria-selected="false" data-state="fa-borderless">FA Borderless</button>
       </div>
     </div>
+    <div class="fa-action-buttons-toggle" id="fa-action-buttons-toggle" aria-label="Action buttons visibility">
+      <button type="button" class="fa-action-buttons-toggle__control" id="fa-action-buttons-toggle-btn" role="switch" aria-checked="true">
+        <span class="fa-action-buttons-toggle__track" aria-hidden="true"><span class="fa-action-buttons-toggle__thumb"></span></span>
+        <span class="fa-action-buttons-toggle__label">Action buttons</span>
+      </button>
+    </div>
   </div>
   <!-- Llelo — V2 FA only. Avatar 1577-32376 / 1577-32366; badge 1578-32381; card 1578-73383 -->
   <div class="fa-llelo-avatar" id="fa-llelo-avatar" aria-hidden="true" role="button" tabindex="0" aria-label="Open llelo">
@@ -1733,6 +1742,7 @@
   </script>
   <script src="components/balance-module/balance-module.js"></script>
   <script src="components/home-actions-more/home-actions-more.js"></script>
+  <script src="components/action-buttons-toggle/action-buttons-toggle.js"></script>
   <script>
     (function () {
       // State toggle — sets dashboard view state (payments-only | fa-enabled | fa-borderless)
@@ -1911,6 +1921,9 @@
         }
         if (typeof window.__faHomeOnOverviewAddSpotlightContext === 'function') {
           window.__faHomeOnOverviewAddSpotlightContext();
+        }
+        if (typeof window.__faSyncWelcomeActionsBarForVersion === 'function') {
+          window.__faSyncWelcomeActionsBarForVersion(v);
         }
       }
 
@@ -2737,14 +2750,20 @@
         if (!anchor) return;
         var r = anchor.getBoundingClientRect();
         if (r.width < 2 || r.height < 2) return;
-        var left = r.left;
+        var contentCol = document.querySelector(".fa-center");
+        var contentRight = contentCol
+          ? contentCol.getBoundingClientRect().right
+          : window.innerWidth - PAD;
+        var left = contentRight - W;
+        if (left < PAD) left = PAD;
         if (left + W > window.innerWidth - PAD) left = window.innerWidth - PAD - W;
-        left = Math.max(PAD, left);
         spotlight.style.left = left + "px";
         spotlight.style.top = r.bottom + 8 + "px";
-        var tip = r.left + r.width / 2 - left - 7;
-        tip = Math.max(14, Math.min(tip, W - 28));
-        spotlight.style.setProperty("--fa-balances-spotlight-caret", tip + "px");
+        var anchorCx = r.left + r.width / 2;
+        var spotlightRight = left + W;
+        var tipFromRight = spotlightRight - anchorCx - 7;
+        tipFromRight = Math.max(14, Math.min(tipFromRight, W - 28));
+        spotlight.style.setProperty("--fa-balances-spotlight-caret-right", tipFromRight + "px");
       }
 
       function showSpotlight() {
