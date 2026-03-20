@@ -336,7 +336,7 @@ body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-
   pointer-events: none;
 }
 
-/* V2 Payments insight card (Figma 1575-136063) — 329px, #f7f5fd, 10px radius, 24px padding */
+/* V2 insight card — base (FA enabled flow strip): #f7f5fd, 10px radius, 24px padding */
 .fa-insight-card-v2 {
   display: flex;
   flex-direction: column;
@@ -407,6 +407,93 @@ body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-
 }
 
 .fa-insight-card-v2__link:hover {
+  text-decoration: underline;
+}
+
+/* V2 + Payments only — hero insight (Figma 1614-98805 FeatureDiscovery_Treasury): offset bg, 20px pad, 8px radius, New + sparkle, Learn more */
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-insight .fa-insight-card-v2 {
+  gap: 0;
+  background: #f5f6f8;
+  border-radius: 8px;
+  padding: 20px;
+  min-height: 0;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-insight .fa-insight-card-v2__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-insight .fa-insight-card-v2__category {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-insight .fa-insight-card-v2__sparkle {
+  flex-shrink: 0;
+  color: #474e5a;
+  display: block;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-insight .fa-insight-card-v2__badge {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: -0.024px;
+  color: #353a44;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-insight .fa-insight-card-v2__lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-insight .fa-insight-card-v2__close {
+  top: 20px;
+  right: 20px;
+  width: 28px;
+  height: 28px;
+  color: #474e5a;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-insight .fa-insight-card-v2__close:hover {
+  color: #353a44;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-insight .fa-insight-card-v2__close-icon {
+  flex-shrink: 0;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-insight .fa-insight-card-v2__title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0.3px;
+  padding-right: 32px;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-insight .fa-insight-card-v2__description {
+  color: #596171;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-insight .fa-insight-card-v2__link {
+  margin-top: 0;
+  color: #675dff;
+  text-decoration: none;
+}
+
+body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-insight .fa-insight-card-v2__link:hover {
+  color: #5347e6;
   text-decoration: underline;
 }
 

@@ -43,3 +43,36 @@ body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] #fa-move-mon
 body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] #fa-move-money-btn .fa-move-money-btn-chevron--v2fa {
   display: block !important;
 }
+
+/* V2 — all home action pills: same default + hover (all dashboard states / FA flow steps) */
+body[data-prototype-version="2"] .fa-home-actions .fa-action-btn {
+  background: #f4f7fa;
+  color: #1a2c44;
+  border: none;
+}
+
+body[data-prototype-version="2"] .fa-home-actions .fa-action-btn:hover {
+  background: #d4dee9;
+  color: #1a2c44;
+}
+
+body[data-prototype-version="2"] .fa-home-actions .fa-action-btn svg,
+body[data-prototype-version="2"] .fa-home-actions .fa-action-btn .fa-icon-sail {
+  color: #667691;
+}
+
+body[data-prototype-version="2"] .fa-home-actions .fa-action-btn:hover svg,
+body[data-prototype-version="2"] .fa-home-actions .fa-action-btn:hover .fa-icon-sail {
+  color: #3c4f69;
+}
+
+/* Hardcoded icon fills (e.g. Move money chevron, borderless Transfer) follow pill icon colors */
+body[data-prototype-version="2"] .fa-home-actions .fa-action-btn svg path[fill="#3C4F69"],
+body[data-prototype-version="2"] .fa-home-actions .fa-action-btn svg path[fill="#474E5A"] {
+  fill: currentColor;
+}
+
+body[data-prototype-version="2"] .fa-home-actions .fa-action-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px rgba(26, 44, 68, 0.2);
+}

@@ -365,6 +365,99 @@
   background: #533afd;
 }
 
+/* Steps 1–2 hero offer — shared feature-discovery chrome (Figma 1614-98890 Fund FA, 1614-99323 Card issuing); copy differs per step */
+.fa-fa-flow-s1-offer--feature-discovery {
+  background: #f5f6f8;
+  border-radius: 8px;
+  padding: 20px;
+  height: auto;
+  min-height: 0;
+  gap: 0;
+  overflow: visible;
+  align-self: flex-start;
+}
+
+.fa-fa-flow-s1-offer--feature-discovery .fa-fa-flow-s1-offer__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 28px;
+  height: 28px;
+  color: #474e5a;
+}
+
+.fa-fa-flow-s1-offer--feature-discovery .fa-fa-flow-s1-offer__close:hover {
+  color: #353a44;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.fa-fa-flow-s1-offer--feature-discovery .fa-fa-flow-s1-offer__close-icon {
+  flex-shrink: 0;
+}
+
+.fa-fa-flow-s1-offer--feature-discovery .fa-fa-flow-s1-offer__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.fa-fa-flow-s1-offer--feature-discovery .fa-fa-flow-s1-offer__category {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.fa-fa-flow-s1-offer--feature-discovery .fa-fa-flow-s1-offer__category-icon {
+  flex-shrink: 0;
+  color: #474e5a;
+  display: block;
+}
+
+.fa-fa-flow-s1-offer--feature-discovery .fa-fa-flow-s1-offer__badge {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: -0.024px;
+  color: #353a44;
+}
+
+.fa-fa-flow-s1-offer--feature-discovery .fa-fa-flow-s1-offer__lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+.fa-fa-flow-s1-offer--feature-discovery .fa-fa-flow-s1-offer__title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0.3px;
+  padding-right: 32px;
+  font-variant-numeric: lining-nums proportional-nums;
+}
+
+.fa-fa-flow-s1-offer--feature-discovery .fa-fa-flow-s1-offer__text {
+  color: #596171;
+}
+
+.fa-fa-flow-s1-offer--feature-discovery .fa-fa-flow-s1-offer__cta {
+  margin-top: 0;
+  font-weight: 600;
+  color: #675dff;
+  text-decoration: none;
+}
+
+.fa-fa-flow-s1-offer--feature-discovery .fa-fa-flow-s1-offer__cta:hover {
+  color: #5347e6;
+  text-decoration: underline;
+}
+
 /* ─── Overview step 1: Performance Data strip (Figma 1609-95495) ─── */
 /* Padding/bg/radius come from parent .fa-overview-data (shared.css) — same as .fa-overview-grid on step 4 */
 .fa-overview-step1 {
