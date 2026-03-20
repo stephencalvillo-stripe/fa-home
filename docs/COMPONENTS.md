@@ -22,6 +22,8 @@ Where each UI piece lives and how it behaves. Use this when editing or rebuildin
 - **Path:** `components/welcome-section/welcome-section.css`, `welcome-section.html`
 - **Classes:** `.fa-welcome`, `.fa-welcome-title`, `.fa-home-actions`, `.fa-action-btn`
 - **Behavior:** “Today” heading + horizontal action buttons (Instant payout, Move money, Payment link, etc.).
+- **Home actions “More” menu:** `components/home-actions-more/home-actions-more.css`, `home-actions-more.js` — wired on `#fa-home-actions-default` with `data-fa-home-actions-container`. The ⋯ control opens a dropdown (animated below, right-aligned) with toggles; each toggle shows/hides the matching `[data-fa-action="…"]` control. Choices persist in `localStorage` key `fa-home-actions-visibility`.
+- **Figma (action options dropdown):** 1618:109030
 
 ---
 
