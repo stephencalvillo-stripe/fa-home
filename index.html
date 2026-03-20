@@ -41,6 +41,7 @@
   <link rel="stylesheet" href="components/failed-payments-card/failed-payments-card.css" />
   <link rel="stylesheet" href="components/state-toggle/state-toggle.css" />
   <link rel="stylesheet" href="components/action-buttons-toggle/action-buttons-toggle.css" />
+  <link rel="stylesheet" href="components/spotlight-dark-toggle/spotlight-dark-toggle.css" />
   <link rel="stylesheet" href="components/move-money-dropdown/move-money-dropdown.css" />
   <link rel="stylesheet" href="components/home-actions-more/home-actions-more.css" />
   <link rel="stylesheet" href="components/version-menu/version-menu.css" />
@@ -1682,6 +1683,12 @@
         <span class="fa-action-buttons-toggle__label">Action buttons</span>
       </button>
     </div>
+    <div class="fa-spotlight-dark-toggle" id="fa-spotlight-dark-toggle" aria-label="Spotlight appearance">
+      <button type="button" class="fa-spotlight-dark-toggle__control" id="fa-spotlight-dark-toggle-btn" role="switch" aria-checked="false">
+        <span class="fa-spotlight-dark-toggle__track" aria-hidden="true"><span class="fa-spotlight-dark-toggle__thumb"></span></span>
+        <span class="fa-spotlight-dark-toggle__label">Spotlight dark mode</span>
+      </button>
+    </div>
   </div>
   <!-- Llelo — V2 FA only. Avatar 1577-32376 / 1577-32366; badge 1578-32381; card 1578-73383 -->
   <div class="fa-llelo-avatar" id="fa-llelo-avatar" aria-hidden="true" role="button" tabindex="0" aria-label="Open llelo">
@@ -1775,11 +1782,20 @@
           try { sessionStorage.setItem('fa-enabled-flow-step', step); } catch (err) {}
         }
       }, true);
+      /* V2: restore spotlight dark mode before paint (matches sessionStorage; toggle script syncs switch) */
+      if ((document.body.getAttribute('data-prototype-version') || '') === '2') {
+        try {
+          if (sessionStorage.getItem('fa-spotlight-dark-mode') === '1') {
+            document.body.setAttribute('data-fa-spotlight-dark', 'true');
+          }
+        } catch (e) {}
+      }
     })();
   </script>
   <script src="components/balance-module/balance-module.js"></script>
   <script src="components/home-actions-more/home-actions-more.js"></script>
   <script src="components/action-buttons-toggle/action-buttons-toggle.js"></script>
+  <script src="components/spotlight-dark-toggle/spotlight-dark-toggle.js"></script>
   <script>
     (function () {
       // State toggle — sets dashboard view state (payments-only | fa-enabled | fa-borderless)
@@ -1961,6 +1977,9 @@
         }
         if (typeof window.__faSyncWelcomeActionsBarForVersion === 'function') {
           window.__faSyncWelcomeActionsBarForVersion(v);
+        }
+        if (typeof window.__faSyncSpotlightDarkToggleForVersion === 'function') {
+          window.__faSyncSpotlightDarkToggleForVersion(v);
         }
       }
 

@@ -1,0 +1,93 @@
+/**
+ * V2 prototype: dark styling for FA spotlights (Figma 1623:188023)
+ * Pill next to Action buttons toggle; switch + "Spotlight dark mode" label.
+ */
+
+body:not([data-prototype-version="2"]) .fa-spotlight-dark-toggle {
+  display: none !important;
+}
+
+.fa-spotlight-dark-toggle {
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-subtle, #ffffff);
+  border: 1px solid #d4dee9;
+  border-radius: 60px;
+  padding: 10px 16px 10px 10px;
+  box-shadow:
+    0 7px 14px rgba(48, 49, 61, 0.08),
+    0 3px 6px rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+
+.fa-spotlight-dark-toggle__control {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+}
+
+.fa-spotlight-dark-toggle__control:focus {
+  outline: none;
+}
+
+.fa-spotlight-dark-toggle__control:focus-visible {
+  outline: 2px solid var(--fa-brand, #675dff);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.fa-spotlight-dark-toggle__track {
+  position: relative;
+  flex-shrink: 0;
+  width: 34px;
+  height: 18px;
+  border-radius: 999px;
+  background: #675dff;
+  border: 1px solid #533afd;
+  box-shadow: 0 1px 1px rgba(10, 33, 86, 0.16);
+  margin-top: 1px;
+}
+
+.fa-spotlight-dark-toggle__thumb {
+  position: absolute;
+  top: -1px;
+  left: 16px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #533afd;
+  box-sizing: border-box;
+  box-shadow: 0 1px 1px rgba(10, 33, 86, 0.16);
+  transition: left 160ms ease;
+}
+
+.fa-spotlight-dark-toggle__control[aria-checked="false"] .fa-spotlight-dark-toggle__track {
+  background: #e7ebf0;
+  border-color: #cdd7e1;
+  box-shadow: none;
+}
+
+.fa-spotlight-dark-toggle__control[aria-checked="false"] .fa-spotlight-dark-toggle__thumb {
+  left: -1px;
+  border-color: #b8c4d4;
+}
+
+.fa-spotlight-dark-toggle__label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  color: #273951;
+  white-space: nowrap;
+  padding-top: 1px;
+}

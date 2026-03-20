@@ -160,3 +160,41 @@ body:not([data-dashboard-state="fa-enabled"]) #fa-flow-step1-all-balances-spotli
 body:not([data-fa-enabled-flow-step="1"]) #fa-flow-step1-all-balances-spotlight {
   display: none !important;
 }
+
+/**
+ * Spotlight dark mode — Figma FA-Home-Sessions 1623:188023
+ * Dark surface, #c9ced8 text, same elevation shadows as light Spotlight.
+ */
+body[data-fa-spotlight-dark="true"] .fa-balances-spotlight__caret {
+  background: #1a1c1e;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.25);
+}
+
+body[data-fa-spotlight-dark="true"] .fa-balances-spotlight__card {
+  background: #1a1c1e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 15px 35px rgba(48, 49, 61, 0.08),
+    0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+body[data-fa-spotlight-dark="true"] .fa-balances-spotlight__title,
+body[data-fa-spotlight-dark="true"] .fa-balances-spotlight__body {
+  color: #c9ced8;
+}
+
+body[data-fa-spotlight-dark="true"] .fa-balances-spotlight__close {
+  color: #c9ced8;
+}
+
+body[data-fa-spotlight-dark="true"] .fa-balances-spotlight__close:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e8eaed;
+}
+
+body[data-fa-spotlight-dark="true"] .fa-balances-spotlight__close:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(201, 206, 216, 0.4);
+}
