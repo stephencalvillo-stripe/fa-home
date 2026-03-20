@@ -604,6 +604,18 @@ body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-gross
   flex-shrink: 0;
 }
 
+/* Payouts — amount + date on one line, baseline-aligned (Figma 1607:54748) */
+.fa-hero-v2-card__value-row--payouts {
+  align-items: baseline;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 318px;
+}
+
+.fa-hero-v2-card__value-row--payouts .fa-hero-v2-card__meta {
+  white-space: nowrap;
+}
+
 .fa-hero-v2-card__value {
   font-family: var(--font-sans);
   font-size: 20px;
