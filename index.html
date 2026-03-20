@@ -1715,8 +1715,6 @@
   </div>
   <script>
     (function() {
-      // Full page load: always start the FA enabled flow at step 1 (do not restore step across refresh)
-      try { sessionStorage.removeItem('fa-enabled-flow-step'); } catch (e) {}
       // Restore Version 2 dashboard state from sessionStorage when returning from Balances / Incoming earnings (Home link)
       var savedState = sessionStorage.getItem('fa-dashboard-state');
       var savedVersion = sessionStorage.getItem('fa-prototype-version');
@@ -1738,6 +1736,45 @@
           btn.setAttribute('aria-selected', btn.getAttribute('data-state') === savedState ? 'true' : 'false');
         });
       }
+      // V2 + FA enabled: full browser refresh → step 1 (restart flow). Other loads → restore from session (e.g. Home after Balances)
+      function __faIsBrowserReload() {
+        try {
+          var entries = performance.getEntriesByType && performance.getEntriesByType('navigation');
+          if (entries && entries[0] && entries[0].type === 'reload') return true;
+          if (typeof performance.navigation !== 'undefined' && performance.navigation.type === 1) return true;
+        } catch (e) {}
+        return false;
+      }
+      var ver = document.body.getAttribute('data-prototype-version') || '2';
+      var st = document.body.getAttribute('data-dashboard-state') || 'payments-only';
+      if (ver === '2' && st === 'fa-enabled') {
+        try {
+          if (__faIsBrowserReload()) {
+            sessionStorage.removeItem('fa-enabled-flow-step');
+            document.body.setAttribute('data-fa-enabled-flow-step', '1');
+          } else {
+            var flowStep = sessionStorage.getItem('fa-enabled-flow-step');
+            if (flowStep && /^[1-4]$/.test(flowStep)) {
+              document.body.setAttribute('data-fa-enabled-flow-step', flowStep);
+            }
+          }
+        } catch (e) {}
+      }
+      // Persist current FA flow step before full navigation to Balances (View / nav)
+      document.addEventListener('click', function (e) {
+        var t = e.target;
+        if (!t || typeof t.closest !== 'function') return;
+        var link = t.closest('a[href]');
+        if (!link) return;
+        var href = link.getAttribute('href') || '';
+        if (href.indexOf('balances.html') === -1) return;
+        if (document.body.getAttribute('data-prototype-version') !== '2') return;
+        if (document.body.getAttribute('data-dashboard-state') !== 'fa-enabled') return;
+        var step = document.body.getAttribute('data-fa-enabled-flow-step') || '1';
+        if (/^[1-4]$/.test(step)) {
+          try { sessionStorage.setItem('fa-enabled-flow-step', step); } catch (err) {}
+        }
+      }, true);
     })();
   </script>
   <script src="components/balance-module/balance-module.js"></script>
