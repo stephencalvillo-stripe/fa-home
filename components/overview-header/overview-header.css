@@ -2,17 +2,31 @@
  * FA Home — Overview section header (Figma 1149-85912)
  * Section header: title + actions row (chips + Add / Edit). Chips = Sail Chip (pill, 24px).
  */
-.fa-overview-header { display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; width: 100%; }
+.fa-overview-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 16px;
+  width: 100%;
+}
 .fa-overview-title {
   font-family: var(--font-sans);
   font-size: 28px;
   font-weight: 700;
   line-height: 36px;
   letter-spacing: 0.38px;
-  margin: 0;
+  margin: 0 0 4px;
   color: #1A2C44;
 }
-.fa-overview-actions-row { display: flex; align-items: center; justify-content: space-between; width: 100%; flex-wrap: wrap; gap: 8px; }
+.fa-overview-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
 .fa-overview-chips { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .fa-chip {
   display: inline-flex;

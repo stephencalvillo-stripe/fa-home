@@ -79,6 +79,23 @@ body {
   box-sizing: border-box;
 }
 
+/* Full-width rules under main column (same width as .fa-main / overview) */
+.fa-content-divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: #d4dee9;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.fa-content-divider--after-home-actions {
+  margin-top: 16px;
+}
+
 .fa-main {
   padding: 0 0 24px;
   flex: 1;
