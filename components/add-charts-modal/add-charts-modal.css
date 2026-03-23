@@ -114,8 +114,9 @@
 }
 
 .fa-add-charts-modal__chart-card.fa-spending-limits-card {
-  flex: 0 0 324px;
-  width: 324px;
+  flex: 1 1 0;
+  min-width: 0;
+  width: auto;
   height: 350px;
   box-sizing: border-box;
 }
@@ -175,8 +176,9 @@
 }
 
 .fa-add-charts-modal__placeholder-card {
-  flex: 0 0 324px;
-  width: 324px;
+  flex: 1 1 0;
+  min-width: 0;
+  width: auto;
   height: 350px;
   box-sizing: border-box;
   background: #ffffff;
@@ -218,16 +220,5 @@
   .fa-add-charts-modal__shell {
     min-width: 0;
     width: calc(100vw - 32px);
-  }
-
-  .fa-add-charts-modal__row {
-    flex-wrap: wrap;
-  }
-
-  .fa-add-charts-modal__chart-card.fa-spending-limits-card,
-  .fa-add-charts-modal__placeholder-card {
-    flex: 1 1 280px;
-    width: auto;
-    min-width: 260px;
   }
 }
