@@ -1,6 +1,6 @@
 /**
  * Payments only — hero modules (Figma 1451:143187)
- * Layout: Gross volume (flex 1) + column (324px) with Balances and Debits cards.
+ * Layout: Gross volume (flex 1) + column (--fa-overview-card-column-width) with Balances and Debits cards.
  * Shown when data-dashboard-state="payments-only"; FA enabled view uses .fa-hero-state-fa.
  */
 
@@ -134,9 +134,9 @@ body[data-dashboard-state="fa-borderless"] .fa-overview-grid--default .fa-spendi
   min-height: 230px;
 }
 
-/* Right column: 324px, two stacked compact cards — top-aligned with Gross volume */
+/* Right column: same width as overview/dispute column, two stacked compact cards */
 .fa-hero-modules-payments__col {
-  width: 324px;
+  width: var(--fa-overview-card-column-width, 324px);
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -273,7 +273,7 @@ body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-
 body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-grid {
   display: grid;
   gap: 16px;
-  grid-template-columns: 1fr 40px 329px;
+  grid-template-columns: 1fr 40px minmax(0, var(--fa-overview-card-column-width, 324px));
   grid-template-rows: 230px auto;
   grid-template-areas: "gross . insight" "secondary . insight";
   transition: grid-template-columns 0.35s ease-out, grid-template-areas 0.35s ease-out;
@@ -312,9 +312,9 @@ body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-
   transition: opacity 0.28s ease-out, visibility 0.28s ease-out;
 }
 
-/* Dismissed: insight hidden, secondary becomes right column (324px) and stacks */
+/* Dismissed: insight hidden, secondary becomes right column (overview column width) and stacks */
 body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-grid.fa-hero-v2-payments--insight-dismissed {
-  grid-template-columns: 1fr 324px;
+  grid-template-columns: 1fr minmax(0, var(--fa-overview-card-column-width, 324px));
   grid-template-areas: "gross secondary" "gross secondary";
   column-gap: 40px;
 }
@@ -345,7 +345,8 @@ body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-
   border-radius: 10px;
   padding: 24px;
   width: 100%;
-  min-height: 260px;
+  height: var(--fa-insight-card-height, 298px);
+  min-height: var(--fa-insight-card-height, 298px);
   position: relative;
   box-sizing: border-box;
 }
@@ -416,7 +417,8 @@ body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-
   background: #f5f6f8;
   border-radius: 8px;
   padding: 20px;
-  min-height: 0;
+  height: var(--fa-insight-card-height, 298px);
+  min-height: var(--fa-insight-card-height, 298px);
 }
 
 body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-hero-v2-payments-insight .fa-insight-card-v2__content {
@@ -535,9 +537,9 @@ body[data-prototype-version="2"][data-dashboard-state="payments-only"] .fa-gross
   pointer-events: none;
 }
 
-/* V2 right column: 324px, Balances + Divider + Payouts */
+/* V2 right column: overview column width, Balances + Divider + Payouts */
 .fa-hero-modules-payments__col-v2 {
-  width: 324px;
+  width: var(--fa-overview-card-column-width, 324px);
   flex-shrink: 0;
   display: none;
   flex-direction: column;

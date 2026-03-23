@@ -1,6 +1,6 @@
 /**
  * Insight card — offer card that animates in when toggle is on (Figma 1237-10212)
- * Brand/25 bg, 324px width, rounded 10px, 24px padding.
+ * Brand/25 bg, width tracks overview column (see --fa-overview-card-column-width on .fa-main), rounded 10px, 24px padding.
  * When toggle off: hidden so primary hero grid stays 2 columns. When on: flex row shows card, slide+fade in.
  */
 .fa-insight-card {
@@ -10,11 +10,14 @@
   padding: 24px;
   flex-direction: column;
   gap: 16px;
-  min-height: 250px;
+  height: var(--fa-insight-card-height, 298px);
+  min-height: var(--fa-insight-card-height, 298px);
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
-  width: 324px;
+  width: var(--fa-overview-card-column-width, 324px);
+  min-width: 0;
+  box-sizing: border-box;
   opacity: 0;
   transform: translateX(24px);
   transition: opacity 280ms ease-out, transform 280ms ease-out;

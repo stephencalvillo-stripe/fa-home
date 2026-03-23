@@ -67,7 +67,9 @@ body[data-prototype-version="2"][data-dashboard-state="fa-enabled"]:not([data-fa
 .fa-fa-flow-insight-wrap {
   display: none;
   margin-top: 16px;
-  max-width: 329px;
+  width: var(--fa-overview-card-column-width, 329px);
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Steps 1–3: offer card lives in hero — hide duplicate flow insight strip */

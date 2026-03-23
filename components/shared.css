@@ -79,7 +79,14 @@ body {
   box-sizing: border-box;
 }
 
-.fa-main { padding: 0 0 24px; flex: 1; position: relative; }
+.fa-main {
+  padding: 0 0 24px;
+  flex: 1;
+  position: relative;
+  /* One column of .fa-overview-grid: 3 equal flex children, 8px gaps, grid inside .fa-overview-data (8px horizontal pad). Matches .fa-dispute-activity-card width. */
+  --fa-overview-card-column-width: calc((100% - 32px) / 3);
+  --fa-insight-card-height: 298px;
+}
 
 /* Primary hero row: balance + gross; when insight toggle on, flex + insight card animates in (Figma 1237-9593) */
 .fa-primary-hero {

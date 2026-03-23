@@ -4,7 +4,7 @@
  * Overview strip is shared via fa-enabled-flow.css.
  */
 
-/* ─── Hero row: main column + offer (329px) ─── */
+/* ─── Hero row: main column + offer (width = overview column / dispute card) ─── */
 .fa-fa-flow-step1-hero {
   display: flex;
   flex-direction: row;
@@ -244,11 +244,12 @@
   text-decoration: underline;
 }
 
-/* Offer card — #f7f5fd, 329×300 */
+/* Offer card — #f7f5fd; width matches .fa-overview-grid column */
 .fa-fa-flow-s1-offer {
-  flex: 0 0 329px;
-  width: 329px;
-  height: 300px;
+  flex: 0 0 var(--fa-overview-card-column-width, 329px);
+  width: var(--fa-overview-card-column-width, 329px);
+  height: var(--fa-insight-card-height, 298px);
+  min-height: var(--fa-insight-card-height, 298px);
   box-sizing: border-box;
   background: #f7f5fd;
   border-radius: 10px;
@@ -370,10 +371,10 @@
   background: #f5f6f8;
   border-radius: 8px;
   padding: 20px;
-  height: auto;
-  min-height: 0;
+  height: var(--fa-insight-card-height, 298px);
+  min-height: var(--fa-insight-card-height, 298px);
   gap: 0;
-  overflow: visible;
+  overflow: hidden;
   align-self: flex-start;
 }
 
