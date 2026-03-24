@@ -27,7 +27,8 @@ body[data-prototype-version="2"][data-dashboard-state="fa-enabled"] .fa-hero-v2-
   align-items: stretch;
   height: 250px;
   min-height: 250px;
-  overflow: hidden;
+  /* visible so Incoming earnings info tooltip (below title) is not clipped */
+  overflow: visible;
   border-radius: 8px;
 }
 
