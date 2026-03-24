@@ -127,6 +127,19 @@
   color: #533AFD;
 }
 
+/* Lead icon (e.g. plus) is decorative; whole row stays one menuitem — icon does not capture clicks separately */
+.fa-balance-dropdown-item--with-lead-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fa-balance-dropdown-item__lead-icon {
+  flex-shrink: 0;
+  pointer-events: none;
+  color: #667691;
+}
+
 .fa-balance-dropdown-label {
   font-family: var(--font-sans);
   font-size: 14px;
